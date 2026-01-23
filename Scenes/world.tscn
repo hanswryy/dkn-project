@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy2mwg7607q46"]
+[gd_scene load_steps=4 format=3 uid="uid://cy2mwg7607q46"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_go701"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/player.tscn" id="2_5a7ea"]
+[ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/pause_menu.tscn" id="3_5a7ea"]
 
 [node name="world" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_go701")]
 
 [node name="Player" parent="." instance=ExtResource("2_5a7ea")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_5a7ea")]
