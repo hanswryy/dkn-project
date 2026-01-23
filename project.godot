@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DKNProject"
-run/main_scene="uid://cy2mwg7607q46"
+run/main_scene="uid://cxteef3x40qsy"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Assets/Sprites/icon.svg"
 
@@ -19,6 +19,14 @@ config/icon="res://Assets/Sprites/icon.svg"
 
 InventoryManager="*res://Scripts/Global/InventoryManager.gd"
 Constants="*res://Scripts/Global/Constants.gd"
+PauseGameController="*res://Scripts/pause_game_controller.gd"
+FadeToBlack_Transition="*res://Transitions/fade_to_black.tscn"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 
 [input]
 

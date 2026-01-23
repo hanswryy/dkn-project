@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqkyjiaaxksx0"
+path="res://.godot/imported/BGM boneka.mp3-4d5c257852d1d614eeadca1a7f032481.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/BGM boneka.mp3"
+dest_files=["res://.godot/imported/BGM boneka.mp3-4d5c257852d1d614eeadca1a7f032481.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
