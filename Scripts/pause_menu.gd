@@ -25,3 +25,6 @@ func _on_button_2_pressed() -> void:
 
 func _on_button_mouse_entered() -> void:
 	PauseGameController.is_in_pause_box = true
+
+func _on_button_mouse_exited() -> void:
+	PauseGameController.is_in_pause_box = false

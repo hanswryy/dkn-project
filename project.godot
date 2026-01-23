@@ -18,6 +18,7 @@ config/icon="res://Assets/Sprites/icon.svg"
 [autoload]
 
 PauseGameController="*res://Scripts/pause_game_controller.gd"
+FadeToBlack_Transition="*res://Transitions/fade_to_black.tscn"
 
 [display]
 
