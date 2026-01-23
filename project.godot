@@ -18,6 +18,7 @@ config/icon="res://Assets/Sprites/icon.svg"
 [autoload]
 
 InventoryManager="*res://Scripts/Global/InventoryManager.gd"
+Constants="*res://Scripts/Global/Constants.gd"
 
 [input]
 
