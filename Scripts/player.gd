@@ -10,7 +10,7 @@ func _ready():
 	Astar = Tile_map.AstarGrid
 
 func _input(event):
-	if event.is_action_pressed("left_mbutton"):
+	if event.is_action_pressed("left_mbutton") and not PauseGameController.is_in_pause_box:
 		get_coord()
 		
 func get_coord():
