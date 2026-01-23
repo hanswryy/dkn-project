@@ -21,7 +21,13 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	toggle_pause()
-	$Button.visible = true
+	#$Button.visible = true
 
 func _on_button_mouse_entered() -> void:
 	PauseGameController.is_in_pause_box = true
+
+func _on_button_mouse_exited() -> void:
+	PauseGameController.is_in_pause_box = false
+
+func _on_button_4_pressed() -> void:
+	FadeToBlack_Transition.fade_to_scene("res://Scenes/main_menu.tscn", 4)
