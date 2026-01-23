@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw20p0ua4ob5g"]
+
+[ext_resource type="Script" uid="uid://cjvuaf4vgcc82" path="res://Scripts/Inventory/inventory_slot.gd" id="1_3qr85"]
+
+[node name="InventorySlot" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3qr85")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

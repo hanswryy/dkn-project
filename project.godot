@@ -17,7 +17,7 @@ config/icon="res://Assets/Sprites/icon.svg"
 
 [autoload]
 
-PlayerData="*res://Scripts/Global/player_data.gd"
+InventoryManager="*res://Scripts/Global/InventoryManager.gd"
 
 [input]
 
