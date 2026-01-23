@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://fjgogumvmyu1"]
+
+[node name="Cursor" type="Node2D"]
+
+[node name="KiriA" type="Sprite2D" parent="."]
+
+[node name="KananA" type="Sprite2D" parent="."]
+
+[node name="KiriB" type="Sprite2D" parent="."]
+
+[node name="KananB" type="Sprite2D" parent="."]
