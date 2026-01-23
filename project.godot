@@ -17,6 +17,8 @@ config/icon="res://Assets/Sprites/icon.svg"
 
 [autoload]
 
+InventoryManager="*res://Scripts/Global/InventoryManager.gd"
+Constants="*res://Scripts/Global/Constants.gd"
 PauseGameController="*res://Scripts/pause_game_controller.gd"
 FadeToBlack_Transition="*res://Transitions/fade_to_black.tscn"
 
