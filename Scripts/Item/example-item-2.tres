@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_xqdsy")
-name = "Dynamite"
+name = "Item 2"
 icon = ExtResource("1_qsdi4")
-description = "Dinamitmitmitmitmitmitmitmitmitmitmit"
+description = "Deskripsi item 2"
 metadata/_custom_type_script = "uid://brbwama7atgt2"

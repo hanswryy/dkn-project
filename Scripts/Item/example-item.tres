@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_brfee")
-name = "Kunai Sarutobi"
+name = "Item 1"
 icon = ExtResource("1_ljbtq")
-description = "Kunai sakral peninggalan hokage ketiga."
+description = "Deskripsi item 1"
 hasDetail = true
 metadata/_custom_type_script = "uid://brbwama7atgt2"
