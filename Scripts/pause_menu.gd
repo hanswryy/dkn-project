@@ -48,24 +48,27 @@ func _on_dec_pressed() -> void:
 	if UserSettings.master_volume > 0:
 		UserSettings.master_volume -= 0.1
 		$Settings/MasterVol/Value.text = str(int(UserSettings.master_volume * 10))
+		UserSettings.apply_settings()
 
 func _on_inc_pressed() -> void:
 	if UserSettings.master_volume < 1.0:
 		UserSettings.master_volume += 0.1
 		$Settings/MasterVol/Value.text = str(int(UserSettings.master_volume * 10))
+		UserSettings.apply_settings()
 
 func _on_dec_2_pressed() -> void:
 	if UserSettings.music_volume > 0:
 		UserSettings.music_volume -= 0.1
 		$Settings/MusicVol/Value.text = str(int(UserSettings.music_volume * 10))
+		UserSettings.apply_settings()
 
 func _on_inc_2_pressed() -> void:
 	if UserSettings.music_volume < 1.0:
 		UserSettings.music_volume += 0.1
 		$Settings/MusicVol/Value.text = str(int(UserSettings.music_volume * 10))
+		UserSettings.apply_settings()
 
 func _on_button_5_pressed() -> void:
 	$Settings.visible = false
 	$ColorRect/Main.visible = true
-	UserSettings.apply_settings()
 	UserSettings.save_settings()
