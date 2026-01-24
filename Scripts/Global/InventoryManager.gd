@@ -7,8 +7,9 @@ var items: Array[ItemData] = []
 
 # appending item (testing)
 func _ready():
-	add_item(load(Constants.SCENE_PATHS.example_item_1))
-	add_item(load(Constants.SCENE_PATHS.example_item_2))
+	#add_item(load(Constants.SCENE_PATHS.example_item_1))
+	#add_item(load(Constants.SCENE_PATHS.example_item_2))
+	add_item(load(Constants.SCENE_PATHS.example_item_3))
 	pass
 
 func add_item(item: ItemData):
