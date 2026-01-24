@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcnjve3l7lvnf"]
+
+[ext_resource type="Shader" uid="uid://pbq4tgereimq" path="res://Screen_effect/screen_effect.gdshader" id="1_upaa7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yq4ew"]
+shader = ExtResource("1_upaa7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_62yas"]
+size = Vector2(1280, 720)
+center_offset = Vector3(640, 360, 0)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_yq4ew")
+mesh = SubResource("QuadMesh_62yas")
