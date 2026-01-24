@@ -19,6 +19,10 @@ func get_coord():
 	current_path_id = Astar.get_id_path(start_point, end_point).slice(1)
 
 func _process(delta):
+	# Debug die logic
+	if (Input.is_action_just_pressed("ui_down")):
+		die()
+	
 	if current_path_id.is_empty():
 		$AnimatedSprite2D.stop()          # diam saat tidak ada jalan
 		return
@@ -44,3 +48,14 @@ func move_playerTo(target, delta):
 		$AnimatedSprite2D.play("w_right" if direction.x > 0 else "w_left")
 	else:                                        # dominan vertikal
 		$AnimatedSprite2D.play("w_down"  if direction.y > 0 else "w_up")
+	
+func die():
+	# Clear current path, making sure player doesnt move when they die while moving
+	current_path_id.clear()
+	respawn()
+
+func respawn():
+	if CheckpointState.has_checkpoint:
+		global_position = CheckpointState.checkpoint_position
+	else:
+		global_position = Vector2.ZERO  # or start position
