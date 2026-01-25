@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var checkpoint_scene: PackedScene
-@onready var objects_layer: TileMapLayer = $TileMap/Objects
+@onready var objects_layer: TileMapLayer = $"TileMap/Objects"
 
 func _ready():
 	spawn_checkpoints()
