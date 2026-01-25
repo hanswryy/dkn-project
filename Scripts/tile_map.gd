@@ -2,7 +2,6 @@ extends TileMap
 
 var AstarGrid: AStarGrid2D
 
-
 func _ready():
 	assigning_astar()
 

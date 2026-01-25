@@ -11,10 +11,7 @@ script = ExtResource("1_wa2vu")
 checkpoint_scene = ExtResource("2_bbr42")
 
 [node name="TileMap" parent="." instance=ExtResource("3_bbr42")]
-layer_1/name = "Non-Walkable"
-layer_1/tile_data = PackedInt32Array(1245197, 65536, 0, 1245198, 131072, 0, 1245199, 196608, 0, 1376271, 131072, 0, 1376272, 131072, 0, 1376273, 196608, 0, 1507340, 65536, 0, 1507341, 131072, 0, 1507342, 196608, 3, 1376266, 65536, 3, 1376267, 131072, 0, 1376268, 196608, 0, 1245194, 0, 0, 1310730, 0, 1, 1376270, 65536, 1, 1441806, 0, 1)
-layer_2/name = "Objects"
-layer_2/tile_data = PackedInt32Array(1179665, 393218, 35, 1310740, 393218, 35)
+layer_1/name = "Non-Walkable2"
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("4_4ifok")]
 position = Vector2(198, 296)
@@ -24,3 +21,5 @@ position = Vector2(198, 296)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(222, 335)
 zoom = Vector2(5, 5)
+
+[connection signal="arrived" from="Player" to="." method="_on_player_arrived"]
