@@ -28,8 +28,10 @@ func handle_tile_click(mouse_pos: Vector2):
 
 func request_checkpoint_inspection(cell: Vector2i):
 	pending_checkpoint_cell = cell
-	var target_pos = tilemap.map_to_local(cell)
-	player.move_to_cell(cell)
+	
+	var object_cell = cell
+	var stand_cell = tilemap.get_interaction_cell(object_cell, player.global_position)
+	player.move_to_cell(stand_cell)
 
 func _on_player_arrived():
 	if pending_checkpoint_cell == Vector2i(-1, -1):
@@ -41,6 +43,7 @@ func _on_player_arrived():
 func spawn_checkpoint(cell: Vector2i):
 	var checkpoint = checkpoint_scene.instantiate()
 	checkpoint.global_position = tilemap.map_to_local(cell)
+	checkpoint.activated.connect(_on_checkpoint_activated)
 	add_child(checkpoint)
 
 func _on_checkpoint_activated(position: Vector2):

@@ -634,12 +634,15 @@ texture = ExtResource("3_1umbn")
 6:35/size_in_atlas = Vector2i(2, 2)
 6:35/0 = 0
 6:35/0/custom_data_1 = true
+6:35/0/custom_data_2 = true
 
 [sub_resource type="TileSet" id="TileSet_6mpdi"]
 custom_data_layer_0/name = "Walkable"
 custom_data_layer_0/type = 1
 custom_data_layer_1/name = "is_checkpoint"
 custom_data_layer_1/type = 1
+custom_data_layer_2/name = "blocks_movement"
+custom_data_layer_2/type = 1
 sources/0 = SubResource("TileSetAtlasSource_0v1hq")
 sources/1 = SubResource("TileSetAtlasSource_rlxc1")
 sources/2 = SubResource("TileSetAtlasSource_a7xl6")
