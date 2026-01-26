@@ -8,6 +8,8 @@ const SLOT_SCENE = preload(Constants.SCENE_PATHS.inventory_slot)
 @onready var info_desc = %ItemDescription
 @onready var detail_button = %DetailButton
 
+var selected_slot: PanelContainer = null
+
 func _ready():
 	InventoryManager.inventory_updated.connect(fill_grid)
 	fill_grid()
@@ -29,7 +31,14 @@ func fill_grid():
 		else:
 			new_slot.display_item(null)
 			
-func _on_slot_clicked(item_data: ItemData):
+func _on_slot_clicked(item_data: ItemData, slot_node: PanelContainer):
+	if selected_slot != null:
+		selected_slot.set_selected(false)
+	print(selected_slot)
+		
+	selected_slot = slot_node
+	selected_slot.set_selected(true)
+		
 	print(item_data)
 	if item_data:
 		info_name.text = item_data.name

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://crvxkwfcdgxku"]
+[gd_scene load_steps=7 format=3 uid="uid://crvxkwfcdgxku"]
 
 [ext_resource type="Script" uid="uid://b8wf4e06gw5jm" path="res://Scripts/Inventory/inventory_ui.gd" id="1_afoyu"]
 [ext_resource type="Texture2D" uid="uid://dd8bpxb0sbekl" path="res://Assets/Textures/dark-bg.jpg" id="2_a3clf"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="3_or0wv"]
+[ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="4_jrgvc"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="4_s1kqi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s1kqi"]
 texture = ExtResource("3_or0wv")
@@ -102,6 +104,8 @@ layout_mode = 2
 [node name="ItemName" type="Label" parent="PanelContainer/UIWrapper/MainMargin/ContentSplitter/PanelContainer/MarginContainer/InfoSection"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jrgvc")
+theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
 
 [node name="Gap2" type="Control" parent="PanelContainer/UIWrapper/MainMargin/ContentSplitter/PanelContainer/MarginContainer/InfoSection"]
@@ -112,6 +116,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_s1kqi")
 autowrap_mode = 2
 text_overrun_behavior = 6
 
