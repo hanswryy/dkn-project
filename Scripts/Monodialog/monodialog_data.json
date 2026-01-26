@@ -1,0 +1,27 @@
+{
+	"mc": {
+		"tree": [
+			{
+				"branch_id": "mc_1_1",
+				"character_name": "John Cijambe",
+				"monodialogs": [
+					{
+					"state": "start",
+					"text": "Apalah",
+					"options": {
+						"Say hi": "in_progress",
+						"Say goodbye": "exit"
+						}
+					},
+					{
+					"state": "in_progress",
+					"text": "Hi lol",
+					"options": {
+						"Say goodbye": "exit"
+						}
+					}
+				]
+			}
+		]
+	}
+}

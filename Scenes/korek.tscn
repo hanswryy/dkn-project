@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkpiay28bja4s"]
+
+[ext_resource type="AudioStream" uid="uid://dp0ac3rfb4ku5" path="res://Assets/Audio/SFX korek 1x.mp3" id="1_eehmc"]
+[ext_resource type="AudioStream" uid="uid://dr86hqbgylu8e" path="res://Assets/Audio/SFX korek 2x.mp3" id="2_ayysx"]
+[ext_resource type="AudioStream" uid="uid://ds7v1xkpyhahd" path="res://Assets/Audio/SFX korek 3x.mp3" id="3_vtgeu"]
+[ext_resource type="AudioStream" uid="uid://mrice3w3pkdi" path="res://Assets/Audio/SFX korek gagal nyalain.mp3" id="4_7kb88"]
+
+[node name="Korek" type="Node2D"]
+
+[node name="Korek1x" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_eehmc")
+
+[node name="Korek2x" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ayysx")
+
+[node name="Korek3x" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vtgeu")
+
+[node name="Korek_fail" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7kb88")

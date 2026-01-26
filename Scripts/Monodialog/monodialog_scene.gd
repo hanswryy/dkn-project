@@ -1,0 +1,57 @@
+extends CanvasLayer
+
+
+#@export var start_duration: float
+#@export var hide_duration: float
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	visible = false
+	$Control/Panel/CharacterName.visible_characters = 0
+	$Control/Panel/Text.visible_characters = 0
+
+func show_monodialog(duration, speaker, text = "", options = {}):
+	visible = true
+	$Control/Panel/CharacterName.text = speaker
+	$Control/Panel/Text.text = text
+	
+	for option in $Control/Panel/Options.get_children():
+		$Control/Panel/Options.remove_child(option)
+	
+	for option in options.keys():
+		var button = Button.new()
+		button.text = option
+		button.add_theme_font_override("font", load("res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf"))
+		button.add_theme_font_size_override("font_size", 10)
+		button.pressed.connect(_on_option_selected.bind(option))
+		$Control/Panel/Options.add_child(button)
+	
+	$Control/Panel.size = Vector2(50, 48)
+	var tween := create_tween()
+	tween.tween_property($Control/Panel, "size", Vector2(196, 48), duration)
+	tween.tween_property($Control/Panel/CharacterName, "visible_characters", $Control/Panel/CharacterName.get_total_character_count(), duration)
+	tween.tween_property($Control/Panel/Text, "visible_characters", $Control/Panel/Text.get_total_character_count(), duration*2)
+	await tween.finished
+	Constants.player["can_move"] = false
+
+func hide_monodialog(duration):
+	$Timer.wait_time = duration
+	var tween := create_tween()
+	tween.tween_property($Control/Panel, "size", Vector2(50, 48), duration)
+	$Control/Panel/CharacterName.visible_characters = 0
+	$Control/Panel/Text.visible_characters = 0
+	$Timer.start()
+	await tween.finished
+	Constants.player["can_move"] = true
+
+#func _on_texture_button_pressed() -> void:
+	#hide_monodialog(hide_duration)
+
+func _on_timer_timeout() -> void:
+	visible = false
+
+#func _on_button_pressed() -> void:
+	#hide_monodialog(hide_duration)
+
+func _on_option_selected(option) -> void:
+	get_parent().handle_monodialog_choices(option)

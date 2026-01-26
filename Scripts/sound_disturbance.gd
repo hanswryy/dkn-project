@@ -1,29 +1,34 @@
 extends Node2D
 
-@export var min_interval : float = 1.0
-@export var max_interval : float = 2.0
-@export var disturbance_chance : float = 100.0
+@export var min_interval : float = 8.0
+@export var max_interval : float = 20.0
+
+@export var door_knock_chance : float = 40.0
+@export var walking_step_chance : float = 60.0
+@export var bisikan_chance : float = 30.0
+@export var droplet_chance : float = 50.0
+
 @export var player_proximity : float = 200.0
+
+# >>> MAKSIMAL 1 SUARA PER DISTURBANCE
+const MAX_SOUNDS_PER_DISTURBANCE : int = 1
+
+var audio_chances : Dictionary = {}
 
 var player : CharacterBody2D = null
 var timer : float = 0.0
 var next_interval : float = 0.0
 
 func _ready():
-	# >>> Player adalah parent langsung
 	player = get_parent() as CharacterBody2D
 	
 	if not player:
-		push_error("Parent bukan CharacterBody2D!")
 		return
 	
-	print("Player ditemukan: ", player.name)
-	
-	# Cek audio
-	if not has_node("door_knock"):
-		push_error("Node door_knock tidak ditemukan!")
-	else:
-		print("door_knock ditemukan")
+	audio_chances["door_knock"] = door_knock_chance
+	audio_chances["walking_step"] = walking_step_chance
+	audio_chances["bisikan"] = bisikan_chance
+	audio_chances["droplet"] = droplet_chance
 	
 	randomize_next_interval()
 
@@ -42,42 +47,41 @@ func randomize_next_interval():
 	next_interval = randf_range(min_interval, max_interval)
 
 func attempt_disturbance():
-	# >>> Jarak dari POSISI GLOBAL sound_disturbance ke player (parent)
-	# Karena child dari player, jaraknya selalu 0, jadi pakai offset atau logika lain
-	
-	# Opsi 1: Cek jarak player ke posisi tertentu di world
-	var world_pos = global_position  # posisi global sound_disturbance
-	var player_pos = player.global_position
-	
-	# Karena child player, jarak ~0, gunakan logic berbeda
-	# Misal: trigger berdasarkan posisi player di world, atau random saja
-	
-	# Opsi 2: Random tanpa cek jarak (karena selalu dekat)
-	var roll = randf() * 100.0
-	if roll > disturbance_chance:
-		return
-	
-	play_disturbance()
+	play_random_disturbance()
 
-func play_disturbance():
-	if not has_node("door_knock"):
-		return
+func play_random_disturbance():
+	# >>> SHUFFLE ARRAY UNTUK URUTAN ACAK
+	var shuffled_sounds = audio_chances.keys()
+	shuffled_sounds.shuffle()
 	
-	var audio = $door_knock
-	
-	if audio.playing:
-		return
-	
-	# Variasi
-	audio.pitch_scale = randf_range(0.8, 1.2)
-	audio.volume_db = randf_range(-10.0, 0.0)
-	
-	# >>> Posisi audio: random di sekitar PLAYER (parent)
-	var random_offset = Vector2(randf_range(-100, 100), randf_range(-100, 100))
-	audio.global_position = player.global_position + random_offset
-	
-	audio.play()
-	print("Door knock played at: ", audio.global_position)
+	# >>> CARI 1 SUARA YANG BERHASIL ROLL
+	for audio_name in shuffled_sounds:
+		if not has_node(audio_name):
+			continue
+		
+		var roll = randf() * 100.0
+		var chance = audio_chances[audio_name]
+		
+		# Roll berhasil, mainkan suara ini
+		if roll <= chance:
+			var audio = get_node(audio_name)
+			
+			if audio.playing:
+				continue
+			
+			audio.pitch_scale = randf_range(0.8, 1.0)
+			audio.volume_db = randf_range(-15.0, -5.0)
+			
+			var random_offset = Vector2(
+				randf_range(-150, 150), 
+				randf_range(-150, 150)
+			)
+			audio.global_position = player.global_position + random_offset
+			
+			audio.play()
+			
+			# >>> HANYA 1 SUARA, LANGSUNG RETURN
+			return
 
 func force_disturbance():
-	play_disturbance()
+	play_random_disturbance()

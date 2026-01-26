@@ -24,6 +24,8 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 
 func pick_up():
 	if item:
+		%PickupSFX.play()
+		
 		# Append item to inventory array
 		InventoryManager.add_item(item)
 		

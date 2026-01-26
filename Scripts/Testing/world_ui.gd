@@ -20,11 +20,13 @@ func toggle_inventory():
 	inventory_ui.visible = !inventory_ui.visible
 	
 	if inventory_ui.visible:
+		%OpenInventorySFX.play()
 		# refresh data item
 		inventory_ui.fill_grid()
 		get_tree().paused = true
 		inv_button.icon = icon_open
 	else:
+		%CloseInventorySFX.play()
 		get_tree().paused = false
 		inv_button.icon = icon_close
 		pass
