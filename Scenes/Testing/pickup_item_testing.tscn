@@ -268,18 +268,15 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAA
 tile_set = SubResource("TileSet_6mpdi")
 
 [node name="LyingItem" parent="TileMap" instance=ExtResource("4_018wd")]
-position = Vector2(264, 91)
-scale = Vector2(2, 2)
+position = Vector2(245, 114)
 item = ExtResource("5_018wd")
 
 [node name="LyingItem2" parent="TileMap" instance=ExtResource("4_018wd")]
-position = Vector2(123, 189)
-scale = Vector2(2, 2)
+position = Vector2(153, 185)
 item = ExtResource("6_ele3v")
 
 [node name="Player" parent="." instance=ExtResource("4_sfuik")]
-position = Vector2(46, 39)
-scale = Vector2(3, 3)
+position = Vector2(96, 106)
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -308,5 +305,9 @@ text = "Inventory"
 
 [node name="HighlightItem" parent="UI" instance=ExtResource("10_77pdc")]
 visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(185, 143)
+zoom = Vector2(5, 5)
 
 [connection signal="pressed" from="UI/MarginContainer/InventoryButton" to="UI" method="_on_inventory_button_pressed"]
