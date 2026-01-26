@@ -1,13 +1,11 @@
-[gd_scene load_steps=30 format=4 uid="uid://cy2mwg7607q46"]
+[gd_scene load_steps=27 format=4 uid="uid://cy2mwg7607q46"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_go701"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/player.tscn" id="2_5a7ea"]
 [ext_resource type="Texture2D" uid="uid://bwa2fkocxoox0" path="res://Assets/Sprites/Fences.png" id="2_fo5ed"]
 [ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/pause_menu.tscn" id="3_5a7ea"]
 [ext_resource type="Texture2D" uid="uid://cxqeep33qddsr" path="res://Assets/Sprites/tilemap.png" id="3_5ukr8"]
-[ext_resource type="Texture2D" uid="uid://chdvqhftr3eb8" path="res://Assets/Sprites/tilemap1.png" id="4_k7acu"]
-[ext_resource type="PackedScene" uid="uid://bv5vk7g4wvujo" path="res://Scenes/torch(light).tscn" id="6_o06y3"]
-[ext_resource type="PackedScene" uid="uid://l73srk0x61rq" path="res://Scenes/torch(checkpoint).tscn" id="7_k7acu"]
+[ext_resource type="PackedScene" uid="uid://bmn3clt6aisdu" path="res://Scenes/Monodialog/md_area_trigger.tscn" id="7_o06y3"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fo5ed"]
 polygon = PackedVector2Array(-3.057599, -5.755479, 3.057598, -5.755479, 3.057598, 8, -3.057599, 8)
@@ -259,6 +257,9 @@ sources/3 = SubResource("TileSetAtlasSource_5v1tr")
 background_mode = 3
 tonemap_mode = 3
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o06y3"]
+size = Vector2(98, 104.5)
+
 [node name="world" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_go701")]
@@ -288,5 +289,16 @@ position = Vector2(307, 248)
 [node name="Player" parent="." instance=ExtResource("2_5a7ea")]
 position = Vector2(46, 39)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_o06y3")
+[node name="PauseMenu" parent="." instance=ExtResource("3_5a7ea")]
+
+[node name="MonodialogTrigger" parent="." instance=ExtResource("7_o06y3")]
+position = Vector2(62, 151)
+character_id = "mc"
+start_duration = 0.5
+hide_duration = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonodialogTrigger"]
+position = Vector2(11, -115)
+shape = SubResource("RectangleShape2D_o06y3")
+
+[connection signal="body_entered" from="MonodialogTrigger" to="MonodialogTrigger" method="_on_body_entered"]
