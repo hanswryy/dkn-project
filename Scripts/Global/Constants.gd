@@ -9,3 +9,7 @@ const SCENE_PATHS: Dictionary = {
 	# Scene
 	"inventory_slot": "uid://cw20p0ua4ob5g"
 }
+
+var player: Dictionary = {
+	"can_move" = true
+}
