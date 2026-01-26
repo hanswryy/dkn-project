@@ -13,7 +13,7 @@ func _ready():
 	mouse_exited.connect(_off_mouse_highlight)
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and !get_tree().paused:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			pick_up()
 
@@ -21,8 +21,8 @@ func pick_up():
 	if item:
 		# Append item to inventory array
 		InventoryManager.add_item(item)
-		print("Item Collected: ", item.name)
 		
+		InventoryManager.item_highlight_requested.emit(item)
 		queue_free()
 
 func _on_mouse_highlight():

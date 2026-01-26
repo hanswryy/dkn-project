@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://crvxkwfcdgxku"]
 
 [ext_resource type="Script" uid="uid://b8wf4e06gw5jm" path="res://Scripts/Inventory/inventory_ui.gd" id="1_afoyu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afoyu"]
-bg_color = Color(0, 0, 0, 0.5882353)
+[ext_resource type="Texture2D" uid="uid://dd8bpxb0sbekl" path="res://Assets/Textures/dark-bg.jpg" id="2_a3clf"]
 
 [node name="InventoryUI" type="Control"]
 layout_mode = 3
@@ -14,6 +12,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_afoyu")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.5411765)
+layout_mode = 0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 1567.0
+offset_bottom = 1064.0
+scale = Vector2(0.9189966, 0.77207655)
+texture = ExtResource("2_a3clf")
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -23,7 +32,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_afoyu")
 
 [node name="UIWrapper" type="Control" parent="PanelContainer"]
 layout_mode = 2

@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_xqdsy")
+id = "dynamite1"
 name = "Item 2"
 icon = ExtResource("1_qsdi4")
 description = "Deskripsi item 2"

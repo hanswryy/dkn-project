@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_ts0ns")
+id = "scroll1"
 name = "Item 3"
 icon = ExtResource("1_bhu1s")
 description = "Deskripsi item 3"
