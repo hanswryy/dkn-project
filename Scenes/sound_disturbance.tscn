@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4wncpooby8qj"]
+
+[ext_resource type="AudioStream" uid="uid://bkji46sqame1f" path="res://Assets/Audio/door-knocking-very-realistic.mp3" id="1_uuo2a"]
+[ext_resource type="Script" uid="uid://kxs8g6agwfl4" path="res://Scripts/sound_disturbance.gd" id="1_yf0j6"]
+
+[node name="sound_disturbance" type="Node2D"]
+script = ExtResource("1_yf0j6")
+
+[node name="door_knock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_uuo2a")

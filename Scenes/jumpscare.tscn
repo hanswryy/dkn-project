@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhqe3io5ffo43"]
+
+[ext_resource type="Script" uid="uid://dcwxwfydr1ygu" path="res://Scripts/jumpscare.gd" id="1_furvr"]
+[ext_resource type="Texture2D" uid="uid://db8px6or7xfyr" path="res://Assets/Sprites/Kunti.png" id="2_furvr"]
+[ext_resource type="AudioStream" uid="uid://mhd0yue4pami" path="res://Assets/Audio/SFX jumpscare female ghost.mp3" id="3_furvr"]
+
+[node name="Jumpscare" type="Node2D"]
+script = ExtResource("1_furvr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="JumpscareSprite" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("2_furvr")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="JumpscareAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_furvr")
+volume_db = 10.098
+pitch_scale = 1.85

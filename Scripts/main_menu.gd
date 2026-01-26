@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _on_button_2_pressed() -> void:
 	AudioFade.fade_out($BGM, 4)
-	FadeToBlack_Transition.fade_to_scene("res://Scenes/world.tscn", 4)
+	FadeToBlack_Transition.fade_to_scene("res://Scenes/levels/level_1_example.tscn", 4)
 
 func _on_button_3_pressed() -> void:
 	$Settings.visible = true

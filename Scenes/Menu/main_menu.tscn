@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://eu3gfxqn2hnk"]
+[gd_scene load_steps=5 format=3 uid="uid://cxteef3x40qsy"]
 
 [ext_resource type="Script" uid="uid://tdsc8x5blkd3" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="AudioStream" uid="uid://bqkyjiaaxksx0" path="res://Assets/Audio/BGM boneka.mp3" id="2_1ehe0"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://cnwagqa7gdp55"]
+[gd_scene load_steps=25 format=3 uid="uid://cnwagqa7gdp55"]
 
 [ext_resource type="Script" uid="uid://dgxcbtg0rky28" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dpcgl6p52dbmw" path="res://Assets/Sprites/Sprite 3-4dc3.png" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://cq8q2ceq7arpt" path="res://Assets/Audio/SFX langkah kaki 1x bunyi.mp3" id="4_mtuoh"]
 [ext_resource type="Script" uid="uid://jgmkcngqlqvd" path="res://Scripts/player_lighting.gd" id="4_vgqql"]
 
 [sub_resource type="Gradient" id="Gradient_6t5aa"]
@@ -172,3 +173,6 @@ frame_progress = 0.5662948
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_olqyp")
+
+[node name="Langkah" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mtuoh")
