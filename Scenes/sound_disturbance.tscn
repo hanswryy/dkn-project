@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4wncpooby8qj"]
+
+[ext_resource type="AudioStream" uid="uid://bkji46sqame1f" path="res://Assets/Audio/door-knocking-very-realistic.mp3" id="1_uuo2a"]
+[ext_resource type="Script" uid="uid://kxs8g6agwfl4" path="res://Scripts/sound_disturbance.gd" id="1_yf0j6"]
+[ext_resource type="AudioStream" uid="uid://cm37xa5rlmu76" path="res://Assets/Audio/SFX gangguan langkah lari.mp3" id="3_a1itv"]
+[ext_resource type="AudioStream" uid="uid://la7n7w1qxxsx" path="res://Assets/Audio/SFX gangguan bisikan.mp3" id="4_hqju2"]
+[ext_resource type="AudioStream" uid="uid://bauga5oqlj30b" path="res://Assets/Audio/SFX gangguan waterdroplet.mp3" id="5_vj3mo"]
+
+[node name="sound_disturbance" type="Node2D"]
+script = ExtResource("1_yf0j6")
+
+[node name="door_knock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_uuo2a")
+
+[node name="walking_step" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_a1itv")
+
+[node name="bisikan" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hqju2")
+
+[node name="droplet" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_vj3mo")

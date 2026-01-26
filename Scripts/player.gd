@@ -3,7 +3,9 @@ extends CharacterBody2D
 var Tile_map : TileMap
 var Astar = AStarGrid2D
 var current_path_id: Array[Vector2i]
-var speed := 50      # pastikan anak langsung CharacterBody2D
+var speed := 50
+
+var last_frame : int = -1
 
 func _ready():
 	Tile_map = get_parent().get_node("TileMap")
@@ -19,12 +21,12 @@ func get_coord():
 	current_path_id = Astar.get_id_path(start_point, end_point).slice(1)
 
 func _process(delta):
-	# Debug die logic
 	if (Input.is_action_just_pressed("ui_down")):
 		die()
 	
 	if current_path_id.is_empty():
-		$AnimatedSprite2D.stop()          # diam saat tidak ada jalan
+		$AnimatedSprite2D.stop()
+		last_frame = -1
 		return
 
 	var target_pos = Tile_map.map_to_local(current_path_id[0])
@@ -33,6 +35,8 @@ func _process(delta):
 		current_path_id.pop_front()
 		if current_path_id.is_empty():
 			$AnimatedSprite2D.stop()
+			$Langkah.stop()
+			last_frame = -1
 			return
 		target_pos = Tile_map.map_to_local(current_path_id[0])
 
@@ -43,19 +47,32 @@ func move_playerTo(target, delta):
 	global_position += direction * speed * delta
 	move_and_slide()
 
-	# >>> putar animasi sesuai arah
-	if abs(direction.x) > abs(direction.y):      # dominan horizontal
+	if abs(direction.x) > abs(direction.y):
 		$AnimatedSprite2D.play("w_right" if direction.x > 0 else "w_left")
-	else:                                        # dominan vertikal
+	else:
 		$AnimatedSprite2D.play("w_down"  if direction.y > 0 else "w_up")
 	
+	play_footstep_sound()
+
+func play_footstep_sound():
+	var current_frame = $AnimatedSprite2D.frame
+	
+	if current_frame != last_frame:
+		# >>> play suara di frame 1 dan 3
+		if current_frame == 1 or current_frame == 3:
+			$Langkah.play()
+		
+		last_frame = current_frame
+
 func die():
-	# Clear current path, making sure player doesnt move when they die while moving
 	current_path_id.clear()
+	$AnimatedSprite2D.stop()
+	$Langkah.stop()
+	last_frame = -1
 	respawn()
 
 func respawn():
 	if CheckpointState.has_checkpoint:
 		global_position = CheckpointState.checkpoint_position
 	else:
-		global_position = Vector2.ZERO  # or start position
+		global_position = Vector2.ZERO
