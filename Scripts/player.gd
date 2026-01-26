@@ -1,19 +1,32 @@
 extends CharacterBody2D
 
 var Tile_map : TileMap
-var Astar = AStarGrid2D
+var Astar : AStarGrid2D
 var current_path_id: Array[Vector2i]
 var speed := 50
 
 var last_frame : int = -1
 
+var target_item : Area2D = null
+
 func _ready():
-	Tile_map = get_parent().get_node("TileMap")
+	Tile_map = get_parent().find_child("TileMap")
+	print("Hasil cari TileMap: ", Tile_map)
 	Astar = Tile_map.AstarGrid
 
-func _input(event):
+func _unhandled_input(event):
 	if event.is_action_pressed("left_mbutton") and not PauseGameController.is_in_pause_box:
+		target_item = null
 		get_coord()
+
+# move to spesific coord
+func get_coord_to_pos(target_pos: Vector2):
+	var start_point = Tile_map.local_to_map(global_position)
+	print("start_point" + str(start_point))
+	var end_point = Tile_map.local_to_map(target_pos)
+	print("end_point: " + str(end_point))
+	current_path_id = Astar.get_id_path(start_point, end_point).slice(1)
+	print("current_path_id: " + str(current_path_id))
 
 func get_coord():
 	var start_point = Tile_map.local_to_map(global_position)
@@ -26,7 +39,15 @@ func _process(delta):
 	
 	if current_path_id.is_empty():
 		$AnimatedSprite2D.stop()
+		$Langkah.stop()
 		last_frame = -1
+		
+		# pickup the item when arrived at destination
+		if target_item != null:
+			print("Distance: " + str(global_position.distance_to(target_item.global_position)))
+			if global_position.distance_to(target_item.global_position) < 32:
+				target_item.pick_up()
+				target_item = null
 		return
 
 	var target_pos = Tile_map.map_to_local(current_path_id[0])

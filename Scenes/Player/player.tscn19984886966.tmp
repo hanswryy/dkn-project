@@ -1,14 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://cnwagqa7gdp55"]
+[gd_scene load_steps=25 format=3 uid="uid://cnwagqa7gdp55"]
 
 [ext_resource type="Script" uid="uid://dgxcbtg0rky28" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dpcgl6p52dbmw" path="res://Assets/Sprites/Sprite 3-4dc3.png" id="3_6t5aa"]
-[ext_resource type="AudioStream" uid="uid://dp0ac3rfb4ku5" path="res://Assets/Audio/SFX korek 1x.mp3" id="3_gk6dx"]
-[ext_resource type="AudioStream" uid="uid://dr86hqbgylu8e" path="res://Assets/Audio/SFX korek 2x.mp3" id="4_jhyir"]
 [ext_resource type="AudioStream" uid="uid://cq8q2ceq7arpt" path="res://Assets/Audio/SFX langkah kaki 1x bunyi.mp3" id="4_mtuoh"]
 [ext_resource type="Script" path="res://Scripts/player_lighting.gd" id="4_vgqql"]
-[ext_resource type="AudioStream" uid="uid://ds7v1xkpyhahd" path="res://Assets/Audio/SFX korek 3x.mp3" id="5_74mp2"]
-[ext_resource type="PackedScene" uid="uid://c4wncpooby8qj" path="res://Scenes/sound_disturbance.tscn" id="5_htcer"]
-[ext_resource type="AudioStream" uid="uid://mrice3w3pkdi" path="res://Assets/Audio/SFX korek gagal nyalain.mp3" id="6_oikmp"]
 
 [sub_resource type="Gradient" id="Gradient_6t5aa"]
 offsets = PackedFloat32Array(0.07333333, 0.18666667, 0.82666665)
@@ -20,7 +15,6 @@ width = 128
 height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.864486, 0.1448598)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
 atlas = ExtResource("3_6t5aa")
@@ -171,18 +165,6 @@ shadow_filter = 2
 texture = SubResource("GradientTexture2D_vgqql")
 script = ExtResource("4_vgqql")
 
-[node name="Korek1x" type="AudioStreamPlayer2D" parent="PointLight2D"]
-stream = ExtResource("3_gk6dx")
-
-[node name="Korek2x" type="AudioStreamPlayer2D" parent="PointLight2D"]
-stream = ExtResource("4_jhyir")
-
-[node name="Korek3x" type="AudioStreamPlayer2D" parent="PointLight2D"]
-stream = ExtResource("5_74mp2")
-
-[node name="Korek_fail" type="AudioStreamPlayer2D" parent="PointLight2D"]
-stream = ExtResource("6_oikmp")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l6n3p")
 animation = &"w_right"
@@ -194,6 +176,3 @@ shape = SubResource("CapsuleShape2D_olqyp")
 
 [node name="Langkah" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_mtuoh")
-volume_db = -0.15
-
-[node name="sound_disturbance" parent="." instance=ExtResource("5_htcer")]

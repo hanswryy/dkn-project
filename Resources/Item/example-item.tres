@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_b5w55")
+id = "kunai1"
 name = "Item 1"
 icon = ExtResource("1_awnp1")
 description = "Deskripsi item 1"
