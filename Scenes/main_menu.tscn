@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://eu3gfxqn2hnk"]
+[gd_scene load_steps=6 format=3 uid="uid://cxteef3x40qsy"]
 
 [ext_resource type="Script" uid="uid://tdsc8x5blkd3" path="res://Scripts/main_menu.gd" id="1_48xlc"]
-[ext_resource type="AudioStream" uid="uid://bqkyjiaaxksx0" path="res://Assets/Audio/BGM boneka.mp3" id="2_1ehe0"]
+[ext_resource type="AudioStream" uid="uid://d0e6fipuhdgoc" path="res://Assets/Audio/BGM/BGM Menu.mp3" id="2_48xlc"]
+[ext_resource type="AudioStream" uid="uid://dl3it4uvj78yk" path="res://Assets/Audio/SFX  menu click.mp3" id="3_1ehe0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y2c35"]
 font_size = 141
@@ -250,10 +251,15 @@ text = "Confirm"
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("2_1ehe0")
+stream = ExtResource("2_48xlc")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="SFX_Click" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_1ehe0")
+bus = &"Music"
 
 [connection signal="pressed" from="ColorRect/Main/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="ColorRect/Main/Button3" to="." method="_on_button_3_pressed"]
