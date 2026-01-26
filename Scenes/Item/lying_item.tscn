@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://btde3lk1m7uud"]
+
+[ext_resource type="Script" uid="uid://35oe2lf4fbyf" path="res://Scripts/Item/lying_item.gd" id="1_frq05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frq05"]
+
+[node name="LyingItem" type="Area2D"]
+script = ExtResource("1_frq05")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_frq05")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_highlight"]
+[connection signal="mouse_exited" from="." to="." method="_off_mouse_highlight"]
