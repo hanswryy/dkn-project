@@ -14,7 +14,7 @@ func _ready():
 	print("Hasil cari TileMap: ", Tile_map)
 	Astar = Tile_map.AstarGrid
 
-func _input(event):
+func _unhandled_input(event):
 	if event.is_action_pressed("left_mbutton") and not PauseGameController.is_in_pause_box:
 		target_item = null
 		get_coord()

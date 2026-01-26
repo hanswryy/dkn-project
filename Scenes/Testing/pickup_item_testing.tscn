@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://2k38nx87pboq"]
+[gd_scene load_steps=34 format=4 uid="uid://2k38nx87pboq"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_82isd"]
 [ext_resource type="Texture2D" uid="uid://bwa2fkocxoox0" path="res://Assets/Sprites/Fences.png" id="2_58pl5"]
@@ -9,7 +9,10 @@
 [ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="5_hvn20"]
 [ext_resource type="Resource" uid="uid://h34kuh2qtva" path="res://Resources/Item/example-item-2.tres" id="6_ele3v"]
 [ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="6_hvn20"]
-[ext_resource type="PackedScene" uid="uid://bvg33d38opm52" path="res://Scenes/Item/highlight_item.tscn" id="10_77pdc"]
+[ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="9_10sbx"]
+[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="10_oxm31"]
+[ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="11_u3isw"]
+[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item2.tscn" id="13_10sbx"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fo5ed"]
 polygon = PackedVector2Array(-3.057599, -5.755479, 3.057598, -5.755479, 3.057598, 8, -3.057599, 8)
@@ -249,6 +252,10 @@ custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_0v1hq")
 sources/1 = SubResource("TileSetAtlasSource_rlxc1")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3isw"]
+texture = ExtResource("10_oxm31")
+region_rect = Rect2(16, 16, 32, 32)
+
 [node name="world" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_82isd")]
@@ -278,14 +285,16 @@ item = ExtResource("6_ele3v")
 [node name="Player" parent="." instance=ExtResource("4_sfuik")]
 position = Vector2(96, 106)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
 script = ExtResource("5_hvn20")
+icon_open = ExtResource("9_10sbx")
+icon_close = ExtResource("11_u3isw")
 
-[node name="InventoryUI" parent="UI" instance=ExtResource("6_hvn20")]
+[node name="InventoryUI" parent="InventoryCanvas" instance=ExtResource("6_hvn20")]
 visible = false
 
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
+[node name="MarginContainer" type="MarginContainer" parent="InventoryCanvas"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -297,17 +306,21 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="InventoryButton" type="Button" parent="UI/MarginContainer"]
+[node name="InventoryButton" type="Button" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-text = "Inventory"
+theme_override_styles/normal = SubResource("StyleBoxTexture_u3isw")
+icon = ExtResource("11_u3isw")
+icon_alignment = 1
 
-[node name="HighlightItem" parent="UI" instance=ExtResource("10_77pdc")]
+[node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("13_10sbx")]
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(185, 143)
 zoom = Vector2(5, 5)
 
-[connection signal="pressed" from="UI/MarginContainer/InventoryButton" to="UI" method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]
