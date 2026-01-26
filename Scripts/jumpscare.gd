@@ -1,22 +1,18 @@
 extends Node2D
-
-@export var jumpscare_chance : float = 100.0
-@export var cooldown_seconds : float = 10.0
-@export var min_distance_trigger : float = 50.0
 @export var stretch_mode : bool = false
 @export var jumpscare_duration : float = 1.5
 
-var cooldown_timer : float = 0.0
+# >>> Path ke trigger Area2D (atur di inspector)
+@export var trigger_area_path : NodePath = "../JumpscareTrigger"
+
 var is_jumpscare_active : bool = false
+var has_been_triggered : bool = false  # >>> Jumpscare hanya sekali
 
 func _ready():
 	setup_jumpscare_ui()
-	
-	if has_node("Area2D"):
-		$Area2D.body_entered.connect(_on_trigger_area_entered)
+	setup_trigger()
 
 func setup_jumpscare_ui():
-	# Setup sprite
 	var sprite = $CanvasLayer/JumpscareSprite
 	sprite.centered = true
 	sprite.position = get_viewport().get_visible_rect().size / 2
@@ -36,47 +32,45 @@ func setup_jumpscare_ui():
 		var min_scale = min(scale_x, scale_y)
 		sprite.scale = Vector2(min_scale, min_scale)
 	
-	# Pastikan z_index (sprite di atas background)
 	$CanvasLayer/JumpscareSprite.z_index = 1
 	$CanvasLayer/ColorRect.z_index = 0
 	
-	# Sembunyikan di awal
 	$CanvasLayer/JumpscareSprite.hide()
 	$CanvasLayer/ColorRect.hide()
 
-func _process(delta):
-	if is_jumpscare_active:
-		return
-	
-	cooldown_timer -= delta
-	if cooldown_timer <= 0:
-		attempt_jumpscare()
-		cooldown_timer = cooldown_seconds
+func setup_trigger():
+	if trigger_area_path:
+		var trigger_area = get_node_or_null(trigger_area_path)
+		if trigger_area:
+			trigger_area.body_entered.connect(_on_trigger_body_entered)
+			print("Trigger connected: ", trigger_area.name)
+		else:
+			push_error("Trigger Area2D tidak ditemukan di path: " + str(trigger_area_path))
+	else:
+		push_error("Trigger Area Path belum diatur!")
 
-func attempt_jumpscare():
-	if has_node("../Player"):
-		var player = get_node("../Player")
-		if global_position.distance_to(player.global_position) > min_distance_trigger:
-			return
-	
-	trigger_jumpscare()
+# >>> TRIGGER: Player masuk Area2D
+func _on_trigger_body_entered(body):
+	if body.name == "Player":
+		# >>> Langsung trigger jika belum pernah
+		if not has_been_triggered and not is_jumpscare_active:
+			trigger_jumpscare()
 
 func trigger_jumpscare():
 	is_jumpscare_active = true
+	has_been_triggered = true  # >>> Mark sebagai sudah triggered
 	
-	# TAMPILKAN BACKGROUND HITAM + SPRITE
 	$CanvasLayer/ColorRect.show()
 	$CanvasLayer/JumpscareSprite.show()
 	
 	if has_node("JumpscareAudio"):
-		$JumpscareAudio.pitch_scale = randf_range(0.9, 1.1)
+		$JumpscareAudio.pitch_scale = 1.0
 		$JumpscareAudio.play()
 	
 	shake_screen(jumpscare_duration)
 	
 	await get_tree().create_timer(jumpscare_duration).timeout
 	
-	# SEMBUNYIKAN KEDUANYA
 	$CanvasLayer/ColorRect.hide()
 	$CanvasLayer/JumpscareSprite.hide()
 	is_jumpscare_active = false
@@ -98,10 +92,13 @@ func shake_screen(duration: float):
 	
 	sprite.position = original_pos
 
-func _on_trigger_area_entered(body):
-	if body.name == "Player" and cooldown_timer <= 0:
-		attempt_jumpscare()
-
+# >>> Opsional: Force jumpscare (untuk testing)
 func force_jumpscare():
-	if not is_jumpscare_active:
+	if not is_jumpscare_active and not has_been_triggered:
 		trigger_jumpscare()
+
+# >>> Opsional: Reset untuk testing/debugging
+func reset_jumpscare():
+	has_been_triggered = false
+	is_jumpscare_active = false
+	print("Jumpscare reset - can trigger again")

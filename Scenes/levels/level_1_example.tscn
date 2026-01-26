@@ -1,13 +1,16 @@
-[gd_scene load_steps=30 format=4 uid="uid://ch0wb5biox4t2"]
+[gd_scene load_steps=33 format=4 uid="uid://ch0wb5biox4t2"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_ctoxn"]
 [ext_resource type="Script" uid="uid://c8i8vjg73wfk1" path="res://Scripts/World/level_1_example.gd" id="1_wa2vu"]
 [ext_resource type="Texture2D" uid="uid://bwa2fkocxoox0" path="res://Assets/Sprites/Fences.png" id="2_04nbm"]
 [ext_resource type="PackedScene" uid="uid://tryocjopxusd" path="res://Scenes/checkpoint.tscn" id="2_r2m36"]
 [ext_resource type="Texture2D" uid="uid://cxqeep33qddsr" path="res://Assets/Sprites/tilemap.png" id="3_f46tc"]
+[ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="3_x815r"]
 [ext_resource type="Texture2D" uid="uid://cxonfmyb7fd2d" path="res://Assets/Interior_objects.png" id="4_1lxj8"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="4_4ifok"]
 [ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="5_o3een"]
+[ext_resource type="PackedScene" uid="uid://dn5ospydwvhqr" path="res://Scenes/jumpscare_trigger.tscn" id="7_j2xfj"]
+[ext_resource type="PackedScene" uid="uid://dhqe3io5ffo43" path="res://Scenes/jumpscare.tscn" id="10_72v3g"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fo5ed"]
 polygon = PackedVector2Array(-3.057599, -5.755479, 3.057598, -5.755479, 3.057598, 8, -3.057599, 8)
@@ -720,6 +723,9 @@ sources/0 = SubResource("TileSetAtlasSource_wa2vu")
 script = ExtResource("1_wa2vu")
 checkpoint_scene = ExtResource("2_r2m36")
 
+[node name="CanvasLayer" parent="." instance=ExtResource("3_x815r")]
+visible = false
+
 [node name="TileMap" parent="." instance=ExtResource("1_ctoxn")]
 modulate = Color(0.5409905, 0.5409905, 0.5409905, 1)
 
@@ -745,3 +751,12 @@ position = Vector2(198, 296)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(222, 335)
 zoom = Vector2(5, 5)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.310617, 0.31061715, 0.3106171, 1)
+
+[node name="JumpscareTrigger" parent="." instance=ExtResource("7_j2xfj")]
+position = Vector2(281, 293)
+
+[node name="Jumpscare" parent="." instance=ExtResource("10_72v3g")]
+position = Vector2(281, 293)
