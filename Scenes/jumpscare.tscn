@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dcwxwfydr1ygu" path="res://Scripts/jumpscare.gd" id="1_furvr"]
 [ext_resource type="Texture2D" uid="uid://db8px6or7xfyr" path="res://Assets/Sprites/Kunti.png" id="2_furvr"]
-[ext_resource type="AudioStream" uid="uid://mhd0yue4pami" path="res://Assets/Audio/SFX jumpscare female ghost.mp3" id="3_furvr"]
+[ext_resource type="AudioStream" uid="uid://b4itn0q7ubimo" path="res://Assets/Audio/SFX jumpscare female ghost.mp3" id="3_furvr"]
 
 [node name="Jumpscare" type="Node2D"]
 script = ExtResource("1_furvr")
