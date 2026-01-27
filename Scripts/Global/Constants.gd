@@ -13,3 +13,7 @@ const SCENE_PATHS: Dictionary = {
 var player: Dictionary = {
 	"can_move" = true
 }
+
+var cutscene: Dictionary = {
+	"go_to_scene" = false
+}
