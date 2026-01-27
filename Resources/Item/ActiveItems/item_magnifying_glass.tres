@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bvq7er84tvv2u"]
+
+[ext_resource type="Texture2D" uid="uid://5wl6lpnn7s1e" path="res://Assets/Sprites/Item/MagnifyingGlass.png" id="1_we2qp"]
+[ext_resource type="Script" uid="uid://brbwama7atgt2" path="res://Resources/Item/item_data.gd" id="2_ld6ly"]
+
+[resource]
+script = ExtResource("2_ld6ly")
+id = "item_kaca_pembesar"
+name = "Kaca Pembesar"
+icon = ExtResource("1_we2qp")
+description = "Milik siapa ini? Tergeletak begitu saja... Tapi lensanya masih sangat jernih. Kalau aku menggunakannya, mungkin aku bisa melihat detail-detail kecil atau jejak yang sengaja disembunyikan di benda lain. Sepertinya pemiliknya bukan orang sembarangan."
+metadata/_custom_type_script = "uid://brbwama7atgt2"

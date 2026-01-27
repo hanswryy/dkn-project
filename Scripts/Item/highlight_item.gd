@@ -38,7 +38,6 @@ func hide_highlight():
 	%PutItemSFX.play()
 	await animate_close()
 	
-	# 2. Setelah animasi beres, baru sembunyikan UI dan lanjut game
 	get_tree().paused = false
 	visible = false
 	

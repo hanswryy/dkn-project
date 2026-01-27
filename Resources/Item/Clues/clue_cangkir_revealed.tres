@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://depcxg6sxwrsm"]
+
+[ext_resource type="Texture2D" uid="uid://vx5r84w57atc" path="res://Assets/Sprites/Item/big_pictures_clues.png" id="1_2xup7"]
+[ext_resource type="Script" uid="uid://brbwama7atgt2" path="res://Resources/Item/item_data.gd" id="2_7nlko"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl31c"]
+atlas = ExtResource("1_2xup7")
+region = Rect2(40, 200, 80, 64)
+
+[resource]
+script = ExtResource("2_7nlko")
+id = "clue_cangkir_revealed"
+name = "Cangkir Beresidu Racun"
+icon = SubResource("AtlasTexture_vl31c")
+description = "Astaga... dugaanku benar. Lihat kerak hijau pucat di pinggiran dasarnya ini. Ini bukan sisa teh biasa. Warnanya identik dengan racun terlarang. Jadi benar, jamuan makan malam pukul 08:15 itu berakhir menjadi eksekusi masal..."
+metadata/_custom_type_script = "uid://brbwama7atgt2"

@@ -13,6 +13,16 @@ var selected_slot: PanelContainer = null
 func _ready():
 	InventoryManager.inventory_updated.connect(fill_grid)
 	fill_grid()
+	
+func _process(delta: float) -> void:
+	if selected_slot != null && selected_slot.current_item_data != null && InventoryManager.has_magnifying_glass():
+		# show button if the item is magnifiable
+		if selected_slot.current_item_data.magnifiable:
+			%MagnifyButton.show()
+		else:
+			%MagnifyButton.hide()
+	else:
+		%MagnifyButton.hide()
 
 func fill_grid():
 	# Clear grid
@@ -51,3 +61,7 @@ func _on_slot_clicked(item_data: ItemData, slot_node: PanelContainer):
 		info_desc.text = ""
 		info_icon.visible = false
 		detail_button.visible = false
+
+
+func _on_magnify_button_pressed() -> void:
+	pass # Replace with function body.

@@ -1,14 +1,15 @@
-[gd_scene load_steps=38 format=4 uid="uid://2k38nx87pboq"]
+[gd_scene load_steps=39 format=4 uid="uid://2k38nx87pboq"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_82isd"]
 [ext_resource type="Texture2D" uid="uid://bwa2fkocxoox0" path="res://Assets/Sprites/Fences.png" id="2_58pl5"]
 [ext_resource type="Texture2D" uid="uid://cxqeep33qddsr" path="res://Assets/Sprites/tilemap.png" id="3_gqx3s"]
 [ext_resource type="PackedScene" uid="uid://btde3lk1m7uud" path="res://Scenes/Item/lying_item.tscn" id="4_018wd"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="4_sfuik"]
-[ext_resource type="Resource" uid="uid://c6ltbtgla7tqm" path="res://Resources/Item/example-item.tres" id="5_018wd"]
 [ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="5_hvn20"]
-[ext_resource type="Resource" uid="uid://h34kuh2qtva" path="res://Resources/Item/example-item-2.tres" id="6_ele3v"]
+[ext_resource type="Resource" uid="uid://depcxg6sxwrsm" path="res://Resources/Item/Clues/clue_cangkir.tres" id="5_u8wtq"]
+[ext_resource type="Resource" uid="uid://bvq7er84tvv2u" path="res://Resources/Item/ActiveItems/item_magnifying_glass.tres" id="6_fhfem"]
 [ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="6_hvn20"]
+[ext_resource type="Resource" uid="uid://cbjfiu0isdlfc" path="res://Resources/Item/Clues/clue_tisu.tres" id="7_u8wtq"]
 [ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="9_10sbx"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="10_oxm31"]
 [ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="11_u3isw"]
@@ -279,12 +280,20 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAA
 tile_set = SubResource("TileSet_6mpdi")
 
 [node name="LyingItem" parent="TileMap" instance=ExtResource("4_018wd")]
-position = Vector2(245, 114)
-item = ExtResource("5_018wd")
+visible = false
+position = Vector2(166, 107)
+scale = Vector2(0.2, 0.2)
+item = ExtResource("5_u8wtq")
 
 [node name="LyingItem2" parent="TileMap" instance=ExtResource("4_018wd")]
-position = Vector2(153, 185)
-item = ExtResource("6_ele3v")
+position = Vector2(131, 133)
+scale = Vector2(0.4, 0.4)
+item = ExtResource("6_fhfem")
+
+[node name="LyingItem3" parent="TileMap" instance=ExtResource("4_018wd")]
+position = Vector2(93, 160)
+scale = Vector2(0.2, 0.2)
+item = ExtResource("7_u8wtq")
 
 [node name="Player" parent="." instance=ExtResource("4_sfuik")]
 position = Vector2(96, 106)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://blm7txon0u22w"]
+
+[ext_resource type="Texture2D" uid="uid://vx5r84w57atc" path="res://Assets/Sprites/Item/big_pictures_clues.png" id="1_ly70a"]
+[ext_resource type="Script" uid="uid://brbwama7atgt2" path="res://Resources/Item/item_data.gd" id="1_wme67"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qfjr"]
+atlas = ExtResource("1_ly70a")
+region = Rect2(208, 56, 160, 128)
+
+[resource]
+script = ExtResource("1_wme67")
+id = "clue_surat_dari_matt"
+name = "Surat dari Matt"
+icon = SubResource("AtlasTexture_2qfjr")
+description = "Ini dia pemicunya... Surat balasan dari Matt. Kata-katanya sangat tajam, dia terang-terangan menyebut Jilly serakah dan menolak memberikan bantuan sepeser pun. Bagi seseorang yang sudah kehilangan segalanya seperti Jilly, surat ini bukan sekadar penolakan—ini adalah vonis mati bagi masa depannya. Sekarang aku paham kenapa dia begitu tega menghabisi saudaranya sendiri tepat satu hari setelah surat ini dibuat."
+metadata/_custom_type_script = "uid://brbwama7atgt2"
