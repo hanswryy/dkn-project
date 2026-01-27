@@ -12,4 +12,4 @@ func _on_body_exited(body):
 
 func _process(delta):
 	if entered == true:
-			get_tree().change_scene_to_file("res://Scenes/levels/level_1_example.tscn")
+			get_tree().change_scene_to_file("res://Scenes/testing_room.tscn")
