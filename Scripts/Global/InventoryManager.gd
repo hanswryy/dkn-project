@@ -7,6 +7,7 @@ var items: Array[ItemData] = []
 
 # send item data to HighlightItem scene
 signal item_highlight_requested(item_data: ItemData)
+signal magnification_started
 
 # appending item (testing)
 func _ready():
@@ -33,3 +34,14 @@ func has_item_by_id(target_id: String) -> bool:
 # check if player has magnifying glass in their inventory
 func has_magnifying_glass() -> bool:
 	return has_item_by_id("item_kaca_pembesar")
+	
+func magnify_item(old_item: ItemData):
+	magnification_started.emit()
+	await get_tree().create_timer(1.5).timeout
+	var index = items.find(old_item)
+	
+	# change item in the array
+	if index != -1 and old_item.revealedVersion:
+		items[index] = old_item.revealedVersion
+		inventory_updated.emit()
+	

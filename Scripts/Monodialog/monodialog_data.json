@@ -48,6 +48,27 @@
 						}
 					}
 				]
+			},
+			{
+				"branch_id": "clue_surat_wasiat_revealed",
+				"character_name": "John Cijambe",
+				"monodialogs": [
+					{
+						"state": "start",
+						"text": "(John mengamati surat itu di bawah lensa...) Tunggu sebentar... Noda ini bukan sekadar kotoran. Ini bekas lipstik, warnanya persis dengan yang ada di tisu tempat sampah dapur.",
+						"options": {
+							"Periksa tanda tangan": "examine_signature",
+							"Simpan bukti": "exit"
+						}
+					},
+					{
+						"state": "examine_signature",
+						"text": "Tanda tangan Matt di sini... tarikannya terlalu kaku. Ini jelas hasil jiplakan! Surat ini dibuat tepat satu hari sebelum pembunuhan. Jilly benar-benar merencanakan ini semua demi harta.",
+						"options": {
+							"Selesaikan analisa": "exit"
+						}
+					}
+				]
 			}
 		]
 	}
