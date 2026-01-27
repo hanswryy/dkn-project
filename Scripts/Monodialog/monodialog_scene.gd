@@ -9,8 +9,9 @@ func _ready() -> void:
 	visible = false
 	$Control/Panel/CharacterName.visible_characters = 0
 	$Control/Panel/Text.visible_characters = 0
+	$Control/Panel/Options.visible = false
 
-func show_monodialog(duration, speaker, text = "", options = {}):
+func show_monodialog(duration, speaker, text = "", options = {}, reappearance = true):
 	visible = true
 	$Control/Panel/CharacterName.text = speaker
 	$Control/Panel/Text.text = text
@@ -26,12 +27,18 @@ func show_monodialog(duration, speaker, text = "", options = {}):
 		button.pressed.connect(_on_option_selected.bind(option))
 		$Control/Panel/Options.add_child(button)
 	
-	$Control/Panel.size = Vector2(50, 48)
-	var tween := create_tween()
-	tween.tween_property($Control/Panel, "size", Vector2(196, 48), duration)
-	tween.tween_property($Control/Panel/CharacterName, "visible_characters", $Control/Panel/CharacterName.get_total_character_count(), duration)
-	tween.tween_property($Control/Panel/Text, "visible_characters", $Control/Panel/Text.get_total_character_count(), duration*2)
-	await tween.finished
+	if reappearance:
+		$Control/Panel.size = Vector2(50, 48)
+		var tween := create_tween()
+		tween.tween_property($Control/Panel, "size", Vector2(196, 48), duration)
+		tween.tween_property($Control/Panel/CharacterName, "visible_characters", $Control/Panel/CharacterName.get_total_character_count(), duration)
+		tween.tween_property($Control/Panel/Text, "visible_characters", $Control/Panel/Text.get_total_character_count(), duration*2)
+		await tween.finished
+		$Control/Panel/Options.visible = true
+	else:
+		$Control/Panel/CharacterName.visible_characters = $Control/Panel/CharacterName.get_total_character_count()
+		$Control/Panel/Text.visible_characters = $Control/Panel/Text.get_total_character_count()
+		$Control/Panel/Options.visible = true
 	Constants.player["can_move"] = false
 
 func hide_monodialog(duration):
@@ -40,6 +47,7 @@ func hide_monodialog(duration):
 	tween.tween_property($Control/Panel, "size", Vector2(50, 48), duration)
 	$Control/Panel/CharacterName.visible_characters = 0
 	$Control/Panel/Text.visible_characters = 0
+	$Control/Panel/Options.visible = false
 	$Timer.start()
 	await tween.finished
 	Constants.player["can_move"] = true

@@ -1,25 +1,24 @@
 extends Area2D
 
-@export var character_id: String
-@export var character_name: String
-
 @onready var monodialog_manager = $MonodialogManager
 @onready var monodialog_resource: Monodialog = Monodialog.new()
 
-@export var start_duration: float
-@export var hide_duration: float
-
+@export var character_id: String
+@export var character_name: String
+@export var current_branch_index: int = 0
 var current_state = "start"
-var current_branch_index = 0
+
+@export var start_duration: float = 0.5
+@export var hide_duration: float = 0.5
 
 func _ready() -> void:
 	monodialog_resource.read_from_json("res://Scripts/Monodialog/monodialog_data.json")
 
 func start_monodialog():
-	print("Entered trigger")
 	var monodialogs = monodialog_resource.get_chara_monodialog(character_id)
-	if monodialogs.is_empty():
-		return
+	assert(not character_id.is_empty(), "Monodialog: Character ID belum di-setting")
+	assert(not monodialogs.is_empty(), "Monodialog: character_id tidak ditemukan")
+	print("Entered trigger")
 	if character_name.is_empty():
 		character_name = monodialogs[current_branch_index]["character_name"]
 	monodialog_manager.start_monodialog(self)

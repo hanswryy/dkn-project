@@ -7,3 +7,5 @@
 script = ExtResource("1_gntqh")
 
 [node name="MonodialogManager" parent="." instance=ExtResource("2_suby2")]
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
