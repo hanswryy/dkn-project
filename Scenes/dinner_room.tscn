@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ca8ce178ojv40"]
+[gd_scene load_steps=25 format=3 uid="uid://ca8ce178ojv40"]
 
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="1_exsyj"]
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="1_votce"]
@@ -8,6 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="4_lsebc"]
 [ext_resource type="Texture2D" uid="uid://dcca36mrcwmd4" path="res://Assets/Sprites/Fix_tilemap.png" id="5_mp5bg"]
 [ext_resource type="PackedScene" uid="uid://dojtnhwe40xjh" path="res://Scenes/door.tscn" id="8_ecvq6"]
+[ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="9_pf78j"]
+[ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="10_gxgf7"]
+[ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="11_nvoly"]
+[ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="12_p5nps"]
+[ext_resource type="AudioStream" uid="uid://sjsd4jwaht3c" path="res://Assets/Audio/BGM/SFX tutup tas.mp3" id="13_65si3"]
+[ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="14_1k6t0"]
+[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="15_n0k5n"]
+[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="16_xw3af"]
+[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="17_vbelo"]
+[ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="18_wr4vc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_votce"]
 texture = ExtResource("2_votce")
@@ -324,6 +334,10 @@ sources/1 = SubResource("TileSetAtlasSource_rvuii")
 sources/2 = SubResource("TileSetAtlasSource_0fn8n")
 sources/3 = SubResource("TileSetAtlasSource_p7gy1")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6cgh0"]
+texture = ExtResource("15_n0k5n")
+region_rect = Rect2(16, 16, 32, 32)
+
 [node name="DinnerRoom" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -347,8 +361,63 @@ script = ExtResource("1_votce")
 visible = false
 color = Color(0, 0, 0, 1)
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("4_lsebc")]
+[node name="Player" parent="." instance=ExtResource("4_lsebc")]
 position = Vector2(140, 361)
 
 [node name="Door" parent="." instance=ExtResource("8_ecvq6")]
 position = Vector2(70, 305)
+
+[node name="InventoryCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("9_pf78j")
+icon_open = ExtResource("10_gxgf7")
+icon_close = ExtResource("11_nvoly")
+
+[node name="InventoryUI" parent="InventoryCanvas" instance=ExtResource("12_p5nps")]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="CloseInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("13_65si3")
+
+[node name="OpenInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("14_1k6t0")
+max_polyphony = 2
+
+[node name="InventoryButton" type="Button" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_6cgh0")
+icon = ExtResource("11_nvoly")
+icon_alignment = 1
+
+[node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("16_xw3af")]
+visible = false
+
+[node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("17_vbelo")
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("18_wr4vc")
+
+[connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]
