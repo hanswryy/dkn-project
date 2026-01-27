@@ -1,0 +1,54 @@
+{
+	"mc": {
+		"tree": [
+			{
+				"branch_id": "0",
+				"character_name": "John Cijambe",
+				"monodialogs": [
+					{
+					"state": "start",
+					"text": "Aku di mana bjir",
+					"options": {
+						"Next": "page_1",
+						}
+					},
+					{
+					"state": "page_1",
+					"text": "Oh aku di backroom loh ya",
+					"options": {
+						"Next": "page_2",
+						}
+					},
+					{
+					"state": "page_2",
+					"text": "Kabur ah",
+					"options": {
+						"Kabur loh ya": "end"
+						}
+					}
+				]
+			},
+			{
+				"branch_id": "1",
+				"character_name": "John Cijambe",
+				"monodialogs": [
+					{
+					"state": "start",
+					"text": "Tekan tombol Godot?",
+					"options": {
+						"Tekan tombol": "in_progress",
+						"Say goodbye": "exit"
+						}
+					},
+					{
+					"state": "in_progress",
+					"text": "Yoga nigga",
+					"options": {
+						"Say goodbye": "exit"
+						}
+					}
+				]
+			}
+		]
+	}
+}

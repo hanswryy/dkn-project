@@ -42,7 +42,9 @@ func _on_player_arrived():
 
 func spawn_inspect_window():
 	var obj = dnd_scene.instantiate()
+	InspectWindowController.is_in_inspect_window = true
 	add_child(obj)
+	move_child(obj, 0)
 
 func _on_object_activated():
 	print("object interacted")

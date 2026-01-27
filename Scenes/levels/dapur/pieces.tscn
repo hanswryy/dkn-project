@@ -4,11 +4,16 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdaj6"]
 
-[node name="Pieces" type="Area2D"]
-scale = Vector2(11.515, 11.515)
+[node name="Pieces" type="Node2D"]
+z_as_relative = false
+scale = Vector2(12, 12)
 script = ExtResource("2_gjf3t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_cdaj6")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

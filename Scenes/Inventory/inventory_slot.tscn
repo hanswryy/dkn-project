@@ -1,17 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw20p0ua4ob5g"]
+[gd_scene load_steps=4 format=3 uid="uid://cw20p0ua4ob5g"]
 
 [ext_resource type="Script" uid="uid://cjvuaf4vgcc82" path="res://Scripts/Inventory/inventory_slot.gd" id="1_3qr85"]
+[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="1_71tl4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8bkrn"]
+texture = ExtResource("1_71tl4")
+region_rect = Rect2(64, 16, 32, 32)
 
 [node name="InventorySlot" type="PanelContainer"]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(70, 90)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8bkrn")
 script = ExtResource("1_3qr85")
 
-[node name="Icon" type="TextureRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Icon" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

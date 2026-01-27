@@ -1,11 +1,62 @@
-[gd_scene load_steps=5 format=3 uid="uid://47jrw0lyc7mg"]
+[gd_scene load_steps=12 format=3 uid="uid://47jrw0lyc7mg"]
 
+[ext_resource type="Script" uid="uid://dqm6osmoorfbm" path="res://Scripts/Level/dapur/dnd_window.gd" id="1_hsbjk"]
 [ext_resource type="Texture2D" uid="uid://o4vdld5wx5af" path="res://Assets/Sprites/bg_tong_sampah_temp.png" id="1_inp3c"]
 [ext_resource type="PackedScene" uid="uid://cijnhk7h8eqf8" path="res://Scenes/levels/dapur/pieces.tscn" id="2_wu62o"]
+[ext_resource type="PackedScene" uid="uid://dmnd0bk34i66r" path="res://Scenes/levels/dapur/key_pieces.tscn" id="3_0ndmj"]
 [ext_resource type="Texture2D" uid="uid://dh7p7f642yufy" path="res://Assets/Sprites/Item/Dynamite.png" id="3_fsj1f"]
+[ext_resource type="Texture2D" uid="uid://d2pc22qejpwjp" path="res://Assets/Sprites/candlestick_2_1.png" id="4_hbkqv"]
 [ext_resource type="Texture2D" uid="uid://dcnce0u0vy3ji" path="res://Assets/Sprites/Item/Kunai.png" id="4_y66kq"]
+[ext_resource type="Resource" uid="uid://c6ltbtgla7tqm" path="res://Resources/Item/example-item.tres" id="5_xh4rk"]
+[ext_resource type="Texture2D" uid="uid://b1wnnvg8eyqfd" path="res://Assets/Sprites/icon.svg" id="6_aevhk"]
+[ext_resource type="Texture2D" uid="uid://dlh1dx5iuvtqq" path="res://Assets/Sprites/Item/Scroll.png" id="8_hbkqv"]
+
+[sub_resource type="GDScript" id="GDScript_0ndmj"]
+script/source = "extends Node2D
+
+var active_piece: Node2D = null
+var drag_offset := Vector2.ZERO
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			try_pick_piece()
+		else:
+			drop_piece()
+
+func _process(_delta):
+	if active_piece:
+		active_piece.global_position = get_global_mouse_position() + drag_offset
+
+func drop_piece():
+	if active_piece:
+		active_piece = null
+
+func try_pick_piece():
+	var mouse_pos = get_global_mouse_position()
+	var top_piece = null
+	var top_z := -INF
+
+	for piece in get_tree().get_nodes_in_group(\"pieces\"):
+		if piece.contains_point(mouse_pos):
+			if piece.z_index > top_z:
+				top_z = piece.z_index
+				top_piece = piece
+
+	if top_piece == null:
+		return
+
+	if not top_piece.draggable:
+		top_piece.on_clicked()
+		return
+
+	active_piece = top_piece
+	drag_offset = top_piece.global_position - mouse_pos
+	top_piece.z_index += 1
+"
 
 [node name="TongSampah" type="CanvasLayer"]
+script = ExtResource("1_hsbjk")
 
 [node name="bg_drop" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -17,6 +68,12 @@ texture = ExtResource("1_inp3c")
 
 [node name="pieces_sampah" type="Node2D" parent="."]
 position = Vector2(529, 283)
+script = SubResource("GDScript_0ndmj")
+
+[node name="KeyPieces" parent="pieces_sampah" instance=ExtResource("3_0ndmj")]
+position = Vector2(68, 108)
+piece_texture = ExtResource("4_hbkqv")
+item = ExtResource("5_xh4rk")
 
 [node name="Pieces" parent="pieces_sampah" instance=ExtResource("2_wu62o")]
 position = Vector2(-24.999992, -11.000001)
@@ -28,16 +85,23 @@ piece_texture = ExtResource("4_y66kq")
 
 [node name="Pieces3" parent="pieces_sampah" instance=ExtResource("2_wu62o")]
 position = Vector2(33.000015, 81.00001)
-piece_texture = ExtResource("3_fsj1f")
+piece_texture = ExtResource("8_hbkqv")
 
 [node name="Pieces4" parent="pieces_sampah" instance=ExtResource("2_wu62o")]
 position = Vector2(237.00002, 124.00001)
-piece_texture = ExtResource("4_y66kq")
+piece_texture = ExtResource("3_fsj1f")
 
 [node name="Pieces5" parent="pieces_sampah" instance=ExtResource("2_wu62o")]
 position = Vector2(-56.999996, 184.00002)
-piece_texture = ExtResource("3_fsj1f")
+piece_texture = ExtResource("4_y66kq")
 
 [node name="Pieces6" parent="pieces_sampah" instance=ExtResource("2_wu62o")]
 position = Vector2(147, 227.00002)
-piece_texture = ExtResource("4_y66kq")
+piece_texture = ExtResource("8_hbkqv")
+
+[node name="CloseButton" type="TextureButton" parent="."]
+offset_right = 128.0
+offset_bottom = 128.0
+texture_normal = ExtResource("6_aevhk")
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

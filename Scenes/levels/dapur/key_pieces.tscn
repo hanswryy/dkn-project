@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmnd0bk34i66r"]
+
+[ext_resource type="Script" uid="uid://b1e3u0grwj5pa" path="res://Scripts/Level/dapur/key_pieces.gd" id="1_vo3rr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnja0"]
+
+[node name="KeyPieces" type="Area2D"]
+scale = Vector2(6, 6)
+script = ExtResource("1_vo3rr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jnja0")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

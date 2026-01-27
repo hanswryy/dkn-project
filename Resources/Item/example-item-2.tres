@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://h34kuh2qtva"]
+
+[ext_resource type="Texture2D" uid="uid://dh7p7f642yufy" path="res://Assets/Sprites/Item/Dynamite.png" id="1_qsdi4"]
+[ext_resource type="Script" uid="uid://brbwama7atgt2" path="res://Resources/Item/item_data.gd" id="2_xqdsy"]
+
+[resource]
+script = ExtResource("2_xqdsy")
+id = "dynamite1"
+name = "Lorem Ipsum"
+icon = ExtResource("1_qsdi4")
+description = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+metadata/_custom_type_script = "uid://brbwama7atgt2"
