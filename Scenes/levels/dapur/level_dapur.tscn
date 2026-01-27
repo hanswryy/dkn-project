@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://6v50ayy1tu6t"]
+
+[ext_resource type="Script" uid="uid://xb25xwd4csfh" path="res://Scripts/Level/dapur/level_dapur_world.gd" id="1_6llij"]
+[ext_resource type="PackedScene" uid="uid://47jrw0lyc7mg" path="res://Scenes/levels/dapur/dnd_window.tscn" id="2_frlkk"]
+[ext_resource type="PackedScene" uid="uid://car0kf7aifqaa" path="res://Scenes/levels/dapur/level_dapur_player.tscn" id="3_6llij"]
+[ext_resource type="PackedScene" uid="uid://nfdyyqach8t2" path="res://Scenes/levels/dapur/level_dapur_tile.tscn" id="3_frlkk"]
+[ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/pause_menu.tscn" id="5_tp0pq"]
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_6llij")
+dnd_scene = ExtResource("2_frlkk")
+
+[node name="TileMap" parent="." instance=ExtResource("3_frlkk")]
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_6llij")]
+position = Vector2(188, 293)
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_tp0pq")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(222, 335)
+zoom = Vector2(5, 5)
+
+[connection signal="arrived" from="Player" to="." method="_on_player_arrived"]

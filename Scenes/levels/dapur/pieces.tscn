@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cijnhk7h8eqf8"]
+
+[ext_resource type="Script" uid="uid://xovqn7t8gnsn" path="res://Scripts/Level/dapur/pieces.gd" id="2_gjf3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdaj6"]
+
+[node name="Pieces" type="Area2D"]
+scale = Vector2(11.515, 11.515)
+script = ExtResource("2_gjf3t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cdaj6")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://47jrw0lyc7mg"]
+
+[ext_resource type="Texture2D" uid="uid://o4vdld5wx5af" path="res://Assets/Sprites/bg_tong_sampah_temp.png" id="1_inp3c"]
+[ext_resource type="PackedScene" uid="uid://cijnhk7h8eqf8" path="res://Scenes/levels/dapur/pieces.tscn" id="2_wu62o"]
+[ext_resource type="Texture2D" uid="uid://dh7p7f642yufy" path="res://Assets/Sprites/Item/Dynamite.png" id="3_fsj1f"]
+[ext_resource type="Texture2D" uid="uid://dcnce0u0vy3ji" path="res://Assets/Sprites/Item/Kunai.png" id="4_y66kq"]
+
+[node name="TongSampah" type="CanvasLayer"]
+
+[node name="bg_drop" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_inp3c")
+
+[node name="pieces_sampah" type="Node2D" parent="."]
+position = Vector2(529, 283)
+
+[node name="Pieces" parent="pieces_sampah" instance=ExtResource("2_wu62o")]
+position = Vector2(-24.999992, -11.000001)
+piece_texture = ExtResource("3_fsj1f")
+
+[node name="Pieces2" parent="pieces_sampah" instance=ExtResource("2_wu62o")]
+position = Vector2(179, 32)
+piece_texture = ExtResource("4_y66kq")
+
+[node name="Pieces3" parent="pieces_sampah" instance=ExtResource("2_wu62o")]
+position = Vector2(33.000015, 81.00001)
+piece_texture = ExtResource("3_fsj1f")
+
+[node name="Pieces4" parent="pieces_sampah" instance=ExtResource("2_wu62o")]
+position = Vector2(237.00002, 124.00001)
+piece_texture = ExtResource("4_y66kq")
+
+[node name="Pieces5" parent="pieces_sampah" instance=ExtResource("2_wu62o")]
+position = Vector2(-56.999996, 184.00002)
+piece_texture = ExtResource("3_fsj1f")
+
+[node name="Pieces6" parent="pieces_sampah" instance=ExtResource("2_wu62o")]
+position = Vector2(147, 227.00002)
+piece_texture = ExtResource("4_y66kq")
