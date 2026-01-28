@@ -8,7 +8,7 @@ extends Control
 func _ready():
 	texture_gelas.show()
 	clickable_area.show()
-	SignalManager.cangkir_interaction_requested.connect(_on_interaction_requested)
+	SignalManager.bathtub_interaction_requested.connect(_on_interaction_requested)
 
 func _on_clickable_area_pressed() -> void:
 	%PickupSFX.play()

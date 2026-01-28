@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://2k38nx87pboq"]
+[gd_scene load_steps=44 format=4 uid="uid://2k38nx87pboq"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_82isd"]
 [ext_resource type="Texture2D" uid="uid://bwa2fkocxoox0" path="res://Assets/Sprites/Fences.png" id="2_58pl5"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="16_fhfem"]
 [ext_resource type="PackedScene" uid="uid://bmn3clt6aisdu" path="res://Scenes/Monodialog/md_area_trigger.tscn" id="18_u8wtq"]
 [ext_resource type="Script" uid="uid://ces3mnbd8fmgq" path="res://Scripts/Monodialog/md_event_trigger.gd" id="19_oq4p1"]
+[ext_resource type="PackedScene" uid="uid://ceeydqfusj70v" path="res://Scenes/Item/clue_trigger.tscn" id="21_2pvy6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fo5ed"]
 polygon = PackedVector2Array(-3.057599, -5.755479, 3.057598, -5.755479, 3.057598, 8, -3.057599, 8)
@@ -271,6 +272,9 @@ texture_margin_right = 30.0
 texture_margin_bottom = 10.0
 region_rect = Rect2(112, 16, 96, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pvy6"]
+size = Vector2(39.375, 36.5)
+
 [node name="world" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_82isd")]
@@ -391,4 +395,13 @@ script = ExtResource("19_oq4p1")
 position = Vector2(185, 143)
 zoom = Vector2(5, 5)
 
+[node name="ClueTrigger" parent="." instance=ExtResource("21_2pvy6")]
+position = Vector2(119, 67)
+
+[node name="CollisionShape2D" parent="ClueTrigger" index="0"]
+position = Vector2(39, 31)
+shape = SubResource("RectangleShape2D_2pvy6")
+
 [connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]
+
+[editable path="ClueTrigger"]
