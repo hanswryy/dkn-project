@@ -300,8 +300,7 @@ offset_top = 33.0
 offset_right = 285.0
 offset_bottom = 161.0
 texture_normal = ExtResource("10_c5t2i")
-character_id = "mc"
-current_branch_index = 1
+character_id = "jilly"
 button_sfx = ExtResource("11_ikia7")
 
 [connection signal="pressed" from="MonodialogTrigger" to="MonodialogTrigger" method="_on_pressed"]

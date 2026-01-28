@@ -4,7 +4,7 @@ extends TextureButton
 @onready var monodialog_resource: Monodialog = Monodialog.new()
 
 @export var character_id: String
-@export var character_sprite: Texture2D
+@export var character_picture: Texture2D
 @export var character_name: String
 @export var character_voice: AudioStreamMP3
 @export var current_branch_index: int = 0
@@ -25,7 +25,11 @@ func start_monodialog():
 	print("Entered trigger")
 	active_branch_data = monodialogs[current_branch_index]
 	if character_name.is_empty():
-		character_name = active_branch_data["character_name"]
+		character_name = monodialog_resource.get_chara_name(character_id)
+	if not character_picture:
+		character_picture = load(monodialog_resource.get_chara_picture(character_id))
+	if not character_voice:
+		character_voice = load(monodialog_resource.get_chara_voice(character_id))
 	monodialog_manager.start_monodialog(self)
 
 func get_current_monodialog():

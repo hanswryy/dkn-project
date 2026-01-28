@@ -17,3 +17,21 @@ func get_chara_monodialog(chara_id):
 		return monodialogs[chara_id]["tree"]
 	else:
 		return []
+
+func get_chara_name(chara_id):
+	if chara_id in monodialogs:
+		return monodialogs[chara_id]["character_name"]
+	else:
+		return []
+
+func get_chara_picture(chara_id):
+	if chara_id in monodialogs:
+		return monodialogs[chara_id]["character_picture"]
+	else:
+		return []
+
+func get_chara_voice(chara_id):
+	if chara_id in monodialogs:
+		return monodialogs[chara_id]["character_voice"]
+	else:
+		return []
