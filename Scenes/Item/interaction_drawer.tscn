@@ -32,7 +32,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 region_rect = Rect2(16, 16, 32, 32)
 
-[node name="interaction_drawer" type="Control"]
+[node name="InteractionDrawer" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
