@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://2k38nx87pboq"]
+[gd_scene load_steps=42 format=4 uid="uid://2k38nx87pboq"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_82isd"]
 [ext_resource type="Texture2D" uid="uid://bwa2fkocxoox0" path="res://Assets/Sprites/Fences.png" id="2_58pl5"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="13_10sbx"]
 [ext_resource type="AudioStream" uid="uid://sjsd4jwaht3c" path="res://Assets/Audio/BGM/SFX tutup tas.mp3" id="14_bhm7s"]
 [ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="14_r3e5i"]
-[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="15_k2m25"]
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="16_2x4rh"]
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="16_fhfem"]
 [ext_resource type="PackedScene" uid="uid://bmn3clt6aisdu" path="res://Scenes/Monodialog/md_area_trigger.tscn" id="18_u8wtq"]
@@ -263,7 +262,7 @@ sources/1 = SubResource("TileSetAtlasSource_rlxc1")
 texture = ExtResource("10_oxm31")
 region_rect = Rect2(16, 16, 32, 32)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2pvy6"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oq4p1"]
 texture = ExtResource("10_oxm31")
 texture_margin_left = 30.0
 texture_margin_top = 10.0
@@ -349,18 +348,14 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_u3isw")
 icon = ExtResource("11_u3isw")
 icon_alignment = 1
 
-[node name="AlertPopup" type="PanelContainer" parent="InventoryCanvas/MarginContainer"]
-unique_name_in_owner = true
+[node name="AlertPopup" type="Button" parent="InventoryCanvas/MarginContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxTexture_2pvy6")
-
-[node name="Label" type="Label" parent="InventoryCanvas/MarginContainer/AlertPopup"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("15_k2m25")
-text = "Fakta baru terungkap: Deskripsi Bukti Diperbarui!"
+theme_override_styles/normal = SubResource("StyleBoxTexture_oq4p1")
+text = "Clue diperbaharui!"
+alignment = 0
 
 [node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("13_10sbx")]
 visible = false

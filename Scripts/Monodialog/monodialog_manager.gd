@@ -18,6 +18,12 @@ func start_monodialog(character, text = "", options = {}):
 
 func stop_monodialog(duration):
 	monodialog_ui.hide_monodialog(duration)
+	
+	var branch_type = "normal"
+	if trigger.active_branch_data and trigger.active_branch_data.has("type"):
+		branch_type = trigger.active_branch_data["type"]
+	
+	SignalManager.monodialog_finished.emit(trigger.current_branch_index, branch_type)
 
 func handle_monodialog_choices(option):
 	var current_monodialog = trigger.get_current_monodialog()
