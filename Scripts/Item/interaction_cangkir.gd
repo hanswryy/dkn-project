@@ -23,8 +23,9 @@ func _on_clickable_area_pressed() -> void:
 	
 	InventoryManager.item_highlight_requested.emit(item_data)
 	
-func _on_interaction_requested(data: ItemData):
-	self.show()
+func _on_interaction_requested():
+	print("Gak masuk!")
+	show()
 	
 func _on_button_close_pressed() -> void:
 	self.hide()

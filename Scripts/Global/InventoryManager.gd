@@ -1,10 +1,9 @@
 extends Node
 
-signal inventory_updated
-
 const MAX_SLOTS = 20
 var items: Array[ItemData] = []
 
+signal inventory_updated
 # send item data to HighlightItem scene
 signal item_highlight_requested(item_data: ItemData)
 signal magnification_started

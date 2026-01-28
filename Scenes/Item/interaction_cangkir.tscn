@@ -1,13 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccj6knnsc1q4d"]
+[gd_scene load_steps=13 format=3 uid="uid://ccj6knnsc1q4d"]
 
 [ext_resource type="Script" uid="uid://cqttiomnef1p7" path="res://Scripts/Item/interaction_cangkir.gd" id="1_mq23o"]
 [ext_resource type="Resource" uid="uid://depcxg6sxwrsm" path="res://Resources/Item/Clues/clue_cangkir_revealed.tres" id="2_xwp6k"]
 [ext_resource type="Texture2D" uid="uid://jw1pr85nv3d0" path="res://Assets/Sprites/FirstPerson/first_person.png" id="3_kon68"]
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="4_6jupp"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="5_xtebl"]
+[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="6_2ud1a"]
+[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="7_eomoi"]
+[ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="8_isxpx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv4en"]
-bg_color = Color(0, 0, 0, 0.5764706)
+bg_color = Color(0, 0, 0, 0.7019608)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5et6o"]
 atlas = ExtResource("3_kon68")
@@ -87,4 +90,18 @@ offset_bottom = 965.0
 scale = Vector2(0.33376774, 0.43489942)
 mouse_default_cursor_shape = 2
 
+[node name="HighlightItem" parent="." instance=ExtResource("6_2ud1a")]
+process_mode = 3
+visible = false
+layout_mode = 1
+
+[node name="PutItemSFX" type="AudioStreamPlayer2D" parent="HighlightItem"]
+unique_name_in_owner = true
+stream = ExtResource("7_eomoi")
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="HighlightItem"]
+unique_name_in_owner = true
+stream = ExtResource("8_isxpx")
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Button" to="." method="_on_button_close_pressed"]
 [connection signal="pressed" from="ClickableArea" to="." method="_on_clickable_area_pressed"]
