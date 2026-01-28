@@ -5,15 +5,14 @@ extends Node2D
 var trigger: Node = null
 var reappear = true
 
-func start_monodialog(character, text = "", options = {}):
-	trigger = character
-	print(text)
+func start_monodialog(chara, text = "", options = {}):
+	trigger = chara
 	if text != "":
-		monodialog_ui.show_monodialog(character.start_duration, character.character_name, text, options, false)
+		monodialog_ui.show_monodialog(chara.start_duration, chara.character_name, chara.character_picture, text, options, chara.character_voice, false)
 	else:
 		var monodialog = trigger.get_current_monodialog()
 		if not monodialog: return
-		monodialog_ui.show_monodialog(character.start_duration, character.character_name, monodialog["text"], monodialog["options"], reappear)
+		monodialog_ui.show_monodialog(chara.start_duration, chara.character_name, chara.character_picture, monodialog["text"], monodialog["options"], chara.character_voice, reappear)
 		reappear = true
 
 func stop_monodialog(duration):
@@ -35,6 +34,7 @@ func handle_monodialog_choices(option):
 	if next_state == "end":
 		if trigger.current_branch_index < trigger.monodialog_resource.get_chara_monodialog(trigger.character_id).size() - 1:
 			trigger.set_monodialog_tree(trigger.current_branch_index + 1)
+		assert(trigger.current_branch_index < trigger.monodialog_resource.get_chara_monodialog(trigger.character_id).size() - 1, "Monodialog: option ending with 'end' but no other branch in monodialog. Check the .json file for errors!")
 		stop_monodialog(trigger.hide_duration)
 	elif next_state == "exit":
 		trigger.set_monodialog_state("start")

@@ -1,42 +1,56 @@
-extends Camera2D
+extends Control
 
-@export var speed: float = 500.0
-@export var margin: float = 20.0 # Distance from edge in pixels
-@export var min_boundary: Vector2 = Vector2(-100, -50)
-@export var max_boundary: Vector2 = Vector2(100, 830)
+var default_x: float
+var default_y: float
+
+var zoom: float = 1
+
+var mouse_pos_relative_to_cam_x: float
+var mouse_pos_relative_to_cam_y: float
+
+var is_panning := false
+var last_mouse_pos := Vector2.ZERO
+
+@export var min_bounds: Vector2 = Vector2(-100, -50)
+@export var max_bounds: Vector2 = Vector2(100, 1000)
 
 func _ready() -> void:
-	# Confines the mouse cursor to the game window
+	default_x = position.x
+	default_y = position.y
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
-func _input(event: InputEvent) -> void:
-	# It's good practice to allow the user to "unlock" the mouse
-	if event.is_action_pressed("ui_cancel"): # Default is the 'Escape' key
-		if Input.mouse_mode == Input.MOUSE_MODE_CONFINED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-
 func _process(delta: float) -> void:
-	var mouse_pos = get_viewport().get_mouse_position()
-	var screen_size = get_viewport().get_visible_rect().size
-	var direction = Vector2.ZERO
+	#if is_panning: return
+	var remappedZoom = remap(zoom, 0.6, 1.25, 0.4, 1)
+	var target_x = default_x + mouse_pos_relative_to_cam_x * .5 * remappedZoom
+	var target_y = default_y + mouse_pos_relative_to_cam_y * 1.75 * remappedZoom
+	position.x = lerpf(position.x, target_x, 0.005)
+	position.y = lerpf(position.y, target_y, 0.005)
+	position.x = clampf(position.x, min_bounds.x, max_bounds.x)
+	position.y = clampf(position.y, min_bounds.y, max_bounds.y)
+	zoom = clampf(zoom, 0.7, 1.25)
+	$Camera2D.zoom = lerp($Camera2D.zoom, Vector2(zoom, zoom), 0.1)
 
-	# Check Horizontal Edges
-	if mouse_pos.x < margin:
-		direction.x = -1
-	elif mouse_pos.x > screen_size.x - margin:
-		direction.x = 1
+func _input(event: InputEvent) -> void:
+	# Zoom
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			zoom -= 0.05
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			zoom += 0.05
 
-	# Check Vertical Edges
-	if mouse_pos.y < margin:
-		direction.y = -1
-	elif mouse_pos.y > screen_size.y - margin:
-		direction.y = 1
+		# Start / stop panning
+		#elif event.button_index == MOUSE_BUTTON_LEFT:
+			#is_panning = event.pressed
+			#last_mouse_pos = event.position
 
-	# Inside _process, replace the last line with:
-	var target_velocity = direction.normalized() * speed
-	position = position.lerp(position + target_velocity, delta * 10.0)
+	# Mouse motion
+	elif event is InputEventMouseMotion:
+		mouse_pos_relative_to_cam_x = event.position.x - 1280 / 2
+		mouse_pos_relative_to_cam_y = event.position.y - 720 / 2
 
-	global_position.x = clamp(global_position.x, min_boundary.x, max_boundary.x)
-	global_position.y = clamp(global_position.y, min_boundary.y, max_boundary.y)
+		# Pan camera while dragging
+		#if is_panning:
+			#var delta: Vector2 = event.position - last_mouse_pos
+			#position -= delta * zoom
+			#last_mouse_pos = event.position

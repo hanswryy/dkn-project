@@ -1,10 +1,9 @@
 extends Node
 
-signal inventory_updated
-
 const MAX_SLOTS = 20
 var items: Array[ItemData] = []
 
+signal inventory_updated
 # send item data to HighlightItem scene
 signal item_highlight_requested(item_data: ItemData)
 signal magnification_started
@@ -19,7 +18,7 @@ func _ready():
 	add_item(load(Constants.SCENE_PATHS.tiket_kereta))
 	add_item(load(Constants.SCENE_PATHS.diary_lily))
 	add_item(load(Constants.SCENE_PATHS.clue_tisu))
-	add_item(load(Constants.SCENE_PATHS.clue_cangkir))
+	#add_item(load(Constants.SCENE_PATHS.clue_cangkir))
 	add_item(load(Constants.SCENE_PATHS.botol_racun))
 	add_item(load(Constants.SCENE_PATHS.kunci_kupu))
 	pass

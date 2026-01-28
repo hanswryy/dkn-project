@@ -1,14 +1,14 @@
-[gd_scene load_steps=43 format=4 uid="uid://2k38nx87pboq"]
+[gd_scene load_steps=42 format=4 uid="uid://2k38nx87pboq"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_82isd"]
 [ext_resource type="Texture2D" uid="uid://bwa2fkocxoox0" path="res://Assets/Sprites/Fences.png" id="2_58pl5"]
 [ext_resource type="Texture2D" uid="uid://cxqeep33qddsr" path="res://Assets/Sprites/tilemap.png" id="3_gqx3s"]
 [ext_resource type="PackedScene" uid="uid://btde3lk1m7uud" path="res://Scenes/Item/lying_item.tscn" id="4_018wd"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="4_sfuik"]
-[ext_resource type="Resource" uid="uid://depcxg6sxwrsm" path="res://Resources/Item/Clues/clue_cangkir_revealed.tres" id="5_fhfem"]
 [ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="5_hvn20"]
 [ext_resource type="Resource" uid="uid://bvq7er84tvv2u" path="res://Resources/Item/ActiveItems/item_magnifying_glass.tres" id="6_fhfem"]
 [ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="6_hvn20"]
+[ext_resource type="Resource" uid="uid://depcxg6sxwrsm" path="res://Resources/Item/Clues/clue_cangkir.tres" id="6_k2m25"]
 [ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="9_10sbx"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="10_oxm31"]
 [ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="11_u3isw"]
@@ -271,9 +271,6 @@ texture_margin_right = 30.0
 texture_margin_bottom = 10.0
 region_rect = Rect2(112, 16, 96, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8wtq"]
-size = Vector2(125, 65)
-
 [node name="world" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_82isd")]
@@ -302,7 +299,7 @@ item = ExtResource("6_fhfem")
 
 [node name="LyingItem3" parent="TileMap" instance=ExtResource("4_018wd")]
 position = Vector2(93, 160)
-item = ExtResource("5_fhfem")
+item = ExtResource("6_k2m25")
 
 [node name="Player" parent="." instance=ExtResource("4_sfuik")]
 position = Vector2(96, 106)
@@ -384,16 +381,14 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(185, 143)
-zoom = Vector2(5, 5)
+[node name="PuzzleCanvas" type="CanvasLayer" parent="."]
 
 [node name="MonodialogEventTrigger" parent="." instance=ExtResource("18_u8wtq")]
 unique_name_in_owner = true
 script = ExtResource("19_oq4p1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MonodialogEventTrigger"]
-position = Vector2(235, 148)
-shape = SubResource("RectangleShape2D_u8wtq")
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(185, 143)
+zoom = Vector2(5, 5)
 
 [connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]
