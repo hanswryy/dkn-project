@@ -62,4 +62,5 @@ func _on_slot_clicked(item_data: ItemData, slot_node: PanelContainer):
 
 
 func _on_magnify_button_pressed() -> void:
+	%MagnifySFX.play()
 	InventoryManager.magnify_item(selected_slot.current_item_data)

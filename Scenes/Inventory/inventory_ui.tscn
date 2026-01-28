@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crvxkwfcdgxku"]
+[gd_scene load_steps=11 format=3 uid="uid://crvxkwfcdgxku"]
 
 [ext_resource type="Script" uid="uid://b8wf4e06gw5jm" path="res://Scripts/Inventory/inventory_ui.gd" id="1_afoyu"]
 [ext_resource type="Texture2D" uid="uid://dd8bpxb0sbekl" path="res://Assets/Textures/dark-bg.jpg" id="2_a3clf"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="4_jrgvc"]
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="4_s1kqi"]
 [ext_resource type="Texture2D" uid="uid://5wl6lpnn7s1e" path="res://Assets/Sprites/Item/MagnifyingGlass.png" id="6_0cyxv"]
+[ext_resource type="AudioStream" uid="uid://dl3it4uvj78yk" path="res://Assets/Audio/SFX  menu click.mp3" id="7_2yrjy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s1kqi"]
 texture = ExtResource("3_or0wv")
@@ -150,5 +151,9 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_2yrjy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0cyxv")
 icon = ExtResource("6_0cyxv")
 icon_alignment = 1
+
+[node name="MagnifySFX" type="AudioStreamPlayer2D" parent="PanelContainer/UIWrapper/MainMargin/ContentSplitter/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+stream = ExtResource("7_2yrjy")
 
 [connection signal="pressed" from="PanelContainer/UIWrapper/MainMargin/ContentSplitter/PanelContainer/MarginContainer/MagnifyButton" to="." method="_on_magnify_button_pressed"]

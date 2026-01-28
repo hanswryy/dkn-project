@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="5_hvn20"]
 [ext_resource type="Resource" uid="uid://bvq7er84tvv2u" path="res://Resources/Item/ActiveItems/item_magnifying_glass.tres" id="6_fhfem"]
 [ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="6_hvn20"]
-[ext_resource type="Resource" uid="uid://depcxg6sxwrsm" path="res://Resources/Item/Clues/clue_cangkir.tres" id="6_k2m25"]
+[ext_resource type="Resource" uid="uid://depcxg6sxwrsm" path="res://Resources/Item/Clues/clue_cangkir_revealed.tres" id="6_k2m25"]
 [ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="9_10sbx"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="10_oxm31"]
 [ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="11_u3isw"]
