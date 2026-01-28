@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://s8dqdc2ds1d8"]
+[gd_scene load_steps=8 format=3 uid="uid://s8dqdc2ds1d8"]
 
+[ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_5scrh"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_kyp35"]
 [ext_resource type="TileSet" uid="uid://dqkwscxogdg5l" path="res://Assets/Sprites/tileset.tres" id="2_pu44n"]
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="6_2riyp"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_eu04w"]
 
 [node name="DinnerRoom" type="Node2D"]
+script = ExtResource("1_5scrh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(328, 360)
@@ -23,27 +25,39 @@ layer_1/name = "Object"
 layer_2/name = "Non-Walkable"
 layer_2/tile_data = PackedInt32Array(1114125, 327681, 3, 1245190, 262147, 5, 1179654, 262147, 5, 1114118, 262147, 5, 1048582, 262147, 5, 1441798, 262147, 5, 1507334, 262147, 5, 1572870, 262147, 5, 1638406, 262147, 5, 1048598, 589827, 5, 1114134, 589827, 5, 1179670, 589827, 5, 1441814, 589827, 5, 1507350, 589827, 5, 1572886, 589827, 5, 1638422, 589827, 5, 1703958, 589827, 9, 1703957, 524291, 9, 1703954, 524291, 9, 1703953, 524291, 9, 1703952, 524291, 9, 1703951, 524291, 9, 1703950, 524291, 9, 1703949, 524291, 9, 1703948, 524291, 9, 1703947, 524291, 9, 1703944, 524291, 9, 1703943, 524291, 9, 1703942, 262147, 9, 983046, 262147, 5, 983062, 589827, 5, 786438, 262147, 4, 851974, 262147, 5, 917510, 262147, 5, 786439, 327683, 4, 851975, 393219, 7, 917511, 393219, 7, 786440, 327683, 4, 851976, 393219, 7, 917512, 393219, 7, 786441, 327683, 4, 786442, 327683, 4, 786443, 327683, 4, 786444, 327683, 4, 786445, 327683, 4, 786446, 327683, 4, 786447, 327683, 4, 786448, 327683, 4, 786449, 327683, 4, 851985, 393219, 7, 917521, 393219, 7, 786450, 327683, 4, 851986, 393219, 7, 917522, 393219, 7, 786451, 327683, 4, 851987, 393219, 7, 917523, 393219, 7, 786452, 327683, 4, 851988, 393219, 7, 917524, 393219, 7, 786453, 327683, 4, 851989, 393219, 7, 917525, 393219, 7, 786454, 589827, 4, 851990, 589827, 5, 917526, 589827, 5, 1376262, 262144, 7, 1310726, 262144, 7, 851977, 327680, 5, 851978, 327680, 5, 851979, 327680, 5, 851980, 327680, 5, 851981, 327680, 5, 851982, 327680, 5, 851983, 327680, 5, 851984, 327680, 5, 917520, 327680, 5, 917519, 327680, 5, 917518, 327680, 5, 917517, 327680, 5, 917516, 327680, 5, 917515, 327680, 5, 917514, 327680, 5, 917513, 327680, 5, 1376278, 262144, 5, 1310742, 262144, 5, 1245206, 262144, 5)
 layer_3/name = "Interact"
-layer_3/tile_data = PackedInt32Array(851975, 1179653, 11, 851976, 1245189, 11, 851977, 1245189, 11, 851978, 1245189, 11, 851979, 1245189, 11, 851980, 1245189, 11, 851981, 1245189, 11, 851982, 1245189, 11, 851983, 1245189, 11, 851984, 1310725, 11, 917525, 1376261, 9, 983061, 1376261, 10, 917524, 196613, 14, 983060, 196613, 15, 917511, 5, 6, 917512, 65541, 6, 917513, 65541, 6, 917514, 65541, 6, 917515, 65541, 6, 917516, 65541, 6, 917517, 65541, 6, 917518, 65541, 6, 917519, 65541, 6, 917520, 131077, 6, 983056, 131077, 7, 983047, 5, 7, 983048, 65541, 7, 983049, 65541, 7, 983050, 65541, 7, 983051, 65541, 7, 983052, 65541, 7, 983053, 65541, 7, 983054, 65541, 7, 983055, 65541, 7)
 script = ExtResource("6_2riyp")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_3mrgy")]
 visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.13319641, 0.13319641, 0.13319638, 1)
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("8_eu04w")]
+[node name="Player" parent="." instance=ExtResource("8_eu04w")]
 position = Vector2(142, 351)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(236, 319)
 zoom = Vector2(2.5, 2.5)
 
-[node name="Door" parent="." groups=["player"] instance=ExtResource("6_o6t2i")]
+[node name="Door" parent="." instance=ExtResource("6_o6t2i")]
 position = Vector2(152, 428)
-next_scene = "uid://bwb78ls7g2sjj"
+rotation = 0.0018791419
+next_scene_path = "uid://bwb78ls7g2sjj"
+entry_point_id = "PintuDapur2"
 
-[node name="Door2" parent="." groups=["player"] instance=ExtResource("6_o6t2i")]
+[node name="Spawnpoint" parent="." groups=["PintuDapur"] instance=ExtResource("6_o6t2i")]
+position = Vector2(313, 398)
+script = null
+
+[node name="Door2" parent="." instance=ExtResource("6_o6t2i")]
 position = Vector2(313, 422)
-next_scene = "uid://ca8ce178ojv40"
+next_scene_path = "uid://ca8ce178ojv40"
+entry_point_id = "PintuDiningRoom"
+
+[node name="Spawnpoint2" parent="." groups=["Lantai1Atas"] instance=ExtResource("6_o6t2i")]
+position = Vector2(154, 401)
+script = null
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_entered" from="Door2" to="Door2" method="_on_body_entered"]
