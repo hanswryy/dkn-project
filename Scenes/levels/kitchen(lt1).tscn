@@ -1,5 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://s8dqdc2ds1d8"]
 
+[ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_5scrh"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_kyp35"]
 [ext_resource type="Script" uid="uid://xb25xwd4csfh" path="res://Scripts/Level/dapur/level_dapur_world.gd" id="1_o6t2i"]
 [ext_resource type="PackedScene" uid="uid://47jrw0lyc7mg" path="res://Scenes/levels/dapur/dnd_window.tscn" id="2_jy200"]
