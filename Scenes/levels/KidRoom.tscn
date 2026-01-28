@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqrfbwje6eeka"]
+[gd_scene load_steps=7 format=3 uid="uid://cqrfbwje6eeka"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_ym3s2"]
 [ext_resource type="TileSet" uid="uid://dqkwscxogdg5l" path="res://Assets/Sprites/tileset.tres" id="2_2ni0v"]
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="6_fix5d"]
+[ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="6_yvjyf"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="7_ci8dc"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_qlot6"]
 
@@ -24,7 +25,7 @@ layer_2/tile_data = PackedInt32Array(1114125, 327681, 3, 1245190, 262147, 5, 117
 layer_3/name = "Interact"
 layer_3/tile_data = PackedInt32Array(917517, 393217, 0, 983053, 393217, 1, 917518, 458753, 0, 917519, 458753, 0, 917520, 458753, 0, 917521, 458753, 0, 917522, 524289, 0, 983058, 524289, 1, 458765, 720897, 3, 458766, 786433, 3, 393233, 851969, 1, 327701, 786433, 0, 393237, 786433, 1)
 layer_4/name = "Door"
-layer_4/tile_data = PackedInt32Array(851978, 917507, 15, 917514, 917507, 16, 851979, 983043, 15, 917515, 983043, 16)
+layer_4/tile_data = PackedInt32Array(851978, 917508, 15, 851979, 983044, 15, 917515, 983044, 16, 917514, 917508, 16)
 script = ExtResource("6_fix5d")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_ci8dc")]
@@ -34,9 +35,14 @@ visible = false
 visible = false
 color = Color(0.13319641, 0.13319641, 0.13319638, 1)
 
-[node name="Player" parent="." instance=ExtResource("8_qlot6")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("8_qlot6")]
 position = Vector2(142, 351)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(236, 319)
 zoom = Vector2(2.5, 2.5)
+
+[node name="Door" parent="." groups=["player"] instance=ExtResource("6_yvjyf")]
+position = Vector2(169, 229)
+scale = Vector2(0.825, 2.025)
+next_scene = "uid://bgj86kvc5r7gt"
