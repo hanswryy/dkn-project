@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://2k38nx87pboq"]
+[gd_scene load_steps=44 format=4 uid="uid://2k38nx87pboq"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_82isd"]
 [ext_resource type="Texture2D" uid="uid://bwa2fkocxoox0" path="res://Assets/Sprites/Fences.png" id="2_58pl5"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="16_2x4rh"]
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="16_fhfem"]
 [ext_resource type="PackedScene" uid="uid://bmn3clt6aisdu" path="res://Scenes/Monodialog/md_area_trigger.tscn" id="18_u8wtq"]
+[ext_resource type="PackedScene" uid="uid://ccj6knnsc1q4d" path="res://Scenes/Item/interaction_cangkir.tscn" id="19_2pvy6"]
 [ext_resource type="Script" uid="uid://ces3mnbd8fmgq" path="res://Scripts/Monodialog/md_event_trigger.gd" id="19_oq4p1"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fo5ed"]
@@ -271,6 +272,9 @@ texture_margin_right = 30.0
 texture_margin_bottom = 10.0
 region_rect = Rect2(112, 16, 96, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8wtq"]
+size = Vector2(125, 65)
+
 [node name="world" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_82isd")]
@@ -381,11 +385,16 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="PuzzleCanvas" type="CanvasLayer" parent="."]
+[node name="InteractionCangkir" parent="InventoryCanvas" instance=ExtResource("19_2pvy6")]
+visible = false
 
 [node name="MonodialogEventTrigger" parent="." instance=ExtResource("18_u8wtq")]
 unique_name_in_owner = true
 script = ExtResource("19_oq4p1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonodialogEventTrigger"]
+position = Vector2(235, 148)
+shape = SubResource("RectangleShape2D_u8wtq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(185, 143)

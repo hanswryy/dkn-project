@@ -1,0 +1,193 @@
+[gd_scene load_steps=11 format=3 uid="uid://27yr4yo6gxs"]
+
+[ext_resource type="Texture2D" uid="uid://by1ruhxr731ed" path="res://Assets/Sprites/FirstPerson/padlock.png" id="1_rkyly"]
+[ext_resource type="Script" uid="uid://bsmgrgo7sfbua" path="res://Scripts/Item/interaction_padlock.gd" id="1_vdou1"]
+[ext_resource type="Resource" uid="uid://du3jvm44mmuuy" path="res://Resources/Item/Clues/clue_surat_wasiat.tres" id="2_5dbby"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="2_pqgb7"]
+[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="4_jnuq7"]
+[ext_resource type="AudioStream" uid="uid://eedulj33ybo2" path="res://Assets/Audio/SFX all role_semua bunyi klick item or investigasi.mp3" id="6_161u6"]
+[ext_resource type="AudioStream" uid="uid://c31sox5dq4558" path="res://Assets/Audio/SFX buka tutup kunci pintu.mp3" id="7_161u6"]
+[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="8_hmd5u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdou1"]
+bg_color = Color(0.02745098, 0, 0, 1)
+expand_margin_left = 10.0
+expand_margin_top = 3.0
+expand_margin_right = 10.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_86842"]
+texture = ExtResource("4_jnuq7")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+region_rect = Rect2(16, 16, 32, 32)
+
+[node name="InteractionPadlock" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vdou1")
+item_inside = ExtResource("2_5dbby")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("1_rkyly")
+stretch_mode = 5
+
+[node name="Slot1" type="Button" parent="PanelContainer/TextureRect"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 266.0
+offset_right = 877.0
+offset_bottom = 313.0
+theme_override_fonts/font = ExtResource("2_pqgb7")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_vdou1")
+text = ">"
+
+[node name="Slot2" type="Button" parent="PanelContainer/TextureRect"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 329.0
+offset_right = 877.0
+offset_bottom = 376.0
+theme_override_fonts/font = ExtResource("2_pqgb7")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_vdou1")
+text = ">"
+
+[node name="Slot3" type="Button" parent="PanelContainer/TextureRect"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 392.0
+offset_right = 877.0
+offset_bottom = 439.0
+theme_override_fonts/font = ExtResource("2_pqgb7")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_vdou1")
+text = ">"
+
+[node name="Slot4" type="Button" parent="PanelContainer/TextureRect"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 458.0
+offset_right = 877.0
+offset_bottom = 505.0
+theme_override_fonts/font = ExtResource("2_pqgb7")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_vdou1")
+text = ">"
+
+[node name="Num1" type="Label" parent="PanelContainer/TextureRect"]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 270.0
+offset_right = 789.0
+offset_bottom = 304.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pqgb7")
+theme_override_font_sizes/font_size = 33
+text = "0"
+horizontal_alignment = 1
+
+[node name="Num2" type="Label" parent="PanelContainer/TextureRect"]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 335.0
+offset_right = 789.0
+offset_bottom = 369.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pqgb7")
+theme_override_font_sizes/font_size = 33
+text = "0"
+horizontal_alignment = 1
+
+[node name="Num3" type="Label" parent="PanelContainer/TextureRect"]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 401.0
+offset_right = 789.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pqgb7")
+theme_override_font_sizes/font_size = 33
+text = "0"
+horizontal_alignment = 1
+
+[node name="Num4" type="Label" parent="PanelContainer/TextureRect"]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 466.0
+offset_right = 789.0
+offset_bottom = 500.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_pqgb7")
+theme_override_font_sizes/font_size = 33
+text = "0"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_pqgb7")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_86842")
+text = "Close"
+
+[node name="PutItemSFX" type="AudioStreamPlayer2D" parent="PanelContainer"]
+unique_name_in_owner = true
+stream = ExtResource("6_161u6")
+
+[node name="UnlockedSFX" type="AudioStreamPlayer2D" parent="PanelContainer"]
+unique_name_in_owner = true
+stream = ExtResource("7_161u6")
+volume_db = 2.708
+
+[node name="FadeOverlay" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HighlightItem" parent="." instance=ExtResource("8_hmd5u")]
+layout_mode = 1
+
+[connection signal="pressed" from="PanelContainer/TextureRect/Slot1" to="." method="_on_slot_1_pressed"]
+[connection signal="pressed" from="PanelContainer/TextureRect/Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="PanelContainer/TextureRect/Slot3" to="." method="_on_slot_3_pressed"]
+[connection signal="pressed" from="PanelContainer/TextureRect/Slot4" to="." method="_on_slot_4_pressed"]
