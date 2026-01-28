@@ -37,6 +37,3 @@ func set_monodialog_tree(branch_index):
 
 func set_monodialog_state(state):
 	current_state = state
-
-func _on_body_entered(body: Node2D) -> void:
-	start_monodialog()

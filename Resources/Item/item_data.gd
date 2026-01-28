@@ -6,3 +6,7 @@ class_name ItemData
 @export var icon: Texture2D
 @export var description: String = ""
 @export var hasDetail: bool = false
+@export var magnifiable: bool = false
+@export var revealedVersion: ItemData
+# branch_id
+@export var postRevealDialog: String

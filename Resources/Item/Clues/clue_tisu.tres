@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cbjfiu0isdlfc"]
+
+[ext_resource type="Texture2D" uid="uid://cqpkov4mu567f" path="res://Assets/Sprites/Item/Clues.png" id="1_co3ik"]
+[ext_resource type="Script" uid="uid://brbwama7atgt2" path="res://Resources/Item/item_data.gd" id="2_w8674"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl31c"]
+atlas = ExtResource("1_co3ik")
+region = Rect2(14, 36, 57, 55)
+
+[resource]
+script = ExtResource("2_w8674")
+id = "clue_tisu"
+name = "Tisu Noda Lipstik"
+icon = SubResource("AtlasTexture_vl31c")
+description = "Hmm... ini bukan darah. Teksturnya berminyak dan warnanya lebih ke arah merah muda gelap. Ini bekas lipstik. Pelakunya seorang wanita? Dan dia sempat menyeka bibirnya setelah—atau sebelum—menuangkan racun itu. Sebuah kecerobohan yang fatal."
+metadata/_custom_type_script = "uid://brbwama7atgt2"

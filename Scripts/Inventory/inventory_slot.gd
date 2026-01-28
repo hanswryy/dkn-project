@@ -17,7 +17,6 @@ func display_item(item_data: ItemData):
 		icon.visible = false
 		
 func set_selected(state: bool):
-	print("Selected: " + str(state))
 	is_selected = state
 	_update_visual()
 
@@ -25,7 +24,6 @@ func _update_visual():
 	if is_selected:
 		self.modulate = Color(1, 1, 1, 0.5) 
 	else:
-		print("YOG: " + str(is_selected))
 		self.modulate = Color(1, 1, 1, 1)
 
 func _gui_input(event: InputEvent):

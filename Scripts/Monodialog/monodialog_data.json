@@ -48,6 +48,41 @@
 						}
 					}
 				]
+			},
+			{
+				"branch_id": "40",
+				"type": "revealing_clue",
+				"character_name": "John Cijambe",
+				"monodialogs": [
+					{
+						"state": "start",
+						"text": "Tunggu sebentar... Noda ini bukan sekadar kotoran.",
+						"options": {
+							"Lanjut": "2",
+						}
+					},
+					{
+						"state": "2",
+						"text": "Ini bekas lipstik, warnanya persis dengan yang ada di tisu tempat sampah dapur.",
+						"options": {
+							"Lanjut": "3",
+						}
+					},
+					{
+						"state": "3",
+						"text": "Dan juga tanda tangan Matt di sini... tarikannya terlalu kaku.",
+						"options": {
+							"Lanjut": "4",
+						}
+					},
+					{
+						"state": "4",
+						"text": "Ini jelas hasil jiplakan! Surat ini dibuat tepat satu hari sebelum pembunuhan.",
+						"options": {
+							"Selesai": "exit"
+						}
+					}
+				]
 			}
 		]
 	}

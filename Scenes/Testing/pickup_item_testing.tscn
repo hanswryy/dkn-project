@@ -1,13 +1,13 @@
-[gd_scene load_steps=38 format=4 uid="uid://2k38nx87pboq"]
+[gd_scene load_steps=43 format=4 uid="uid://2k38nx87pboq"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_82isd"]
 [ext_resource type="Texture2D" uid="uid://bwa2fkocxoox0" path="res://Assets/Sprites/Fences.png" id="2_58pl5"]
 [ext_resource type="Texture2D" uid="uid://cxqeep33qddsr" path="res://Assets/Sprites/tilemap.png" id="3_gqx3s"]
 [ext_resource type="PackedScene" uid="uid://btde3lk1m7uud" path="res://Scenes/Item/lying_item.tscn" id="4_018wd"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="4_sfuik"]
-[ext_resource type="Resource" uid="uid://c6ltbtgla7tqm" path="res://Resources/Item/example-item.tres" id="5_018wd"]
+[ext_resource type="Resource" uid="uid://depcxg6sxwrsm" path="res://Resources/Item/Clues/clue_cangkir_revealed.tres" id="5_fhfem"]
 [ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="5_hvn20"]
-[ext_resource type="Resource" uid="uid://h34kuh2qtva" path="res://Resources/Item/example-item-2.tres" id="6_ele3v"]
+[ext_resource type="Resource" uid="uid://bvq7er84tvv2u" path="res://Resources/Item/ActiveItems/item_magnifying_glass.tres" id="6_fhfem"]
 [ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="6_hvn20"]
 [ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="9_10sbx"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="10_oxm31"]
@@ -15,8 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="13_10sbx"]
 [ext_resource type="AudioStream" uid="uid://sjsd4jwaht3c" path="res://Assets/Audio/BGM/SFX tutup tas.mp3" id="14_bhm7s"]
 [ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="14_r3e5i"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="15_k2m25"]
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="16_2x4rh"]
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="16_fhfem"]
+[ext_resource type="PackedScene" uid="uid://bmn3clt6aisdu" path="res://Scenes/Monodialog/md_area_trigger.tscn" id="18_u8wtq"]
+[ext_resource type="Script" uid="uid://ces3mnbd8fmgq" path="res://Scripts/Monodialog/md_event_trigger.gd" id="19_oq4p1"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fo5ed"]
 polygon = PackedVector2Array(-3.057599, -5.755479, 3.057598, -5.755479, 3.057598, 8, -3.057599, 8)
@@ -260,6 +263,17 @@ sources/1 = SubResource("TileSetAtlasSource_rlxc1")
 texture = ExtResource("10_oxm31")
 region_rect = Rect2(16, 16, 32, 32)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2pvy6"]
+texture = ExtResource("10_oxm31")
+texture_margin_left = 30.0
+texture_margin_top = 10.0
+texture_margin_right = 30.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(112, 16, 96, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8wtq"]
+size = Vector2(125, 65)
+
 [node name="world" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_82isd")]
@@ -279,12 +293,16 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAA
 tile_set = SubResource("TileSet_6mpdi")
 
 [node name="LyingItem" parent="TileMap" instance=ExtResource("4_018wd")]
-position = Vector2(245, 114)
-item = ExtResource("5_018wd")
+visible = false
+position = Vector2(166, 107)
 
 [node name="LyingItem2" parent="TileMap" instance=ExtResource("4_018wd")]
-position = Vector2(153, 185)
-item = ExtResource("6_ele3v")
+position = Vector2(131, 133)
+item = ExtResource("6_fhfem")
+
+[node name="LyingItem3" parent="TileMap" instance=ExtResource("4_018wd")]
+position = Vector2(93, 160)
+item = ExtResource("5_fhfem")
 
 [node name="Player" parent="." instance=ExtResource("4_sfuik")]
 position = Vector2(96, 106)
@@ -331,6 +349,19 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_u3isw")
 icon = ExtResource("11_u3isw")
 icon_alignment = 1
 
+[node name="AlertPopup" type="PanelContainer" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_2pvy6")
+
+[node name="Label" type="Label" parent="InventoryCanvas/MarginContainer/AlertPopup"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_k2m25")
+text = "Fakta baru terungkap: Deskripsi Bukti Diperbarui!"
+
 [node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("13_10sbx")]
 visible = false
 
@@ -342,8 +373,27 @@ stream = ExtResource("16_fhfem")
 unique_name_in_owner = true
 stream = ExtResource("16_2x4rh")
 
+[node name="FadeOverlay" type="ColorRect" parent="InventoryCanvas"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(185, 143)
 zoom = Vector2(5, 5)
+
+[node name="MonodialogEventTrigger" parent="." instance=ExtResource("18_u8wtq")]
+unique_name_in_owner = true
+script = ExtResource("19_oq4p1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonodialogEventTrigger"]
+position = Vector2(235, 148)
+shape = SubResource("RectangleShape2D_u8wtq")
 
 [connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]

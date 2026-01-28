@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://ck0yosofck30h"]
+
+[ext_resource type="Script" uid="uid://brbwama7atgt2" path="res://Resources/Item/item_data.gd" id="1_dj46l"]
+[ext_resource type="Texture2D" uid="uid://vx5r84w57atc" path="res://Assets/Sprites/Item/big_pictures_clues.png" id="1_dnjp0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7r0o"]
+atlas = ExtResource("1_dnjp0")
+region = Rect2(184, 200, 88, 112)
+
+[resource]
+script = ExtResource("1_dj46l")
+id = "clue_diary_lily"
+name = "Buku Harian Lily"
+icon = SubResource("AtlasTexture_e7r0o")
+description = "Sebuah buku harian dengan angka '18.12' yang terukir besar di sampul depannya. Tanggal pernikahan mereka... Siapa yang menyangka tanggal yang seharusnya paling bahagia malah dijadikan judul untuk buku penuh kesedihan ini? Angka ini terasa seperti sebuah peringatan—atau mungkin, sebuah kunci."
+metadata/_custom_type_script = "uid://brbwama7atgt2"
