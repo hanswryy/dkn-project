@@ -94,7 +94,6 @@ text = "Exit"
 alignment = 0
 
 [node name="Settings" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -239,6 +238,4 @@ bus = &"Music"
 [connection signal="pressed" from="Main/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Settings/MasterVol/Dec" to="." method="_on_dec_pressed"]
 [connection signal="pressed" from="Settings/MasterVol/Inc" to="." method="_on_inc_pressed"]
-[connection signal="pressed" from="Settings/MusicVol/Dec" to="." method="_on_dec_2_pressed"]
-[connection signal="pressed" from="Settings/MusicVol/Inc" to="." method="_on_inc_2_pressed"]
 [connection signal="pressed" from="Settings/Button5" to="." method="_on_button_5_pressed"]
