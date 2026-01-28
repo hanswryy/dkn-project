@@ -19,7 +19,6 @@ func _input(event):
 			get_viewport().set_input_as_handled()
 
 func _on_item_highlight(item_data: ItemData):
-	print(str(item_data.icon))
 	item_icon.texture = item_data.icon
 	item_name.text = item_data.name
 	item_description.text = item_data.description
@@ -57,7 +56,6 @@ func animate_open():
 func animate_icon():
 	var icon = %ItemIcon
 	var original_y = 250
-	print(original_y)
 	
 	var tween = create_tween().set_loops().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(icon, "position:y", original_y - 5, 2.0)

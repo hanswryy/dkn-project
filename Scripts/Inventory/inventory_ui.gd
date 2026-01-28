@@ -44,12 +44,10 @@ func fill_grid():
 func _on_slot_clicked(item_data: ItemData, slot_node: PanelContainer):
 	if selected_slot != null:
 		selected_slot.set_selected(false)
-	print(selected_slot)
 		
 	selected_slot = slot_node
 	selected_slot.set_selected(true)
 		
-	print(item_data)
 	if item_data:
 		info_name.text = item_data.name
 		info_desc.text = item_data.description
