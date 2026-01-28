@@ -44,7 +44,6 @@ scale = Vector2(3.3, 3.3)
 texture = ExtResource("3_opfnp")
 
 [node name="Main" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -8.0
