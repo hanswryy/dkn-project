@@ -94,6 +94,7 @@ text = "Exit"
 alignment = 0
 
 [node name="Settings" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
