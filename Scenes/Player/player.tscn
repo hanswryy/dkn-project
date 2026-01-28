@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dp0ac3rfb4ku5" path="res://Assets/Audio/SFX korek 1x.mp3" id="3_gk6dx"]
 [ext_resource type="AudioStream" uid="uid://dr86hqbgylu8e" path="res://Assets/Audio/SFX korek 2x.mp3" id="4_jhyir"]
 [ext_resource type="AudioStream" uid="uid://cq8q2ceq7arpt" path="res://Assets/Audio/SFX langkah kaki 1x bunyi.mp3" id="4_mtuoh"]
-[ext_resource type="Script" uid="uid://jgmkcngqlqvd" path="res://Scripts/player_lighting.gd" id="4_vgqql"]
+[ext_resource type="Script" path="res://Scripts/player_lighting.gd" id="4_vgqql"]
 [ext_resource type="AudioStream" uid="uid://ds7v1xkpyhahd" path="res://Assets/Audio/SFX korek 3x.mp3" id="5_74mp2"]
 [ext_resource type="PackedScene" uid="uid://c4wncpooby8qj" path="res://Scenes/sound_disturbance.tscn" id="5_htcer"]
 [ext_resource type="AudioStream" uid="uid://mrice3w3pkdi" path="res://Assets/Audio/SFX korek gagal nyalain.mp3" id="6_oikmp"]
@@ -161,7 +161,7 @@ animations = [{
 radius = 7.0
 height = 24.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_cvnsp")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

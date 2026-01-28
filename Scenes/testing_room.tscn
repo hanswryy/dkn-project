@@ -324,6 +324,10 @@ sources/1 = SubResource("TileSetAtlasSource_rvuii")
 sources/2 = SubResource("TileSetAtlasSource_0fn8n")
 sources/3 = SubResource("TileSetAtlasSource_p7gy1")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6cgh0"]
+texture = ExtResource("15_n0k5n")
+region_rect = Rect2(16, 16, 32, 32)
+
 [node name="DinnerRoom" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]

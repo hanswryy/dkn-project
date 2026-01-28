@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://b7mldsntmmomm"]
+
+[ext_resource type="Texture2D" uid="uid://vx5r84w57atc" path="res://Assets/Sprites/Item/big_pictures_clues.png" id="1_4xulp"]
+[ext_resource type="Script" uid="uid://brbwama7atgt2" path="res://Resources/Item/item_data.gd" id="1_cbv5k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofii3"]
+atlas = ExtResource("1_4xulp")
+region = Rect2(357.5525, 16, 138.44751, 120)
+
+[resource]
+script = ExtResource("1_cbv5k")
+id = "clue_surat_sita_bank"
+name = "Surat Penyitaan Bank"
+icon = SubResource("AtlasTexture_ofii3")
+description = "Hmm... tumpukan surat tagihan ini bukan cuma sampah biasa. Lihat ini, 'Pemberitahuan Penyitaan Aset'. Tampaknya bisnis Jilly hancur total dan bank sudah mulai mengambil alih semua miliknya. Pantas saja dia memohon pinjaman pada Matt... dan pantas saja dia begitu nekat saat Matt berkata 'tidak'. Dia sudah terdesak di ujung jurang, dan harta keluarga Julia adalah satu-satunya pelampung yang tersisa bagi Jilly."
+metadata/_custom_type_script = "uid://brbwama7atgt2"

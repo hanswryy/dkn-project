@@ -1,0 +1,136 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnbxspvlgp2tj"]
+
+[ext_resource type="Script" uid="uid://bt1eoly12hirx" path="res://Scripts/Cutscenes/camera_2d.gd" id="1_fo8y1"]
+[ext_resource type="Script" uid="uid://ds6wd2318l7ke" path="res://Scripts/Cutscenes/newspaper_cutscene.gd" id="1_gqsoi"]
+[ext_resource type="Texture2D" uid="uid://6y34aq2bae4m" path="res://Assets/Images/placeholder_opening_cutscene.jpg" id="2_pwyv0"]
+[ext_resource type="Shader" uid="uid://dyq5e0kqfqaje" path="res://Screen_effect/blur.gdshader" id="3_ad0ii"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqsoi"]
+shader = ExtResource("3_ad0ii")
+shader_parameter/blur_amount = 2.0
+
+[node name="NewspaperCutscene" type="Node2D"]
+script = ExtResource("1_gqsoi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fo8y1")
+
+[node name="Camera2D" type="Camera2D" parent="Control"]
+
+[node name="PlaceholderOpeningCutscene" type="Sprite2D" parent="."]
+position = Vector2(6.999996, 378.00003)
+scale = Vector2(1.9685059, 1.7541505)
+texture = ExtResource("2_pwyv0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gqsoi")
+offset_left = -635.0
+offset_top = 123.0
+offset_right = -338.0
+offset_bottom = 1091.0
+
+[node name="Button1" type="Button" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gqsoi")
+offset_left = 332.0
+offset_top = 62.0
+offset_right = 629.0
+offset_bottom = 300.0
+
+[node name="Button2" type="Button" parent="ColorRect2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gqsoi")
+offset_left = -319.0
+offset_top = 859.0
+offset_right = -22.0
+offset_bottom = 1097.0
+
+[node name="Button3" type="Button" parent="ColorRect3"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gqsoi")
+offset_left = 15.0
+offset_top = 811.0
+offset_right = 296.0
+offset_bottom = 1093.0
+
+[node name="Button4" type="Button" parent="ColorRect4"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gqsoi")
+offset_left = 320.0
+offset_top = 890.0
+offset_right = 643.0
+offset_bottom = 1109.0
+
+[node name="Button5" type="Button" parent="ColorRect5"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect6" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gqsoi")
+offset_left = 321.0
+offset_top = 377.0
+offset_right = 644.0
+offset_bottom = 804.0
+
+[node name="Button6" type="Button" parent="ColorRect6"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="ColorRect/Button1" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ColorRect3/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="ColorRect4/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="ColorRect5/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="ColorRect6/Button6" to="." method="_on_button_6_pressed"]

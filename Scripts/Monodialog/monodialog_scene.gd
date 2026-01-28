@@ -1,19 +1,18 @@
 extends CanvasLayer
 
-
-#@export var start_duration: float
-#@export var hide_duration: float
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = false
-	$Control/Panel/CharacterName.visible_characters = 0
-	$Control/Panel/Text.visible_characters = 0
 
-func show_monodialog(duration, speaker, text = "", options = {}):
+func show_monodialog(duration, speaker, sprite, text = "", options = {}, voice = null, reappearance = true):
 	visible = true
+	$Control/Panel/Options.visible = false
+	$Control/Panel/TextureRect.texture = sprite
 	$Control/Panel/CharacterName.text = speaker
 	$Control/Panel/Text.text = text
+	$Control/Panel/CharacterName.visible_characters = 0
+	$Control/Panel/Text.visible_characters = 0
+	if voice: $CharacterVoice.stream = voice
 	
 	for option in $Control/Panel/Options.get_children():
 		$Control/Panel/Options.remove_child(option)
@@ -26,12 +25,28 @@ func show_monodialog(duration, speaker, text = "", options = {}):
 		button.pressed.connect(_on_option_selected.bind(option))
 		$Control/Panel/Options.add_child(button)
 	
-	$Control/Panel.size = Vector2(50, 48)
-	var tween := create_tween()
-	tween.tween_property($Control/Panel, "size", Vector2(196, 48), duration)
-	tween.tween_property($Control/Panel/CharacterName, "visible_characters", $Control/Panel/CharacterName.get_total_character_count(), duration)
-	tween.tween_property($Control/Panel/Text, "visible_characters", $Control/Panel/Text.get_total_character_count(), duration*2)
-	await tween.finished
+	if reappearance:
+		$Control/Panel.size = Vector2(50, 48)
+		var tween := create_tween()
+		tween.tween_property($Control/Panel, "size", Vector2(196, 48), duration)
+		tween.tween_property($Control/Panel/CharacterName, "visible_characters", $Control/Panel/CharacterName.get_total_character_count(), duration)
+		await tween.finished
+		var tween2 := create_tween()
+		$CharacterVoice.play()
+		tween2.tween_property($Control/Panel/Text, "visible_characters", $Control/Panel/Text.get_total_character_count(), duration*2)
+		await tween2.finished
+		$CharacterVoice.stop()
+		$Control/Panel/Options.visible = true
+	else:
+		#$Control/Panel/CharacterName.visible_characters = $Control/Panel/CharacterName.get_total_character_count()
+		#$Control/Panel/Text.visible_characters = $Control/Panel/Text.get_total_character_count()
+		$Control/Panel/CharacterName.visible_characters = -1
+		var tween := create_tween()
+		$CharacterVoice.play()
+		tween.tween_property($Control/Panel/Text, "visible_characters", $Control/Panel/Text.get_total_character_count(), duration*2)
+		await tween.finished
+		$CharacterVoice.stop()
+		$Control/Panel/Options.visible = true
 	Constants.player["can_move"] = false
 
 func hide_monodialog(duration):
@@ -40,6 +55,7 @@ func hide_monodialog(duration):
 	tween.tween_property($Control/Panel, "size", Vector2(50, 48), duration)
 	$Control/Panel/CharacterName.visible_characters = 0
 	$Control/Panel/Text.visible_characters = 0
+	$Control/Panel/Options.visible = false
 	$Timer.start()
 	await tween.finished
 	Constants.player["can_move"] = true

@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7qw3iheu76j"]
+
+[ext_resource type="Script" uid="uid://bj7q46j63ylhk" path="res://Scripts/Item/highlight_item.gd" id="1_0ov14"]
+[ext_resource type="Texture2D" uid="uid://dlh1dx5iuvtqq" path="res://Assets/Sprites/Item/Scroll.png" id="2_a30wr"]
+[ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="3_3ffbg"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="4_0oorl"]
+
+[node name="HighlightItem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ov14")
+
+[node name="OverlayColor" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.60784316)
+layout_mode = 0
+offset_left = -11.0
+offset_top = -14.0
+offset_right = 1656.0
+offset_bottom = 1150.0
+scale = Vector2(0.78166074, 0.64394253)
+color = Color(0, 0, 0, 0.69411767)
+
+[node name="ItemBoxContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 135.0
+offset_right = 551.0
+offset_bottom = 533.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ItemBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ItemBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="ItemBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("2_a30wr")
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="ItemBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ItemBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="ItemName" type="Label" parent="ItemBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3ffbg")
+theme_override_font_sizes/font_size = 32
+text = "Jurnal Eddie"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ItemDetailContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(422.498, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -291.0
+offset_right = 528.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ItemDetailContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ItemDescription" type="Label" parent="ItemDetailContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0oorl")
+theme_override_font_sizes/font_size = 21
+text = "Kertasnya rapuh dan menguning. Anehnya, baris-baris berita di kolom kriminal tampak berubah setiap kali kau berkedip. Jika diperhatikan lebih dekat, huruf-huruf tertentu dilingkari dengan tinta hitam pekat, membentuk sebuah kalimat: 'KAMI TAHU KAU MASIH DI SINI'."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -95.0
+offset_right = 78.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_0oorl")
+text = "Tekan untuk lanjut.."

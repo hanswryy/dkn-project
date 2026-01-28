@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1xwk5jhrgjkd"]
+[gd_scene load_steps=10 format=3 uid="uid://b1xwk5jhrgjkd"]
 
 [ext_resource type="Texture2D" uid="uid://bqxihjqcb0pin" path="res://Assets/Sprites/Monodialog/empty_box.png" id="1_awjgu"]
 [ext_resource type="Script" uid="uid://bgjaa0e3wqec7" path="res://Scripts/Monodialog/monodialog_scene.gd" id="1_lc3tw"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="3_56uhj"]
 [ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="4_naghw"]
 [ext_resource type="Texture2D" uid="uid://pg174il3vwja" path="res://Assets/Textures/Buttons/x.png" id="5_01nol"]
+[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="7_nk27u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lc3tw"]
 font = ExtResource("4_naghw")
@@ -88,16 +89,23 @@ offset_right = 175.55557
 offset_bottom = 26.333336
 grow_vertical = 2
 scale = Vector2(0.72, 0.72)
-text = "Gyattttt"
+theme_override_font_sizes/font_size = 16
+text = "Gyattttt sda sdasd asda dsas asda sdasda sda sdas dasd "
 label_settings = SubResource("LabelSettings_01nol")
+autowrap_mode = 2
 
 [node name="Options" type="HBoxContainer" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 18.75
+offset_top = 31.0
+offset_right = 50.25
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 
 [node name="Button" type="Button" parent="Control/Panel"]
 visible = false
@@ -121,6 +129,11 @@ stretch_mode = 0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="CharacterVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_nk27u")
+bus = &"SFX"
+parameters/looping = true
 
 [connection signal="pressed" from="Control/Panel/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
