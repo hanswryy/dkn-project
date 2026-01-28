@@ -6,11 +6,11 @@ extends PointLight2D
 @export var burst_duration := 0.1
 @export var burst_intensity := 2.0
 
-@export var light_out_min_time := 60.0
-@export var light_out_max_time := 180.0
+@export var light_out_min_time := 5.0
+@export var light_out_max_time := 8.0
 
-@export var min_dark_duration := 3.0
-@export var max_dark_duration := 5.0
+@export var min_dark_duration := 10.0
+@export var max_dark_duration := 50.0
 
 @export var fade_in_duration := 0.5
 @export var delay_between_sounds := 1.0  # >>> JEDA 1 DETIK ANTAR SUARA
