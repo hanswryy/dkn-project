@@ -1,63 +1,110 @@
-[gd_scene load_steps=8 format=3 uid="uid://s8dqdc2ds1d8"]
+[gd_scene load_steps=20 format=3 uid="uid://s8dqdc2ds1d8"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_5scrh"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_kyp35"]
-[ext_resource type="TileSet" uid="uid://dqkwscxogdg5l" path="res://Assets/Sprites/tileset.tres" id="2_pu44n"]
-[ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="6_2riyp"]
-[ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="6_o6t2i"]
+[ext_resource type="Script" uid="uid://xb25xwd4csfh" path="res://Scripts/Level/dapur/level_dapur_world.gd" id="1_o6t2i"]
+[ext_resource type="PackedScene" uid="uid://47jrw0lyc7mg" path="res://Scenes/levels/dapur/dnd_window.tscn" id="2_jy200"]
+[ext_resource type="PackedScene" uid="uid://nfdyyqach8t2" path="res://Scenes/levels/dapur/level_dapur_tile.tscn" id="4_v0c4q"]
+[ext_resource type="PackedScene" uid="uid://bv5vk7g4wvujo" path="res://Scenes/Torchs/torch(light).tscn" id="5_jy200"]
+[ext_resource type="PackedScene" uid="uid://car0kf7aifqaa" path="res://Scenes/levels/dapur/level_dapur_player.tscn" id="6_gvpv4"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="7_3mrgy"]
-[ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_eu04w"]
+[ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="7_5scrh"]
+[ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="8_bh1et"]
+[ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="9_jy200"]
+[ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="10_v0c4q"]
+[ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="11_sab8e"]
+[ext_resource type="AudioStream" uid="uid://sjsd4jwaht3c" path="res://Assets/Audio/BGM/SFX tutup tas.mp3" id="12_r1rog"]
+[ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="13_kgwd2"]
+[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="14_f8lvj"]
+[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="15_2ql4h"]
+[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="16_j7tks"]
+[ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="17_2yicj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ciet"]
+texture = ExtResource("14_f8lvj")
+region_rect = Rect2(16, 16, 32, 32)
 
 [node name="DinnerRoom" type="Node2D"]
-script = ExtResource("1_5scrh")
+script = ExtResource("1_o6t2i")
+dnd_scene = ExtResource("2_jy200")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(328, 360)
 scale = Vector2(1.32169, 1.8765957)
 texture = ExtResource("1_kyp35")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_pu44n")
-format = 2
-layer_0/name = "Jalan"
-layer_0/tile_data = PackedInt32Array(1048583, 65539, 2, 1114119, 131075, 1, 1179655, 131075, 2, 1245191, 131075, 1, 1310727, 65539, 1, 1441799, 131075, 2, 1507335, 131075, 1, 1572871, 131075, 2, 1638407, 131075, 1, 1048584, 131075, 2, 1048585, 65539, 2, 1114120, 65539, 1, 1179656, 65539, 2, 1114121, 131075, 1, 1179657, 131075, 2, 1245192, 65539, 1, 1310728, 131075, 1, 1245193, 131075, 1, 1310729, 131075, 2, 1376264, 131075, 2, 1441800, 65539, 2, 1376265, 131075, 1, 1441801, 131075, 2, 1507336, 65539, 1, 1572872, 65539, 2, 1507337, 131075, 1, 1572873, 131075, 2, 1638408, 65539, 1, 1638409, 131075, 1, 1048586, 131075, 2, 1048587, 65539, 2, 1114122, 65539, 1, 1179658, 65539, 2, 1114123, 131075, 1, 1179659, 131075, 2, 1245194, 65539, 1, 1310730, 65539, 2, 1245195, 131075, 1, 1310731, 131075, 2, 1376266, 65539, 1, 1441802, 65539, 2, 1376267, 131075, 1, 1441803, 131075, 2, 1507338, 65539, 1, 1572874, 65539, 2, 1507339, 131075, 1, 1572875, 131075, 2, 1638410, 65539, 1, 1638411, 131075, 1, 1048588, 131075, 2, 1048589, 65539, 2, 1114124, 65539, 1, 1179660, 65539, 2, 1114125, 131075, 1, 1179661, 131075, 2, 1245196, 65539, 1, 1310732, 65539, 2, 1245197, 131075, 1, 1310733, 131075, 2, 1376268, 65539, 1, 1441804, 65539, 2, 1376269, 131075, 1, 1441805, 131075, 2, 1507340, 65539, 1, 1572876, 65539, 2, 1507341, 131075, 1, 1572877, 131075, 2, 1638412, 65539, 1, 1638413, 131075, 1, 1048590, 131075, 2, 1048591, 65539, 2, 1114126, 65539, 1, 1179662, 65539, 2, 1114127, 131075, 1, 1179663, 131075, 2, 1245198, 65539, 1, 1310734, 65539, 2, 1245199, 131075, 1, 1310735, 131075, 2, 1376270, 65539, 1, 1441806, 65539, 2, 1376271, 131075, 1, 1441807, 131075, 2, 1507342, 65539, 1, 1572878, 65539, 2, 1507343, 131075, 1, 1572879, 131075, 2, 1638414, 65539, 1, 1638415, 131075, 1, 1048592, 131075, 2, 1048593, 65539, 2, 1114128, 65539, 1, 1179664, 65539, 2, 1114129, 131075, 1, 1179665, 131075, 2, 1245200, 65539, 1, 1310736, 65539, 2, 1245201, 131075, 1, 1310737, 131075, 2, 1376272, 65539, 1, 1441808, 65539, 2, 1376273, 131075, 1, 1441809, 131075, 2, 1507344, 65539, 1, 1572880, 65539, 2, 1507345, 131075, 1, 1572881, 131075, 2, 1638416, 65539, 1, 1638417, 131075, 1, 1048594, 131075, 2, 1048595, 65539, 2, 1114130, 65539, 1, 1179666, 65539, 2, 1114131, 131075, 1, 1179667, 131075, 2, 1245202, 65539, 1, 1310738, 65539, 2, 1245203, 131075, 1, 1310739, 131075, 2, 1376274, 65539, 1, 1441810, 65539, 2, 1376275, 131075, 1, 1441811, 131075, 2, 1507346, 65539, 1, 1572882, 65539, 2, 1507347, 131075, 1, 1572883, 131075, 2, 1638418, 65539, 1, 1638419, 131075, 1, 1048596, 65539, 2, 1048597, 131075, 2, 1114132, 65539, 1, 1179668, 65539, 2, 1114133, 131075, 1, 1179669, 131075, 2, 1245204, 65539, 1, 1310740, 65539, 2, 1245205, 131075, 1, 1310741, 131075, 2, 1376276, 65539, 1, 1441812, 65539, 2, 1376277, 131075, 1, 1441813, 131075, 2, 1507348, 65539, 1, 1572884, 65539, 2, 1507349, 131075, 1, 1572885, 131075, 2, 1638420, 65539, 1, 1638421, 131075, 1, 1376263, 65539, 2, 983047, 65539, 1, 983048, 131075, 1, 983049, 65539, 1, 983050, 131075, 1, 983051, 65539, 1, 983052, 131075, 1, 983053, 65539, 1, 983054, 131075, 1, 983055, 65539, 1, 983056, 131075, 1, 983057, 65539, 1, 983058, 131075, 1, 983059, 65539, 1, 983060, 65539, 1, 983061, 131075, 1, 1703945, 65536, 1, 1769481, 65536, 2, 1703946, 131072, 1, 1769482, 131072, 2, 1703955, 65536, 1, 1769491, 65536, 2, 1703956, 131072, 1, 1769492, 131072, 2)
-layer_1/name = "Object"
-layer_2/name = "Non-Walkable"
-layer_2/tile_data = PackedInt32Array(1114125, 327681, 3, 1245190, 262147, 5, 1179654, 262147, 5, 1114118, 262147, 5, 1048582, 262147, 5, 1441798, 262147, 5, 1507334, 262147, 5, 1572870, 262147, 5, 1638406, 262147, 5, 1048598, 589827, 5, 1114134, 589827, 5, 1179670, 589827, 5, 1441814, 589827, 5, 1507350, 589827, 5, 1572886, 589827, 5, 1638422, 589827, 5, 1703958, 589827, 9, 1703957, 524291, 9, 1703954, 524291, 9, 1703953, 524291, 9, 1703952, 524291, 9, 1703951, 524291, 9, 1703950, 524291, 9, 1703949, 524291, 9, 1703948, 524291, 9, 1703947, 524291, 9, 1703944, 524291, 9, 1703943, 524291, 9, 1703942, 262147, 9, 983046, 262147, 5, 983062, 589827, 5, 786438, 262147, 4, 851974, 262147, 5, 917510, 262147, 5, 786439, 327683, 4, 851975, 393219, 7, 917511, 393219, 7, 786440, 327683, 4, 851976, 393219, 7, 917512, 393219, 7, 786441, 327683, 4, 786442, 327683, 4, 786443, 327683, 4, 786444, 327683, 4, 786445, 327683, 4, 786446, 327683, 4, 786447, 327683, 4, 786448, 327683, 4, 786449, 327683, 4, 851985, 393219, 7, 917521, 393219, 7, 786450, 327683, 4, 851986, 393219, 7, 917522, 393219, 7, 786451, 327683, 4, 851987, 393219, 7, 917523, 393219, 7, 786452, 327683, 4, 851988, 393219, 7, 917524, 393219, 7, 786453, 327683, 4, 851989, 393219, 7, 917525, 393219, 7, 786454, 589827, 4, 851990, 589827, 5, 917526, 589827, 5, 1376262, 262144, 7, 1310726, 262144, 7, 851977, 327680, 5, 851978, 327680, 5, 851979, 327680, 5, 851980, 327680, 5, 851981, 327680, 5, 851982, 327680, 5, 851983, 327680, 5, 851984, 327680, 5, 917520, 327680, 5, 917519, 327680, 5, 917518, 327680, 5, 917517, 327680, 5, 917516, 327680, 5, 917515, 327680, 5, 917514, 327680, 5, 917513, 327680, 5, 1376278, 262144, 5, 1310742, 262144, 5, 1245206, 262144, 5)
-layer_3/name = "Interact"
-script = ExtResource("6_2riyp")
+[node name="TileMap" parent="." instance=ExtResource("4_v0c4q")]
+
+[node name="Torchs" parent="." instance=ExtResource("5_jy200")]
+position = Vector2(121, 279)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_3mrgy")]
-visible = false
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.13319641, 0.13319641, 0.13319638, 1)
-
-[node name="Player" parent="." instance=ExtResource("8_eu04w")]
-position = Vector2(142, 351)
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("6_gvpv4")]
+position = Vector2(152, 316)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(236, 319)
+position = Vector2(236, 292)
 zoom = Vector2(2.5, 2.5)
 
-[node name="Door" parent="." instance=ExtResource("6_o6t2i")]
-position = Vector2(152, 428)
-rotation = 0.0018791419
-next_scene_path = "uid://bwb78ls7g2sjj"
-entry_point_id = "PintuDapur2"
+[node name="PauseMenu" parent="." instance=ExtResource("7_5scrh")]
 
-[node name="Spawnpoint" parent="." groups=["PintuDapur"] instance=ExtResource("6_o6t2i")]
-position = Vector2(313, 398)
-script = null
+[node name="InventoryCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("8_bh1et")
+icon_open = ExtResource("9_jy200")
+icon_close = ExtResource("10_v0c4q")
 
-[node name="Door2" parent="." instance=ExtResource("6_o6t2i")]
-position = Vector2(313, 422)
-next_scene_path = "uid://ca8ce178ojv40"
-entry_point_id = "PintuDiningRoom"
+[node name="InventoryUI" parent="InventoryCanvas" instance=ExtResource("11_sab8e")]
+visible = false
 
-[node name="Spawnpoint2" parent="." groups=["Lantai1Atas"] instance=ExtResource("6_o6t2i")]
-position = Vector2(154, 401)
-script = null
+[node name="MarginContainer" type="MarginContainer" parent="InventoryCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
 
-[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
-[connection signal="body_entered" from="Door2" to="Door2" method="_on_body_entered"]
+[node name="CloseInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("12_r1rog")
+
+[node name="OpenInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("13_kgwd2")
+max_polyphony = 2
+
+[node name="InventoryButton" type="Button" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_3ciet")
+icon = ExtResource("10_v0c4q")
+icon_alignment = 1
+
+[node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("15_2ql4h")]
+visible = false
+
+[node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("16_j7tks")
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("17_2yicj")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.13319641, 0.13319641, 0.13319638, 1)
+
+[connection signal="arrived" from="Player" to="." method="_on_player_arrived"]
+[connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]

@@ -1,12 +1,11 @@
 extends CharacterBody2D
 
 var Tile_map : TileMap
-var Astar : AStarGrid2D
+var Astar = AStarGrid2D
 var current_path_id: Array[Vector2i]
 var speed := 50
 
 var last_frame : int = -1
-
 var target_item : Area2D = null
 
 signal arrived
@@ -14,14 +13,18 @@ signal arrived
 var is_external_move := false
 var external_target_cell: Vector2i
 
+var InspectScene: PackedScene
 
 func _ready():
-	Tile_map = get_parent().find_child("TileMap")
-	print("Hasil cari TileMap: ", Tile_map)
+	Tile_map = get_parent().get_node("TileMap")
 	Astar = Tile_map.AstarGrid
 
 func _unhandled_input(event):
-	if event.is_action_pressed("left_mbutton") and not PauseGameController.is_in_pause_box:
+	if event.is_action_pressed("left_mbutton")\
+	and not PauseGameController.is_in_pause_box\
+	and not InspectWindowController.is_in_inspect_window:
+		if is_external_move:
+			cancel_external_move()
 		target_item = null
 		get_coord()
 
@@ -40,6 +43,7 @@ func get_coord():
 	current_path_id = Astar.get_id_path(start_point, end_point).slice(1)
 
 func _process(delta):
+	# Debug die logic
 	if (Input.is_action_just_pressed("ui_down")):
 		die()
 	
@@ -54,6 +58,10 @@ func _process(delta):
 			if global_position.distance_to(target_item.global_position) < 32:
 				target_item.pick_up()
 				target_item = null
+		
+		if is_external_move:
+			is_external_move = false
+			emit_signal("arrived")
 		return
 
 	var target_pos = Tile_map.map_to_local(current_path_id[0])
@@ -80,7 +88,7 @@ func move_playerTo(target, delta):
 		$AnimatedSprite2D.play("w_down"  if direction.y > 0 else "w_up")
 	
 	play_footstep_sound()
-
+	
 func play_footstep_sound():
 	var current_frame = $AnimatedSprite2D.frame
 	
@@ -91,15 +99,26 @@ func play_footstep_sound():
 		
 		last_frame = current_frame
 
-func die():
+func move_to_cell(cell: Vector2i):
+	var start_point = Tile_map.local_to_map(global_position)
+	external_target_cell = cell
+	current_path_id = Astar.get_id_path(start_point, cell).slice(1)
+	is_external_move = true
+
+func cancel_external_move():
+	if not is_external_move:
+		return
+
+	is_external_move = false
 	current_path_id.clear()
-	$AnimatedSprite2D.stop()
-	$Langkah.stop()
-	last_frame = -1
+
+func die():
+	# Clear current path, making sure player doesnt move when they die while moving
+	current_path_id.clear()
 	respawn()
 
 func respawn():
 	if CheckpointState.has_checkpoint:
 		global_position = CheckpointState.checkpoint_position
 	else:
-		global_position = Vector2.ZERO
+		global_position = Vector2.ZERO  # or start position

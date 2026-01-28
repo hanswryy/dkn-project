@@ -1,0 +1,92 @@
+[gd_scene load_steps=17 format=3 uid="uid://6v50ayy1tu6t"]
+
+[ext_resource type="Script" uid="uid://xb25xwd4csfh" path="res://Scripts/Level/dapur/level_dapur_world.gd" id="1_6llij"]
+[ext_resource type="PackedScene" uid="uid://47jrw0lyc7mg" path="res://Scenes/levels/dapur/dnd_window.tscn" id="2_frlkk"]
+[ext_resource type="PackedScene" uid="uid://car0kf7aifqaa" path="res://Scenes/levels/dapur/level_dapur_player.tscn" id="3_6llij"]
+[ext_resource type="PackedScene" uid="uid://nfdyyqach8t2" path="res://Scenes/levels/dapur/level_dapur_tile.tscn" id="3_frlkk"]
+[ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="5_tp0pq"]
+[ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="6_hd33g"]
+[ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="7_c2055"]
+[ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="8_1tpef"]
+[ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="9_mowfh"]
+[ext_resource type="AudioStream" uid="uid://sjsd4jwaht3c" path="res://Assets/Audio/BGM/SFX tutup tas.mp3" id="10_mil88"]
+[ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="11_css08"]
+[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="12_r07yi"]
+[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="13_ltjei"]
+[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="14_pk4w2"]
+[ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="15_h6su0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1a4m"]
+texture = ExtResource("12_r07yi")
+region_rect = Rect2(16, 16, 32, 32)
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_6llij")
+dnd_scene = ExtResource("2_frlkk")
+
+[node name="TileMap" parent="." instance=ExtResource("3_frlkk")]
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_6llij")]
+position = Vector2(192, 302)
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_tp0pq")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(222, 335)
+zoom = Vector2(5, 5)
+
+[node name="InventoryCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("6_hd33g")
+icon_open = ExtResource("7_c2055")
+icon_close = ExtResource("8_1tpef")
+
+[node name="InventoryUI" parent="InventoryCanvas" instance=ExtResource("9_mowfh")]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="CloseInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("10_mil88")
+
+[node name="OpenInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("11_css08")
+max_polyphony = 2
+
+[node name="InventoryButton" type="Button" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_g1a4m")
+icon = ExtResource("8_1tpef")
+icon_alignment = 1
+
+[node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("13_ltjei")]
+visible = false
+
+[node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("14_pk4w2")
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("15_h6su0")
+
+[connection signal="arrived" from="Player" to="." method="_on_player_arrived"]
+[connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]
