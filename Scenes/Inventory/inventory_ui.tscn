@@ -1,14 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://crvxkwfcdgxku"]
+[gd_scene load_steps=10 format=3 uid="uid://crvxkwfcdgxku"]
 
 [ext_resource type="Script" uid="uid://b8wf4e06gw5jm" path="res://Scripts/Inventory/inventory_ui.gd" id="1_afoyu"]
 [ext_resource type="Texture2D" uid="uid://dd8bpxb0sbekl" path="res://Assets/Textures/dark-bg.jpg" id="2_a3clf"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="3_or0wv"]
 [ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="4_jrgvc"]
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="4_s1kqi"]
+[ext_resource type="Texture2D" uid="uid://5wl6lpnn7s1e" path="res://Assets/Sprites/Item/MagnifyingGlass.png" id="6_0cyxv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s1kqi"]
 texture = ExtResource("3_or0wv")
 region_rect = Rect2(111.918594, 16, 96.081406, 96)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2yrjy"]
+texture = ExtResource("3_or0wv")
+region_rect = Rect2(16, 16, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0cyxv"]
+texture = ExtResource("3_or0wv")
+region_rect = Rect2(16, 16, 32, 32)
 
 [node name="InventoryUI" type="Control"]
 layout_mode = 3
@@ -70,6 +79,7 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 5
@@ -93,7 +103,7 @@ layout_mode = 2
 
 [node name="ItemIcon" type="TextureRect" parent="PanelContainer/UIWrapper/MainMargin/ContentSplitter/PanelContainer/MarginContainer/InfoSection"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(64, 100)
 layout_mode = 2
 stretch_mode = 5
 
@@ -114,7 +124,7 @@ layout_mode = 2
 
 [node name="ItemDescription" type="Label" parent="PanelContainer/UIWrapper/MainMargin/ContentSplitter/PanelContainer/MarginContainer/InfoSection"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 150)
+custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_s1kqi")
 autowrap_mode = 2
@@ -129,3 +139,16 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Detail"
+
+[node name="MagnifyButton" type="Button" parent="PanelContainer/UIWrapper/MainMargin/ContentSplitter/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_2yrjy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0cyxv")
+icon = ExtResource("6_0cyxv")
+icon_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/UIWrapper/MainMargin/ContentSplitter/PanelContainer/MarginContainer/MagnifyButton" to="." method="_on_magnify_button_pressed"]

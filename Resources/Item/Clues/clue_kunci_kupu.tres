@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cd5syxchsrgsc"]
+
+[ext_resource type="Script" uid="uid://brbwama7atgt2" path="res://Resources/Item/item_data.gd" id="1_bukhl"]
+[ext_resource type="Texture2D" uid="uid://vx5r84w57atc" path="res://Assets/Sprites/Item/big_pictures_clues.png" id="1_uy6lq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6edh"]
+atlas = ExtResource("1_uy6lq")
+region = Rect2(336, 176, 104, 152)
+
+[resource]
+script = ExtResource("1_bukhl")
+id = "clue_kunci_kupu"
+name = "Kunci Corak Kupu-Kupi"
+icon = SubResource("AtlasTexture_p6edh")
+description = "Indah sekali, sekaligus mengerikan. Ukirannya membentuk sayap kupu-kupu yang sangat presisi, hampir menyatu sempurna dengan bingkai lukisan tadi. Tanpa lensa itu, aku pasti sudah melewatkannya. Besinya terasa berat dan dingin... Kunci sekecil ini pasti menyembunyikan rahasia yang jauh lebih besar di suatu tempat."
+metadata/_custom_type_script = "uid://brbwama7atgt2"
