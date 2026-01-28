@@ -3,10 +3,10 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = false
-	$Control/Panel/Options.visible = false
 
 func show_monodialog(duration, speaker, sprite, text = "", options = {}, voice = null, reappearance = true):
 	visible = true
+	$Control/Panel/Options.visible = false
 	$Control/Panel/TextureRect.texture = sprite
 	$Control/Panel/CharacterName.text = speaker
 	$Control/Panel/Text.text = text

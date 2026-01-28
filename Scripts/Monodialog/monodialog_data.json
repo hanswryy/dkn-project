@@ -1,22 +1,24 @@
 {
 	"mc": {
+		"character_picture": "uid://bp2vn7aimfq8m",
+		"character_name": "John Cijambe",
+		"character_voice": "uid://j2c1oqo3420",
 		"tree": [
 			{
 				"branch_id": "0",
-				"character_name": "John Cijambe",
 				"monodialogs": [
 					{
 					"state": "start",
 					"text": "Aku di mana bjir",
 					"options": {
-						"Next": "page_1",
+						"Next": "page_1"
 						}
 					},
 					{
 					"state": "page_1",
 					"text": "Oh aku di backroom loh ya",
 					"options": {
-						"Next": "page_2",
+						"Next": "page_2"
 						}
 					},
 					{
@@ -30,7 +32,6 @@
 			},
 			{
 				"branch_id": "1",
-				"character_name": "John Cijambe",
 				"monodialogs": [
 					{
 					"state": "start",
@@ -52,27 +53,26 @@
 			{
 				"branch_id": "40",
 				"type": "revealing_clue",
-				"character_name": "John Cijambe",
 				"monodialogs": [
 					{
 						"state": "start",
 						"text": "Tunggu sebentar... Noda ini bukan sekadar kotoran.",
 						"options": {
-							"Lanjut": "2",
+							"Lanjut": "2"
 						}
 					},
 					{
 						"state": "2",
 						"text": "Ini bekas lipstik, warnanya persis dengan yang ada di tisu tempat sampah dapur.",
 						"options": {
-							"Lanjut": "3",
+							"Lanjut": "3"
 						}
 					},
 					{
 						"state": "3",
 						"text": "Dan juga tanda tangan Matt di sini... tarikannya terlalu kaku.",
 						"options": {
-							"Lanjut": "4",
+							"Lanjut": "4"
 						}
 					},
 					{
@@ -80,6 +80,105 @@
 						"text": "Ini jelas hasil jiplakan! Surat ini dibuat tepat satu hari sebelum pembunuhan.",
 						"options": {
 							"Selesai": "exit"
+						}
+					}
+				]
+			}
+		]
+	},
+	"eddie": {
+		"character_picture": "uid://dvsn3f13fpb3b",
+		"character_name": "Eddie",
+		"character_voice": "uid://j2c1oqo3420",
+		"tree": [
+			{
+				"branch_id": "0",
+				"monodialogs": [
+					{
+					"state": "start",
+					"text": "Aku di mana bjir",
+					"options": {
+						"Next": "page_1"
+						}
+					},
+					{
+					"state": "page_1",
+					"text": "Oh aku di backroom loh ya",
+					"options": {
+						"Next": "page_2"
+						}
+					},
+					{
+					"state": "page_2",
+					"text": "Kabur ah",
+					"options": {
+						"Kabur loh ya": "exit"
+						}
+					}
+				]
+			}
+		]
+	},
+	"eddie_2": {
+		"character_picture": "uid://bpl2i40evqbec",
+		"character_name": "Eddie",
+		"character_voice": "uid://j2c1oqo3420",
+		"tree": [
+			{
+				"branch_id": "0",
+				"monodialogs": [
+					{
+					"state": "start",
+					"text": "Aku di mana bjir",
+					"options": {
+						"Next": "page_1"
+						}
+					},
+					{
+					"state": "page_1",
+					"text": "Oh aku di backroom loh ya",
+					"options": {
+						"Next": "page_2"
+						}
+					},
+					{
+					"state": "page_2",
+					"text": "Kabur ah",
+					"options": {
+						"Kabur loh ya": "exit"
+						}
+					}
+				]
+			}
+		]
+	},
+	"jilly": {
+		"character_picture": "uid://by1tbtwahxg3q",
+		"character_name": "Jilly",
+		"character_voice": "uid://c31sox5dq4558",
+		"tree": [
+			{
+				"branch_id": "0",
+				"monodialogs": [
+					{
+					"state": "start",
+					"text": "Aku di mana bjir",
+					"options": {
+						"Next": "page_1"
+						}
+					},
+					{
+					"state": "page_1",
+					"text": "Oh aku di backroom loh ya",
+					"options": {
+						"Next": "page_2"
+						}
+					},
+					{
+					"state": "page_2",
+					"text": "Kabur ah",
+					"options": {
+						"Kabur loh ya": "exit"
 						}
 					}
 				]
