@@ -9,6 +9,12 @@ var last_frame : int = -1
 
 var target_item : Area2D = null
 
+signal arrived
+
+var is_external_move := false
+var external_target_cell: Vector2i
+
+
 func _ready():
 	Tile_map = get_parent().find_child("TileMap")
 	print("Hasil cari TileMap: ", Tile_map)

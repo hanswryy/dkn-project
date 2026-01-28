@@ -24,6 +24,8 @@ FadeToBlack_Transition="*res://Transitions/fade_to_black.tscn"
 AudioFade="*res://Transitions/audio_fade.gd"
 UserSettings="*res://Scripts/user_settings.gd"
 CheckpointState="*res://Scripts/Global/CheckpointState.gd"
+InspectWindowController="*res://Scripts/Global/InspectWindowController.gd"
+GameManager="*res://Scripts/Global/GameManager.gd"
 SignalManager="*res://Scripts/Global/SignalManager.gd"
 
 [display]
@@ -35,7 +37,7 @@ window/stretch/aspect="expand"
 
 [global_group]
 
-Player=""
+player=""
 
 [input]
 
