@@ -16,6 +16,7 @@ var current_code : Array[int] = [0, 0, 0, 0]
 func _ready():
 	#hide()
 	update_display()
+	SignalManager.padlock_interaction_requested.connect(_on_interaction_requested)
 	
 func rotate_digit(index: int):
 	current_code[index] = (current_code[index] + 1) % 10
@@ -24,6 +25,9 @@ func rotate_digit(index: int):
 	%PutItemSFX.play()
 	
 	check_password()
+
+func _on_interaction_requested():
+	show()
 
 func update_display():
 	for i in range(4):

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceeydqfusj70v"]
+
+[ext_resource type="Script" uid="uid://4jw8d6chqj8i" path="res://Scripts/Item/clue_trigger.gd" id="1_4ljkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ljkg"]
+size = Vector2(39.5, 40)
+
+[node name="ClueTrigger" type="Area2D"]
+script = ExtResource("1_4ljkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(39.25, 31)
+shape = SubResource("RectangleShape2D_4ljkg")

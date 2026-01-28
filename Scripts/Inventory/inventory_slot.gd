@@ -17,6 +17,7 @@ func display_item(item_data: ItemData):
 		icon.visible = false
 		
 func set_selected(state: bool):
+	$ClickSound.play()
 	is_selected = state
 	_update_visual()
 
