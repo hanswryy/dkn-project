@@ -19,7 +19,7 @@ func _ready():
 	add_item(load(Constants.SCENE_PATHS.tiket_kereta))
 	add_item(load(Constants.SCENE_PATHS.diary_lily))
 	add_item(load(Constants.SCENE_PATHS.clue_tisu))
-	add_item(load(Constants.SCENE_PATHS.clue_cangkir))
+	#add_item(load(Constants.SCENE_PATHS.clue_cangkir))
 	add_item(load(Constants.SCENE_PATHS.botol_racun))
 	add_item(load(Constants.SCENE_PATHS.kunci_kupu))
 	pass
