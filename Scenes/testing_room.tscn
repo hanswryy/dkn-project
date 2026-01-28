@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="5_nbrna"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="6_hv31l"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="7_6rkoc"]
-[ext_resource type="PackedScene" uid="uid://dojtnhwe40xjh" path="res://Scenes/door.tscn" id="8_edkph"]
+[ext_resource type="PackedScene" uid="uid://dojtnhwe40xjh" path="res://Scenes/Move_Scenes/door.tscn" id="8_edkph"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_votce"]
 texture = ExtResource("1_8jdow")
