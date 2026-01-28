@@ -5,15 +5,15 @@ extends Node2D
 var trigger: Node = null
 var reappear = true
 
-func start_monodialog(character, text = "", options = {}):
-	trigger = character
+func start_monodialog(chara, text = "", options = {}):
+	trigger = chara
 	print(text)
 	if text != "":
-		monodialog_ui.show_monodialog(character.start_duration, character.character_name, text, options, false)
+		monodialog_ui.show_monodialog(chara.start_duration, chara.character_name, chara.character_sprite, text, options, chara.character_voice, false)
 	else:
 		var monodialog = trigger.get_current_monodialog()
 		if not monodialog: return
-		monodialog_ui.show_monodialog(character.start_duration, character.character_name, monodialog["text"], monodialog["options"], reappear)
+		monodialog_ui.show_monodialog(chara.start_duration, chara.character_name, chara.character_sprite, monodialog["text"], monodialog["options"], chara.character_voice, reappear)
 		reappear = true
 
 func stop_monodialog(duration):

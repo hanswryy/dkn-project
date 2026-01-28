@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cy2mwg7607q46"]
+[gd_scene load_steps=33 format=4 uid="uid://cy2mwg7607q46"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_go701"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="2_5a7ea"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://w3s80m5fgii0" path="res://Assets/Sprites/tilemap1.png" id="4_k7acu"]
 [ext_resource type="PackedScene" uid="uid://bv5vk7g4wvujo" path="res://Scenes/Torchs/torch(light).tscn" id="6_o06y3"]
 [ext_resource type="PackedScene" uid="uid://l73srk0x61rq" path="res://Scenes/Torchs/torch(checkpoint).tscn" id="7_k7acu"]
+[ext_resource type="PackedScene" uid="uid://n54evfpbhe28" path="res://Scenes/Monodialog/md_button_trigger.tscn" id="9_7yui6"]
+[ext_resource type="Texture2D" uid="uid://b1wnnvg8eyqfd" path="res://Assets/Sprites/icon.svg" id="10_c5t2i"]
+[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="11_ikia7"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fo5ed"]
 polygon = PackedVector2Array(-3.057599, -5.755479, 3.057598, -5.755479, 3.057598, 8, -3.057599, 8)
@@ -290,3 +293,15 @@ position = Vector2(46, 39)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_o06y3")
+
+[node name="MonodialogTrigger" parent="." instance=ExtResource("9_7yui6")]
+offset_left = 157.0
+offset_top = 33.0
+offset_right = 285.0
+offset_bottom = 161.0
+texture_normal = ExtResource("10_c5t2i")
+character_id = "mc"
+current_branch_index = 1
+button_sfx = ExtResource("11_ikia7")
+
+[connection signal="pressed" from="MonodialogTrigger" to="MonodialogTrigger" method="_on_pressed"]

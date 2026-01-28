@@ -4,9 +4,11 @@ extends Area2D
 @onready var monodialog_resource: Monodialog = Monodialog.new()
 
 @export var character_id: String
+@export var character_sprite: Resource
 @export var character_name: String
 @export var current_branch_index: int = 0
 var current_state = "start"
+var active_branch_data: Dictionary
 
 @export var start_duration: float = 0.5
 @export var hide_duration: float = 0.5
@@ -19,8 +21,9 @@ func start_monodialog():
 	assert(not character_id.is_empty(), "Monodialog: Character ID belum di-setting")
 	assert(not monodialogs.is_empty(), "Monodialog: character_id tidak ditemukan")
 	print("Entered trigger")
+	active_branch_data = monodialogs[current_branch_index]
 	if character_name.is_empty():
-		character_name = monodialogs[current_branch_index]["character_name"]
+		character_name = active_branch_data["character_name"]
 	monodialog_manager.start_monodialog(self)
 
 func get_current_monodialog():
@@ -37,3 +40,6 @@ func set_monodialog_tree(branch_index):
 
 func set_monodialog_state(state):
 	current_state = state
+
+func _on_body_entered(body: Node2D) -> void:
+	start_monodialog()
