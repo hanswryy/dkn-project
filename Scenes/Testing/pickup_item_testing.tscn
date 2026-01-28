@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://2k38nx87pboq"]
+[gd_scene load_steps=41 format=4 uid="uid://2k38nx87pboq"]
 
 [ext_resource type="PackedScene" uid="uid://djj56c0llxuqg" path="res://Scenes/tile_map.tscn" id="1_82isd"]
 [ext_resource type="Texture2D" uid="uid://bwa2fkocxoox0" path="res://Assets/Sprites/Fences.png" id="2_58pl5"]
@@ -17,6 +17,8 @@
 [ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="14_r3e5i"]
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="16_2x4rh"]
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="16_fhfem"]
+[ext_resource type="PackedScene" uid="uid://bmn3clt6aisdu" path="res://Scenes/Monodialog/md_area_trigger.tscn" id="18_u8wtq"]
+[ext_resource type="Script" uid="uid://ces3mnbd8fmgq" path="res://Scripts/Monodialog/md_event_trigger.gd" id="19_oq4p1"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fo5ed"]
 polygon = PackedVector2Array(-3.057599, -5.755479, 3.057598, -5.755479, 3.057598, 8, -3.057599, 8)
@@ -260,6 +262,9 @@ sources/1 = SubResource("TileSetAtlasSource_rlxc1")
 texture = ExtResource("10_oxm31")
 region_rect = Rect2(16, 16, 32, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8wtq"]
+size = Vector2(125, 65)
+
 [node name="world" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_82isd")]
@@ -360,5 +365,13 @@ color = Color(0, 0, 0, 1)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(185, 143)
 zoom = Vector2(5, 5)
+
+[node name="MonodialogEventTrigger" parent="." instance=ExtResource("18_u8wtq")]
+unique_name_in_owner = true
+script = ExtResource("19_oq4p1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonodialogEventTrigger"]
+position = Vector2(235, 148)
+shape = SubResource("RectangleShape2D_u8wtq")
 
 [connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]

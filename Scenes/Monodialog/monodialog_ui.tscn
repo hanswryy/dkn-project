@@ -88,8 +88,10 @@ offset_right = 175.55557
 offset_bottom = 26.333336
 grow_vertical = 2
 scale = Vector2(0.72, 0.72)
-text = "Gyattttt"
+theme_override_font_sizes/font_size = 16
+text = "Gyattttt sda sdasd asda dsas asda sdasda sda sdas dasd "
 label_settings = SubResource("LabelSettings_01nol")
+autowrap_mode = 2
 
 [node name="Options" type="HBoxContainer" parent="Control/Panel"]
 layout_mode = 1

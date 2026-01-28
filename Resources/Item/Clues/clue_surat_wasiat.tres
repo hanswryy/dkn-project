@@ -16,4 +16,5 @@ icon = SubResource("AtlasTexture_mm2r8")
 description = "Akhirnya... brankasnya terbuka. Ini dia, surat wasiat keluarga Matt. Terlihat sangat resmi dengan stempel lilin dan tanda tangan yang tegas. Semuanya tampak legal, tapi kenapa Matt harus menyembunyikannya di dalam brankas dengan kode tanggal lahir istrinya?"
 magnifiable = true
 revealedVersion = ExtResource("2_mm2r8")
+postRevealDialog = "40"
 metadata/_custom_type_script = "uid://brbwama7atgt2"

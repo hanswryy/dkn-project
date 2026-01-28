@@ -10,7 +10,7 @@ const SCENE_PATHS: Dictionary = {
 	"kunci_kupu": "uid://cd5syxchsrgsc",
 	"botol_racun": "uid://d2bqxx0dsst7p",
 	"tiket_kereta": "uid://x2dt31cf07kr",
-	"clue_cangkir": "uid://h34kuh2qtva",
+	"clue_cangkir": "uid://depcxg6sxwrsm",
 	"clue_tisu": "uid://cbjfiu0isdlfc",
 	
 	# Item

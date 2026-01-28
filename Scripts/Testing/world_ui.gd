@@ -14,6 +14,11 @@ func _ready():
 func start_magnify():
 	fade_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
 	
+	# get branch_id
+	var branch_id_to_play = 0
+	if inventory_ui.selected_slot and inventory_ui.selected_slot.current_item_data:
+		branch_id_to_play = inventory_ui.selected_slot.current_item_data.postRevealDialog
+	
 	# Fade In
 	var tween = create_tween()
 	tween.tween_property(fade_overlay, "modulate:a", 1.0, 2)
@@ -30,6 +35,7 @@ func start_magnify():
 	fade_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	# Monodialog
+	%MonodialogEventTrigger.start_monodialog(int(branch_id_to_play))
 
 func _unhandled_input(event):
 	if event.is_action_pressed("open_inventory"):
