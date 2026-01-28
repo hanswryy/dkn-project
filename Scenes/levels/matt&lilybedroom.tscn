@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dq3mgt0pikihf"]
+[gd_scene load_steps=8 format=3 uid="uid://dq3mgt0pikihf"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_wdqbv"]
 [ext_resource type="TileSet" uid="uid://dqkwscxogdg5l" path="res://Assets/Sprites/tileset.tres" id="2_2hfdi"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="4_sii78"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="5_q4gm2"]
 [ext_resource type="Script" uid="uid://cj2obfjdunwh3" path="res://Scripts/camera_player.gd" id="6_yt2h6"]
+[ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="7_2hfdi"]
 
 [node name="DinnerRoom" type="Node2D"]
 
@@ -35,10 +36,15 @@ visible = false
 visible = false
 color = Color(0.13319641, 0.13319641, 0.13319638, 1)
 
-[node name="Player" parent="." instance=ExtResource("5_q4gm2")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("5_q4gm2")]
 position = Vector2(142, 351)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(94, -32)
 zoom = Vector2(2.5, 2.5)
 script = ExtResource("6_yt2h6")
+
+[node name="Door" parent="." groups=["player"] instance=ExtResource("7_2hfdi")]
+position = Vector2(89.125, 351.18)
+scale = Vector2(1.055, 1.565)
+next_scene = "uid://bgj86kvc5r7gt"
