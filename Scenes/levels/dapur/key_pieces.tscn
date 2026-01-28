@@ -11,6 +11,7 @@ script = ExtResource("1_vo3rr")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_jnja0")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

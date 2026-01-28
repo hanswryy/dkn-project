@@ -9,6 +9,8 @@ func _ready():
 	
 	if piece_texture:
 		$Sprite2D.texture = piece_texture
+	else:
+		$Sprite2D.texture = item.icon
 
 func _physics_process(_delta):
 	var overlap_count := get_overlapping_areas().size()
@@ -23,3 +25,4 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		InventoryManager.add_item(item)
 		InventoryManager.item_highlight_requested.emit(item)
 		print("congrats")
+		queue_free()
