@@ -1,12 +1,12 @@
 extends Node2D
 
-@export var checkpoint_scene: PackedScene
+@export var dnd_scene: PackedScene
 
 @onready var tilemap: TileMap = $TileMap
 @onready var objects_layer: TileMapLayer = $TileMap/Objects
 @onready var player = $Player
 
-var pending_checkpoint_cell: Vector2i = Vector2i(-1, -1)
+var pending_object_cell: Vector2i = Vector2i(-1, -1)
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton \
@@ -24,28 +24,27 @@ func handle_tile_click(mouse_pos: Vector2):
 		return
 
 	if tile_data.get_custom_data("is_checkpoint"):\
-		request_checkpoint_inspection(cell)
+		request_object_inspection(cell)
 
-func request_checkpoint_inspection(cell: Vector2i):
-	pending_checkpoint_cell = cell
+func request_object_inspection(cell: Vector2i):
+	pending_object_cell = cell
 	
 	var object_cell = cell
 	var stand_cell = tilemap.get_interaction_cell(object_cell, player.global_position)
 	player.move_to_cell(stand_cell)
 
 func _on_player_arrived():
-	if pending_checkpoint_cell == Vector2i(-1, -1):
+	if pending_object_cell == Vector2i(-1, -1):
 		return
 
-	spawn_checkpoint(pending_checkpoint_cell)
-	pending_checkpoint_cell = Vector2i(-1, -1)
+	spawn_inspect_window()
+	pending_object_cell = Vector2i(-1, -1)
 
-func spawn_checkpoint(cell: Vector2i):
-	var checkpoint = checkpoint_scene.instantiate()
-	checkpoint.global_position = tilemap.map_to_local(cell)
-	checkpoint.activated.connect(_on_checkpoint_activated)
-	add_child(checkpoint)
+func spawn_inspect_window():
+	var obj = dnd_scene.instantiate()
+	InspectWindowController.is_in_inspect_window = true
+	add_child(obj)
+	move_child(obj, 0)
 
-func _on_checkpoint_activated(position: Vector2):
-	CheckpointState.set_checkpoint(position)
-	print("Checkpoint saved at:", position)
+func _on_object_activated():
+	print("object interacted")
