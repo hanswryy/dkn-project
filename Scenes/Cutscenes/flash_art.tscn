@@ -103,7 +103,40 @@ offset_right = 442.0
 offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Lorem ipsum dolor sit amet"
+label_settings = SubResource("LabelSettings_iplgb")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -442.0
+offset_top = -183.0
+offset_right = 442.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_iplgb")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -442.0
+offset_top = -183.0
+offset_right = 442.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
 label_settings = SubResource("LabelSettings_iplgb")
 horizontal_alignment = 1
 autowrap_mode = 3
