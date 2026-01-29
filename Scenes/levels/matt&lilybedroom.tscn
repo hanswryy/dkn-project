@@ -46,7 +46,7 @@ zoom = Vector2(2.5, 2.5)
 script = ExtResource("6_yt2h6")
 
 [node name="Door" parent="." instance=ExtResource("7_2hfdi")]
-position = Vector2(89.125, 351.18)
+position = Vector2(94, 351.00003)
 scale = Vector2(1.055, 1.565)
 next_scene_path = "uid://bgj86kvc5r7gt"
 entry_point_id = "KamarMatt"

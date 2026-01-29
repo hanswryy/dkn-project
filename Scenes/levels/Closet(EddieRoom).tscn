@@ -43,7 +43,7 @@ position = Vector2(236, 319)
 zoom = Vector2(2.5, 2.5)
 
 [node name="Door2" parent="." instance=ExtResource("6_0vryq")]
-position = Vector2(299, 426.00003)
+position = Vector2(298, 421.99997)
 scale = Vector2(0.68, 1.72)
 next_scene_path = "uid://bkp3t6r8q0edm"
 entry_point_id = "Closet"

@@ -55,13 +55,13 @@ scale = Vector2(0.655, 1.675)
 script = null
 
 [node name="Door2" parent="." instance=ExtResource("7_758fq")]
-position = Vector2(268, 304)
+position = Vector2(268, 311)
 scale = Vector2(0.68, 1.72)
 next_scene_path = "uid://c74tm24hjcljs"
 entry_point_id = "ClosetEddie"
 
 [node name="SpawnPoint2" parent="." groups=["Closet"] instance=ExtResource("7_758fq")]
-position = Vector2(268.00003, 346)
+position = Vector2(268, 352)
 scale = Vector2(0.655, 1.675)
 script = null
 
