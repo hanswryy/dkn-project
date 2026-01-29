@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv8nwcp0p3hia"]
+
+[ext_resource type="Script" uid="uid://brfymsi6eld5c" path="res://Scripts/Cutscenes/ending_cutscene.gd" id="1_3j5s0"]
+[ext_resource type="PackedScene" uid="uid://dysk1fiog4wjt" path="res://Scenes/levels/Basement.tscn" id="1_yodw4"]
+[ext_resource type="PackedScene" uid="uid://bmn3clt6aisdu" path="res://Scenes/Monodialog/md_area_trigger.tscn" id="3_ao5wy"]
+[ext_resource type="Texture2D" uid="uid://cj2mlt2i1d3rn" path="res://Assets/Sprites/Player/Sprite-Jilly.png" id="4_12408"]
+[ext_resource type="Texture2D" uid="uid://by1tbtwahxg3q" path="res://Assets/Sprites/Monodialog/jilly.png" id="4_g7lc2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7lc2"]
+size = Vector2(14.5, 96)
+
+[node name="EndingCutscene" type="Node2D"]
+script = ExtResource("1_3j5s0")
+
+[node name="Basement" parent="." instance=ExtResource("1_yodw4")]
+
+[node name="MonodialogEventTrigger" parent="." instance=ExtResource("3_ao5wy")]
+character_id = "jilly"
+character_picture = ExtResource("4_g7lc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonodialogEventTrigger"]
+position = Vector2(203.75, 317)
+shape = SubResource("RectangleShape2D_g7lc2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(187, 313)
+texture = ExtResource("4_12408")
+region_enabled = true
+region_rect = Rect2(103, 101, 20, 23)
+
+[connection signal="body_entered" from="MonodialogEventTrigger" to="MonodialogEventTrigger" method="_on_body_entered"]
