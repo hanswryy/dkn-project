@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwb78ls7g2sjj"]
+[gd_scene load_steps=24 format=3 uid="uid://bwb78ls7g2sjj"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_dw6t5"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_qdqot"]
@@ -8,7 +8,31 @@
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_8obx6"]
 [ext_resource type="PackedScene" uid="uid://bqyymabgkbfw4" path="res://Scenes/EntityChasing/enemy_chasing.tscn" id="9_306ee"]
 [ext_resource type="Script" uid="uid://cj2obfjdunwh3" path="res://Scripts/camera_player.gd" id="10_jj0a1"]
+[ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="10_vv4nl"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="11_jj0a1"]
+[ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="11_mxbla"]
+[ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="12_nsne8"]
+[ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="13_8caga"]
+[ext_resource type="AudioStream" uid="uid://sjsd4jwaht3c" path="res://Assets/Audio/BGM/SFX tutup tas.mp3" id="14_pb5y3"]
+[ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="15_8wqma"]
+[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="16_wgx0o"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="17_4lxfk"]
+[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="18_37st6"]
+[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="19_haxuf"]
+[ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="20_7sn1a"]
+[ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="21_idkrf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hlc4x"]
+texture = ExtResource("16_wgx0o")
+region_rect = Rect2(16, 16, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1ppj"]
+texture = ExtResource("16_wgx0o")
+texture_margin_left = 30.0
+texture_margin_top = 10.0
+texture_margin_right = 30.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(112, 16, 96, 96)
 
 [node name="Hall" type="Node2D"]
 script = ExtResource("1_dw6t5")
@@ -51,64 +75,152 @@ zoom = Vector2(2.5, 2.5)
 script = ExtResource("10_jj0a1")
 
 [node name="Door" parent="." instance=ExtResource("11_jj0a1")]
-position = Vector2(40, 290)
+position = Vector2(41.000004, 290)
 rotation = -1.5707964
+scale = Vector2(1.3024217, 1.5968497)
 next_scene_path = "uid://cq4yn24j3i25h"
 entry_point_id = "Lantai1Kiri"
 
 [node name="SpawnPoint" parent="." groups=["HallKiri"] instance=ExtResource("11_jj0a1")]
-position = Vector2(89, 297)
+position = Vector2(78, 290)
 rotation = -1.5707964
 script = null
 
 [node name="Door2" parent="." instance=ExtResource("11_jj0a1")]
-position = Vector2(437, 293)
+position = Vector2(436, 289)
 rotation = -1.5707964
 next_scene_path = "uid://ca8ce178ojv40"
 entry_point_id = "Lantai1Kanan"
 
 [node name="SpawnPoint2" parent="." groups=["HallKanan"] instance=ExtResource("11_jj0a1")]
-position = Vector2(414, 294)
+position = Vector2(411, 289)
 rotation = -1.5707964
 script = null
 
 [node name="Door3" parent="." instance=ExtResource("11_jj0a1")]
-position = Vector2(231, 133)
+position = Vector2(231, 163)
 rotation = -1.5707964
 scale = Vector2(0.8, 4.095)
 next_scene_path = "uid://bgj86kvc5r7gt"
 entry_point_id = "Lantai1Tangga"
 
 [node name="SpawnPoint3" parent="." groups=["Lantai2Tangga"] instance=ExtResource("11_jj0a1")]
-position = Vector2(233, 170)
+position = Vector2(230, 201)
 rotation = -1.5707964
 scale = Vector2(0.8, 4.095)
 script = null
 
 [node name="Door4" parent="." instance=ExtResource("11_jj0a1")]
-position = Vector2(337, 247)
+position = Vector2(337, 249.00002)
 rotation = -1.5707964
+scale = Vector2(0.90065247, 1.5446416)
 next_scene_path = "uid://s8dqdc2ds1d8"
 entry_point_id = "Lantai1Atas"
 
 [node name="SpawnPoint4" parent="." groups=["PintuDapur2"] instance=ExtResource("11_jj0a1")]
-position = Vector2(337, 294)
+position = Vector2(337, 287)
 rotation = -1.5707964
 script = null
 
 [node name="Door5" parent="." instance=ExtResource("11_jj0a1")]
-position = Vector2(113, 173)
+position = Vector2(112, 171)
 rotation = -1.5707964
 next_scene_path = "uid://cp3r6bogw8tnr"
 entry_point_id = "Lantai1Jilly"
 
 [node name="SpawnPoint5" parent="." groups=["KamarJilly"] instance=ExtResource("11_jj0a1")]
-position = Vector2(113, 213)
+position = Vector2(112, 214)
 rotation = -1.5707964
 script = null
+
+[node name="InventoryCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("10_vv4nl")
+icon_open = ExtResource("11_mxbla")
+icon_close = ExtResource("12_nsne8")
+
+[node name="InventoryUI" parent="InventoryCanvas" instance=ExtResource("13_8caga")]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="CloseInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("14_pb5y3")
+
+[node name="OpenInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("15_8wqma")
+max_polyphony = 2
+
+[node name="InventoryButton" type="Button" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_hlc4x")
+icon = ExtResource("12_nsne8")
+icon_alignment = 1
+
+[node name="AlertPopup" type="PanelContainer" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_u1ppj")
+
+[node name="Label" type="Label" parent="InventoryCanvas/MarginContainer/AlertPopup"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_4lxfk")
+text = "Fakta baru terungkap: Deskripsi Bukti Diperbarui!"
+
+[node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("18_37st6")]
+visible = false
+
+[node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("19_haxuf")
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("20_7sn1a")
+
+[node name="FadeOverlay" type="ColorRect" parent="InventoryCanvas"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 15.0
+offset_right = 2.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" parent="." instance=ExtResource("21_idkrf")]
+visible = false
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="body_entered" from="Door2" to="Door2" method="_on_body_entered"]
 [connection signal="body_entered" from="Door3" to="Door3" method="_on_body_entered"]
 [connection signal="body_entered" from="Door4" to="Door4" method="_on_body_entered"]
 [connection signal="body_entered" from="Door5" to="Door5" method="_on_body_entered"]
+[connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]

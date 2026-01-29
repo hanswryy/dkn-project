@@ -103,3 +103,8 @@ func reset_jumpscare():
 	has_been_triggered = false
 	is_jumpscare_active = false
 	print("Jumpscare reset - can trigger again")
+	
+func start_manual_jumpscare():
+	if not JumpscareManager.jumpscare_bathtub_triggered:
+		JumpscareManager.jumpscare_bathtub_triggered = true
+		trigger_jumpscare()

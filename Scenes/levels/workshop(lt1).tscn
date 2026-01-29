@@ -172,7 +172,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="MonodialogEventTrigger" parent="." instance=ExtResource("22_pt8vu")]
+[node name="MonodialogEventTrigger" parent="InventoryCanvas" instance=ExtResource("22_pt8vu")]
+character_id = "mc"
 
 [node name="PauseMenu" parent="." instance=ExtResource("19_w2sqe")]
 visible = false

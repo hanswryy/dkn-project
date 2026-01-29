@@ -171,6 +171,7 @@ func execute_tile_interaction(type: String):
 				SignalManager.padlock_interaction_requested.emit()
 		"Foto": SignalManager.foto_interaction_requested.emit()
 		"Bathtub": SignalManager.bathtub_interaction_requested.emit()
+		"Foto": SignalManager.foto_interaction_requested.emit()
 
 func play_footstep_sound():
 	var current_frame = $AnimatedSprite2D.frame

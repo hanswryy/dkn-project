@@ -40,7 +40,7 @@ func start_magnify():
 	fade_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	# Monodialog
-	%MonodialogEventTrigger.start_monodialog(branch_id_to_play)
+	$MonodialogEventTrigger.start_monodialog(branch_id_to_play)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("open_inventory"):
