@@ -58,11 +58,12 @@ layer_4/tile_data = PackedInt32Array(917524, 917508, 15, 983060, 917508, 16, 917
 script = ExtResource("6_6kqxj")
 
 [node name="EnemyChasing" parent="." instance=ExtResource("9_306ee")]
-position = Vector2(60, 292)
+position = Vector2(68, 299)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_qex7i")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 position = Vector2(31, 297)
 color = Color(0.18000486, 0.1800049, 0.1800048, 1)
 
@@ -80,6 +81,7 @@ rotation = -1.5707964
 scale = Vector2(1.3024217, 1.5968497)
 next_scene_path = "uid://cq4yn24j3i25h"
 entry_point_id = "Lantai1Kiri"
+hall_door = true
 
 [node name="SpawnPoint" parent="." groups=["HallKiri"] instance=ExtResource("11_jj0a1")]
 position = Vector2(78, 290)
@@ -116,6 +118,7 @@ rotation = -1.5707964
 scale = Vector2(0.90065247, 1.5446416)
 next_scene_path = "uid://s8dqdc2ds1d8"
 entry_point_id = "Lantai1Atas"
+hall_door = true
 
 [node name="SpawnPoint4" parent="." groups=["PintuDapur2"] instance=ExtResource("11_jj0a1")]
 position = Vector2(337, 287)
@@ -127,6 +130,7 @@ position = Vector2(112, 171)
 rotation = -1.5707964
 next_scene_path = "uid://cp3r6bogw8tnr"
 entry_point_id = "Lantai1Jilly"
+hall_door = true
 
 [node name="SpawnPoint5" parent="." groups=["KamarJilly"] instance=ExtResource("11_jj0a1")]
 position = Vector2(112, 214)
@@ -135,7 +139,6 @@ script = null
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 script = ExtResource("10_vv4nl")
 icon_open = ExtResource("11_mxbla")
 icon_close = ExtResource("12_nsne8")
