@@ -243,7 +243,7 @@ text = "Confirm"
 [node name="SFX_Click" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("2_k0w1u")
-bus = &"Music"
+bus = &"SFX"
 
 [connection signal="pressed" from="ColorRect/Main/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="ColorRect/Main/Button3" to="." method="_on_button_3_pressed"]
