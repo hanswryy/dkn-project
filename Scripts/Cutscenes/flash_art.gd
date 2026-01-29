@@ -10,7 +10,25 @@ var is_bad_ending = false
 # We store the "base" position so we don't drift away
 var _start_x: float
 
+func bad_ending():
+	$"../Control/TextureRect".texture = load("uid://bg3mr7m4pk7ur")
+	$"../Control/TextureRect2".texture = load("uid://d1d85gryl1p3o")
+	$"../Control/TextureRect3".texture = load("uid://yos6c6ckj4cq")
+	$"../Control/Label".text = "jawa jawa jawa"
+	$"../Control/Label2".text = "jawa jawa jawa"
+	$"../Control/Label3".text = "jawa jawa jawa"
+
+func good_ending():
+	$"../Control/TextureRect".texture = load("uid://cbepq036mevft")
+	$"../Control/TextureRect2".texture = load("uid://bgnlveijtftqv")
+	$"../Control/TextureRect3".texture = load("uid://diykisqdtoatp")
+	$"../Control/Label".text = "jawa jawa jawa"
+	$"../Control/Label2".text = "jawa jawa jawa"
+	$"../Control/Label3".text = "jawa jawa jawa"
+
 func _ready() -> void:
+	bad_ending()
+	
 	var tween = create_tween()
 	tween.tween_property($"../Control/TextureRect", "modulate:a", 1.0, 1.5) # fade in over 1.5 seconds
 	
@@ -55,7 +73,7 @@ func _on_pressed() -> void:
 		is_can_proceed = true
 	elif is_can_proceed and picture_index == 2 and not is_bad_ending:
 		visible = false
-		FadeToBlack_Transition.fade_to_scene("uid://dysk1fiog4wjt", 4)
+		FadeToBlack_Transition.fade_to_scene("uid://cxteef3x40qsy", 4)
 	elif is_can_proceed and picture_index == 2 and is_bad_ending:
 		visible = false
 		picture_index += 1
@@ -65,4 +83,4 @@ func _on_pressed() -> void:
 		tween.tween_property($"../Control/TextureRect4", "modulate:a", 1.0, 1.5) # fade in over 1.5 seconds
 		await tween.finished
 		is_can_proceed = true
-		FadeToBlack_Transition.fade_to_scene("uid://dysk1fiog4wjt", 4)
+		FadeToBlack_Transition.fade_to_scene("uid://cxteef3x40qsy", 4)
