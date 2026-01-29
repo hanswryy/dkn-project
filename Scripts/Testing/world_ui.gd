@@ -28,8 +28,8 @@ func _on_highlight_closed(item_id: String):
 		"clue_botol_racun":
 			%MonodialogEventTrigger.start_monodialog("50")
 		
-		"clue_tisu": # Nama ID item sesuaikan dengan ItemData kamu
-			%MonodialogEventTrigger.start_monodialog("40")
+		"clue_tisu":
+			%MonodialogEventTrigger.start_monodialog("140")
 			
 		"clue_cangkir_revealed":
 			%MonodialogEventTrigger.start_monodialog("60")
@@ -57,6 +57,10 @@ func _on_highlight_closed(item_id: String):
 			
 		"clue_diary_lily":
 			%MonodialogEventTrigger.start_monodialog("125")	
+			
+		"clue_jam_rusak":
+			%MonodialogEventTrigger.start_monodialog("130")	
+		
 		_:
 			print("Item ", item_id, " tidak memiliki dialog post-reveal.")
 	
