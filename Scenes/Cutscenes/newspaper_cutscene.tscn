@@ -1,13 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnbxspvlgp2tj"]
+[gd_scene load_steps=20 format=3 uid="uid://bnbxspvlgp2tj"]
 
 [ext_resource type="Script" uid="uid://bt1eoly12hirx" path="res://Scripts/Cutscenes/camera_2d.gd" id="1_fo8y1"]
 [ext_resource type="Script" uid="uid://ds6wd2318l7ke" path="res://Scripts/Cutscenes/newspaper_cutscene.gd" id="1_gqsoi"]
-[ext_resource type="Texture2D" uid="uid://6y34aq2bae4m" path="res://Assets/Images/placeholder_opening_cutscene.jpg" id="2_pwyv0"]
 [ext_resource type="Shader" uid="uid://dyq5e0kqfqaje" path="res://Screen_effect/blur.gdshader" id="3_ad0ii"]
+[ext_resource type="Texture2D" uid="uid://dxwclnp3lw6at" path="res://Assets/Sprites/Cutscene/bg-newspaper.png" id="3_b1kgc"]
+[ext_resource type="Texture2D" uid="uid://cc41dum6ynlpn" path="res://Assets/Sprites/Cutscene/newspaper.png" id="4_gqubr"]
+[ext_resource type="Texture2D" uid="uid://by1ruhxr731ed" path="res://Assets/Sprites/FirstPerson/padlock.png" id="4_u3aui"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="5_gqubr"]
+[ext_resource type="FontFile" uid="uid://qceu1igxm6sk" path="res://Assets/Fonts/Retro Pixel/thick/retro-pixel-thick.otf" id="5_s1qq5"]
+[ext_resource type="Texture2D" uid="uid://xp74wwnobecc" path="res://Assets/Sprites/Cutscene/yoga.png" id="9_j705f"]
+[ext_resource type="AudioStream" uid="uid://cq8q2ceq7arpt" path="res://Assets/Audio/SFX langkah kaki 1x bunyi.mp3" id="10_3ppa3"]
+[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="11_lu127"]
+[ext_resource type="AudioStream" uid="uid://bqqn0x3qyc4c6" path="res://Assets/Audio/BGM/BGM Map suasana gelap.mp3" id="11_vnioa"]
+[ext_resource type="AudioStream" uid="uid://c31sox5dq4558" path="res://Assets/Audio/SFX buka tutup kunci pintu.mp3" id="12_vnioa"]
+[ext_resource type="AudioStream" uid="uid://la7n7w1qxxsx" path="res://Assets/Audio/SFX gangguan bisikan.mp3" id="14_8nwrl"]
+[ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="14_vnioa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u3aui"]
+line_spacing = -16.175
+font = ExtResource("5_s1qq5")
+font_size = 66
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s1qq5"]
+font = ExtResource("5_gqubr")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gqsoi"]
 shader = ExtResource("3_ad0ii")
 shader_parameter/blur_amount = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_j705f"]
+font = ExtResource("5_gqubr")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
 
 [node name="NewspaperCutscene" type="Node2D"]
 script = ExtResource("1_gqsoi")
@@ -17,25 +44,108 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_fo8y1")
-min_bounds = Vector2(-50, -50)
-max_bounds = Vector2(50, 1000)
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Control"]
+offset = Vector2(0, 400)
+zoom = Vector2(0.6, 0.6)
+script = ExtResource("1_fo8y1")
+edge_pan_speed = 500.0
+bounds_rect = Rect2(-1000, -800, 1800, 2000)
+
+[node name="Bg" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(7.755, 0)
+offset_left = -2973.958
+offset_top = -1258.0
+offset_right = -2127.1382
+offset_bottom = -614.3989
+scale = Vector2(7.0878353, 6.3160233)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Bg2" type="Sprite2D" parent="."]
+position = Vector2(15, 781.5962)
+scale = Vector2(7.0878353, 6.3160233)
+texture = ExtResource("3_b1kgc")
+
+[node name="Bg3" type="Sprite2D" parent="."]
+position = Vector2(189.99995, -221.00006)
+rotation = 0.7784169
+scale = Vector2(7.0878353, 6.3160233)
+texture = ExtResource("4_u3aui")
 
 [node name="PlaceholderOpeningCutscene" type="Sprite2D" parent="."]
-position = Vector2(6.999996, 73.12503)
-scale = Vector2(1.9685059, 1.7541505)
-texture = ExtResource("2_pwyv0")
+position = Vector2(22.000008, 764.9999)
+scale = Vector2(0.61168295, 0.5450753)
+texture = ExtResource("4_gqubr")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Title" type="Label" parent="."]
+offset_left = -628.0
+offset_top = 855.9999
+offset_right = 302.0
+offset_bottom = 1005.9999
+text = "PEMBANTAIAN DI RUMAH BONEKA: SATU KELUARGA TEWAS"
+label_settings = SubResource("LabelSettings_u3aui")
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Title2" type="Label" parent="."]
+offset_left = -156.0
+offset_top = 1363.0
+offset_right = 655.0
+offset_bottom = 1446.0
+text = "Senam Yoga Sehat & Bahagia"
+label_settings = SubResource("LabelSettings_u3aui")
+horizontal_alignment = 1
+autowrap_mode = 3
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="DoneButton" type="Button" parent="Title2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -628.0
+offset_top = 999.9999
+offset_right = 279.0
+offset_bottom = 1349.9999
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tragedi memilukan mengguncang kota 10 tahun lalu. Keluarga pengrajin boneka, Julia dan suaminya, serta kedua anak mereka, ditemukan tewas secara brutal di kediaman pribadi mereka di ujung bukit. Mereka tinggal di sebuah mansion di Frans Bonaparta St.
+
+Investigasi Buntu Hingga berita ini diturunkan, tidak ada saksi mata maupun senjata pembunuh yang ditemukan. Mansion tersebut kini disegel rapat. Warga mengaku sering mendengar suara ketukan dari bengkel kerja."
+label_settings = SubResource("LabelSettings_s1qq5")
+horizontal_alignment = 3
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Label"]
 material = SubResource("ShaderMaterial_gqsoi")
-offset_left = -635.0
-offset_top = -181.875
-offset_right = -338.0
-offset_bottom = 786.125
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -6.999878
+offset_right = 6.0
+offset_bottom = -13.999878
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Button1" type="Button" parent="ColorRect"]
+[node name="Button1" type="Button" parent="Label/ColorRect"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -47,12 +157,18 @@ metadata/_edit_lock_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_gqsoi")
-offset_left = 332.0
-offset_top = -242.875
-offset_right = 629.0
-offset_bottom = -4.875
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 315.0
+offset_top = 876.9999
+offset_right = 654.0
+offset_bottom = 1321.9999
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Button2" type="Button" parent="ColorRect2"]
+[node name="Button1" type="Button" parent="ColorRect2"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -62,77 +178,80 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_gqsoi")
-offset_left = -319.0
-offset_top = 554.125
-offset_right = -22.0
-offset_bottom = 792.125
-
-[node name="Button3" type="Button" parent="ColorRect3"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = 1436.0
+offset_right = 260.0
+offset_bottom = 1679.0001
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
+text = "Bandung, 29 Januari 2026 – Di tengah kesibukan hidup modern, semakin banyak masyarakat mencari cara untuk menyeimbangkan kesehatan fisik dan mental. Instruktur yoga di Studio Harmoni, Jl. Merdeka No. 45 Bandung"
+label_settings = SubResource("LabelSettings_j705f")
+horizontal_alignment = 3
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect4" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_gqsoi")
-offset_left = 15.0
-offset_top = 506.125
-offset_right = 296.0
-offset_bottom = 788.125
-
-[node name="Button4" type="Button" parent="ColorRect4"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Label4" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 285.0
+offset_top = 1436.0
+offset_right = 656.0
+offset_bottom = 1650.0001
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
+text = "Peserta yang rutin mengikuti senam yoga mengaku merasakan manfaat nyata. “Saya jadi lebih segar, tidur lebih nyenyak, dan tidak mudah lelah,” kata Rina, salah satu peserta."
+label_settings = SubResource("LabelSettings_j705f")
+horizontal_alignment = 3
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect5" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_gqsoi")
-offset_left = 320.0
-offset_top = 585.125
-offset_right = 643.0
-offset_bottom = 804.125
+[node name="Bg4" type="Sprite2D" parent="."]
+position = Vector2(-409.74893, 1518.4192)
+scale = Vector2(1.240941, 1.126123)
+texture = ExtResource("9_j705f")
 
-[node name="Button5" type="Button" parent="ColorRect5"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
+[node name="Langkah" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_3ppa3")
+bus = &"SFX"
+parameters/looping = true
 
-[node name="ColorRect6" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_gqsoi")
-offset_left = 321.0
-offset_top = 72.125
-offset_right = 644.0
-offset_bottom = 499.125
+[node name="Timer" type="Timer" parent="Langkah"]
+wait_time = 3.0
 
-[node name="Button6" type="Button" parent="ColorRect6"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_vnioa")
+pitch_scale = 0.8
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
-[connection signal="pressed" from="ColorRect/Button1" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="ColorRect2/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="ColorRect3/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="ColorRect4/Button4" to="." method="_on_button_4_pressed"]
-[connection signal="pressed" from="ColorRect5/Button5" to="." method="_on_button_5_pressed"]
-[connection signal="pressed" from="ColorRect6/Button6" to="." method="_on_button_6_pressed"]
+[node name="PintuBuka" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_lu127")
+
+[node name="PintuTutup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_vnioa")
+
+[node name="Reveal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_8nwrl")
+volume_db = -4.407
+bus = &"SFX"
+parameters/looping = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_vnioa")]
+
+[connection signal="pressed" from="Title2/DoneButton" to="." method="_on_done_button_pressed"]
+[connection signal="pressed" from="Label/ColorRect/Button1" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect2/Button1" to="." method="_on_button_2_pressed"]
+[connection signal="timeout" from="Langkah/Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="PintuBuka" to="." method="_on_pintu_buka_finished"]
+[connection signal="finished" from="PintuTutup" to="." method="_on_pintu_tutup_finished"]
+[connection signal="finished" from="Reveal" to="." method="_on_pintu_tutup_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxteef3x40qsy"]
+[gd_scene load_steps=14 format=3 uid="uid://cxteef3x40qsy"]
 
 [ext_resource type="Script" uid="uid://tdsc8x5blkd3" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="AudioStream" uid="uid://d0e6fipuhdgoc" path="res://Assets/Audio/BGM/BGM Menu.mp3" id="2_48xlc"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="3_n45e2"]
 [ext_resource type="Texture2D" uid="uid://6cfh4t43hfi" path="res://Assets/Images/judul.png" id="3_opfnp"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="6_yhxw7"]
+[ext_resource type="AudioStream" uid="uid://cvek2de4uwe7p" path="res://Assets/Audio/SFX start the game~.mp3" id="9_trj04"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opfnp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -234,9 +235,16 @@ process_mode = 3
 stream = ExtResource("3_1ehe0")
 bus = &"Music"
 
+[node name="Start_SFX_Click" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("9_trj04")
+bus = &"Music"
+
 [connection signal="pressed" from="Main/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Main/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Main/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Settings/MasterVol/Dec" to="." method="_on_dec_pressed"]
 [connection signal="pressed" from="Settings/MasterVol/Inc" to="." method="_on_inc_pressed"]
+[connection signal="pressed" from="Settings/MusicVol/Dec" to="." method="_on_dec_2_pressed"]
+[connection signal="pressed" from="Settings/MusicVol/Inc" to="." method="_on_inc_2_pressed"]
 [connection signal="pressed" from="Settings/Button5" to="." method="_on_button_5_pressed"]

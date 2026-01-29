@@ -86,13 +86,13 @@ anchor_bottom = 0.5
 offset_left = 20.0
 offset_top = -7.0
 offset_right = 175.55557
-offset_bottom = 26.333336
+offset_bottom = 19.041672
 grow_vertical = 2
 scale = Vector2(0.72, 0.72)
 theme_override_font_sizes/font_size = 16
-text = "Gyattttt sda sdasd asda dsas asda sdasda sda sdas dasd "
+text = "apaain aisndiaosdi asidhasd as dioahsdiohais asih daisdh ioaha"
 label_settings = SubResource("LabelSettings_01nol")
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="Options" type="HBoxContainer" parent="Control/Panel"]
 layout_mode = 1

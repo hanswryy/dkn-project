@@ -10,9 +10,9 @@ func _ready() -> void:
 	$Settings/MusicVol/Value.text = str(int(UserSettings.music_volume * 10))
 
 func _on_button_2_pressed() -> void:
-	$SFX_Click.play()
+	$Start_SFX_Click.play()
 	AudioFade.fade_out($BGM, 4)
-	FadeToBlack_Transition.fade_to_scene("res://Scenes/levels/kitchen(lt1).tscn", 4)
+	FadeToBlack_Transition.fade_to_scene("uid://bnbxspvlgp2tj", 4)
 
 func _on_button_3_pressed() -> void:
 	$SFX_Click.play()
