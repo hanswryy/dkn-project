@@ -7,6 +7,8 @@ signal drawer_interaction_requested
 signal padlock_interaction_requested
 signal bathtub_interaction_requested
 signal foto_interaction_requested
+signal painting_interaction_requested
+signal eddie_drawer_interaction_requested
 signal padlock_unlocked(item_inside: ItemData)
 
 signal highlight_closed

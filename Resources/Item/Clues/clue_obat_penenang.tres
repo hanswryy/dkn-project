@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://0rn108bpjffk"]
+
+[ext_resource type="Script" uid="uid://brbwama7atgt2" path="res://Resources/Item/item_data.gd" id="1_kvh3o"]
+[ext_resource type="Texture2D" uid="uid://vx5r84w57atc" path="res://Assets/Sprites/Item/big_pictures_clues.png" id="1_v2ewn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b1a2"]
+atlas = ExtResource("1_v2ewn")
+region = Rect2(120, 112, 50, 70)
+
+[resource]
+script = ExtResource("1_kvh3o")
+id = "clue_obat_penenang"
+name = "Obat Penenang"
+icon = SubResource("AtlasTexture_1b1a2")
+description = "Botol kaca berisi pil penenang dengan label nama 'Matt Julia'. Isinya masih terlihat penuh, seolah pemiliknya sengaja berhenti mengonsumsinya. Dalam buku harian, disebutkan bahwa Matt menjadi menakutkan saat lupa meminum obat ini. Apakah ini pemicu kegilaannya malam itu?"
+postRevealDialog = "120"
+metadata/_custom_type_script = "uid://brbwama7atgt2"

@@ -5,6 +5,7 @@ extends Control
 @onready var item_description = %ItemDescription
 
 var original_pos_y : float
+var postDialogId = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +23,7 @@ func _on_item_highlight(item_data: ItemData):
 	item_icon.texture = item_data.icon
 	item_name.text = item_data.name
 	item_description.text = item_data.description
+	postDialogId = item_data.postRevealDialog
 	
 	show_highlight()
 	
@@ -71,3 +73,5 @@ func animate_close():
 	await tween.finished
 	self.hide()
 	self.position.y = original_pos_y
+	
+	#%MonodialogEventTrigger.start_monodialog(postDialogId)

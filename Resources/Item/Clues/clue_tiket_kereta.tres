@@ -13,4 +13,5 @@ id = "clue_tiket_kereta"
 name = "Tiket Kereta"
 icon = SubResource("AtlasTexture_5frwy")
 description = "Satu tiket sekali jalan atas nama Eddie, keberangkatan tanggal 16 Oktober—tiga hari setelah pembunuhan itu terjadi. Kenapa dia tidak jadi berangkat? Apakah dia tidak sempat lari, atau justru... dia memutuskan untuk tetap tinggal demi alasan yang lebih mengerikan? Tiket ini terasa sangat dingin, seperti sebuah rencana pelarian yang mati sebelum sempat dimulai."
+postRevealDialog = "115"
 metadata/_custom_type_script = "uid://brbwama7atgt2"
