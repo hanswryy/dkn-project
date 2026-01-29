@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwb78ls7g2sjj"]
+[gd_scene load_steps=10 format=3 uid="uid://bwb78ls7g2sjj"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_dw6t5"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_qdqot"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="6_6kqxj"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="7_qex7i"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_8obx6"]
+[ext_resource type="PackedScene" uid="uid://bqyymabgkbfw4" path="res://Scenes/EntityChasing/enemy_chasing.tscn" id="9_306ee"]
 [ext_resource type="Script" uid="uid://cj2obfjdunwh3" path="res://Scripts/camera_player.gd" id="10_jj0a1"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="11_jj0a1"]
 
@@ -32,10 +33,13 @@ layer_4/name = "Door"
 layer_4/tile_data = PackedInt32Array(917524, 917508, 15, 983060, 917508, 16, 917525, 983044, 15, 983061, 983044, 16, 589830, 917508, 15, 655366, 917508, 16, 589831, 983044, 15, 655367, 983044, 16)
 script = ExtResource("6_6kqxj")
 
+[node name="EnemyChasing" parent="." instance=ExtResource("9_306ee")]
+position = Vector2(60, 292)
+
 [node name="CanvasLayer" parent="." instance=ExtResource("7_qex7i")]
-visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(31, 297)
 color = Color(0.18000486, 0.1800049, 0.1800048, 1)
 
 [node name="Player" parent="." instance=ExtResource("8_8obx6")]
@@ -47,7 +51,7 @@ zoom = Vector2(2.5, 2.5)
 script = ExtResource("10_jj0a1")
 
 [node name="Door" parent="." instance=ExtResource("11_jj0a1")]
-position = Vector2(37, 297)
+position = Vector2(40, 290)
 rotation = -1.5707964
 next_scene_path = "uid://cq4yn24j3i25h"
 entry_point_id = "Lantai1Kiri"
