@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cp3r6bogw8tnr"]
+[gd_scene load_steps=27 format=3 uid="uid://cp3r6bogw8tnr"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_qdqot"]
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_rsxbb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="6_1ookr"]
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="6_6kqxj"]
 [ext_resource type="Resource" uid="uid://b7mldsntmmomm" path="res://Resources/Item/Clues/clue_surat_sita_bank.tres" id="6_bkb2u"]
+[ext_resource type="Resource" uid="uid://blm7txon0u22w" path="res://Resources/Item/Clues/clue_surat_dari_matt.tres" id="6_k1rg4"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="7_qex7i"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_8obx6"]
 [ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="10_3n3jr"]
@@ -57,6 +58,10 @@ layer_3/tile_data = PackedInt32Array(983054, 720901, 10, 1048590, 720901, 11, 11
 layer_4/name = "Door"
 layer_4/tile_data = PackedInt32Array(1507342, 458756, 18, 1507343, 524292, 18)
 script = ExtResource("6_6kqxj")
+
+[node name="LyingItem2" parent="TileMap" instance=ExtResource("5_e24px")]
+position = Vector2(308, 278)
+item = ExtResource("6_k1rg4")
 
 [node name="LyingItem" parent="TileMap" instance=ExtResource("5_e24px")]
 position = Vector2(129, 287)

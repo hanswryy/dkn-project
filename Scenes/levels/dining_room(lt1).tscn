@@ -71,7 +71,7 @@ visible = false
 color = Color(0.13319641, 0.13319641, 0.13319638, 1)
 
 [node name="Player" parent="." instance=ExtResource("8_dwg8q")]
-position = Vector2(149, 336)
+position = Vector2(282, 289)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(236, 319)

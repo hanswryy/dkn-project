@@ -61,6 +61,9 @@ func _on_highlight_closed(item_id: String):
 		"clue_jam_rusak":
 			%MonodialogEventTrigger.start_monodialog("130")	
 		
+		"clue_surat_dari_matt":
+			%MonodialogEventTrigger.start_monodialog("150")	
+		
 		_:
 			print("Item ", item_id, " tidak memiliki dialog post-reveal.")
 	

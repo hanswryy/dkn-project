@@ -12,5 +12,5 @@ script = ExtResource("1_wme67")
 id = "clue_surat_dari_matt"
 name = "Surat dari Matt"
 icon = SubResource("AtlasTexture_2qfjr")
-description = "Ini dia pemicunya... Surat balasan dari Matt. Kata-katanya sangat tajam, dia terang-terangan menyebut Jilly serakah dan menolak memberikan bantuan sepeser pun. Bagi seseorang yang sudah kehilangan segalanya seperti Jilly, surat ini bukan sekadar penolakan—ini adalah vonis mati bagi masa depannya. Sekarang aku paham kenapa dia begitu tega menghabisi saudaranya sendiri tepat satu hari setelah surat ini dibuat."
+description = "Sebuah surat balasan dari Matt Julia untuk adiknya, Jilly. Isinya tegas dan dingin, menolak memberikan bantuan finansial terakhir untuk menutupi hutang Jilly yang menumpuk."
 metadata/_custom_type_script = "uid://brbwama7atgt2"
