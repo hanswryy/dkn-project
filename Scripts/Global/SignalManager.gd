@@ -12,3 +12,4 @@ signal eddie_drawer_interaction_requested
 signal padlock_unlocked(item_inside: ItemData)
 
 signal highlight_closed
+signal highlight_closed_2(item_id: String)

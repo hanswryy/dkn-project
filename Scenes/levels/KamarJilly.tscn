@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cp3r6bogw8tnr"]
+[gd_scene load_steps=26 format=3 uid="uid://cp3r6bogw8tnr"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_qdqot"]
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_rsxbb"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="19_s8js6"]
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="20_ea8ki"]
 [ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="21_5hahv"]
+[ext_resource type="PackedScene" uid="uid://dfgiutyjmm0ra" path="res://Scenes/Monodialog/md_event_trigger.tscn" id="23_3mt2s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e8dwi"]
 texture = ExtResource("16_7rpdw")
@@ -90,6 +91,7 @@ script = null
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 11
 script = ExtResource("10_3n3jr")
 icon_open = ExtResource("11_5hahv")
 icon_close = ExtResource("12_q3wf1")
@@ -171,7 +173,15 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" parent="." instance=ExtResource("21_5hahv")]
+layer = 100
 visible = false
+
+[node name="DialogWrapperUI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="MonodialogEventTrigger" parent="DialogWrapperUI" instance=ExtResource("23_3mt2s")]
+unique_name_in_owner = true
+character_id = "mc"
 
 [connection signal="body_entered" from="Door5" to="Door5" method="_on_body_entered"]
 [connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]

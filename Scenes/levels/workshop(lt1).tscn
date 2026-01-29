@@ -93,6 +93,7 @@ visible = false
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 11
 script = ExtResource("9_hiucf")
 icon_open = ExtResource("10_1naya")
 icon_close = ExtResource("11_tg7pr")
@@ -173,9 +174,11 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="MonodialogEventTrigger" parent="InventoryCanvas" instance=ExtResource("22_pt8vu")]
+unique_name_in_owner = true
 character_id = "mc"
 
 [node name="PauseMenu" parent="." instance=ExtResource("19_w2sqe")]
+layer = 100
 visible = false
 
 [connection signal="body_entered" from="Door2" to="Door2" method="_on_body_entered"]

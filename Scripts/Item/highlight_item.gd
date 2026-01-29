@@ -6,6 +6,7 @@ extends Control
 
 var original_pos_y : float
 var postDialogId = null
+var item_id: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +25,7 @@ func _on_item_highlight(item_data: ItemData):
 	item_name.text = item_data.name
 	item_description.text = item_data.description
 	postDialogId = item_data.postRevealDialog
+	item_id = item_data.id
 	
 	show_highlight()
 	
@@ -74,4 +76,4 @@ func animate_close():
 	self.hide()
 	self.position.y = original_pos_y
 	
-	#%MonodialogEventTrigger.start_monodialog(postDialogId)
+	SignalManager.highlight_closed_2.emit(item_id)
