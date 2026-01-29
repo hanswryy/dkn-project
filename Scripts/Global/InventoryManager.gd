@@ -24,11 +24,17 @@ func _ready():
 	pass
 
 func add_item(item: ItemData):
+	print("Item Added:" + str(item))
 	items.append(item)
 	inventory_updated.emit()
 	
 func has_item_by_id(target_id: String) -> bool:
-	return items.any(func(item): return item != null and item.id == target_id)
+	print(items)
+	return items.any(
+		func(item): 
+			print("Test2 :" + str(item))
+			return item != null and item.id == target_id
+	)
 	
 # check if player has magnifying glass in their inventory
 func has_magnifying_glass() -> bool:

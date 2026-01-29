@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ca8ce178ojv40"]
+[gd_scene load_steps=22 format=3 uid="uid://ca8ce178ojv40"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_7x7qr"]
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_vpxsp"]
@@ -16,7 +16,6 @@
 [ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="14_7nqlc"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="15_0v5wi"]
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="16_si75h"]
-[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="17_4cbjv"]
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="18_x76wf"]
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="19_idv22"]
 [ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="20_kx4vg"]
@@ -105,7 +104,6 @@ script = null
 [node name="Interaction" type="CanvasLayer" parent="."]
 
 [node name="InteractionCangkir" parent="Interaction" instance=ExtResource("8_kgkaa")]
-visible = false
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -143,7 +141,7 @@ max_polyphony = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_j55ug")
 icon = ExtResource("11_fxgbd")
@@ -161,9 +159,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_yi8fv")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_si75h")
 text = "Fakta baru terungkap: Deskripsi Bukti Diperbarui!"
-
-[node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("17_4cbjv")]
-visible = false
 
 [node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
 unique_name_in_owner = true

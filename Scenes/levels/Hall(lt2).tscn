@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bgj86kvc5r7gt"]
+[gd_scene load_steps=24 format=3 uid="uid://bgj86kvc5r7gt"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_dpkxq"]
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_tlum5"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="17_yx5is"]
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="18_hw0vs"]
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="19_kehi3"]
+[ext_resource type="PackedScene" uid="uid://bxnhyjj8k4evw" path="res://Scenes/Item/interaction_foto.tscn" id="20_e4qv4"]
 [ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="20_mj8aa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v5xws"]
@@ -152,7 +153,7 @@ max_polyphony = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_v5xws")
 icon = ExtResource("11_dadg7")
@@ -196,6 +197,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Interaction" type="CanvasLayer" parent="."]
+
+[node name="InteractionFoto" parent="Interaction" instance=ExtResource("20_e4qv4")]
+visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("20_mj8aa")]
 visible = false

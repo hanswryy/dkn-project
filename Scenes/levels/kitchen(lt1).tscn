@@ -46,6 +46,7 @@ position = Vector2(121, 279)
 position = Vector2(152, 316)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.13319641, 0.13319641, 0.13319638, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -54,6 +55,7 @@ zoom = Vector2(2.5, 2.5)
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("8_bh1et")
 icon_open = ExtResource("9_jy200")
 icon_close = ExtResource("10_v0c4q")
@@ -88,7 +90,7 @@ max_polyphony = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_3ciet")
 icon = ExtResource("10_v0c4q")
@@ -124,25 +126,25 @@ color = Color(0, 0, 0, 1)
 visible = false
 
 [node name="Door" parent="." instance=ExtResource("19_v0c4q")]
-position = Vector2(158, 372)
+position = Vector2(160.00002, 358)
 scale = Vector2(0.889, 1.087)
 next_scene_path = "uid://bwb78ls7g2sjj"
 entry_point_id = "PintuDapur2"
 
 [node name="SpawnPoint" parent="." groups=["Lantai1Atas"] instance=ExtResource("19_v0c4q")]
-position = Vector2(160, 330.00003)
-scale = Vector2(0.405, 1.625)
+position = Vector2(160, 335)
+scale = Vector2(1.2796143, 0.58710444)
 script = null
 
 [node name="Door2" parent="." instance=ExtResource("19_v0c4q")]
-position = Vector2(320.00003, 373.00003)
-scale = Vector2(0.889, 1.062)
+position = Vector2(320, 358)
+scale = Vector2(1.029749, 1.062)
 next_scene_path = "uid://ca8ce178ojv40"
 entry_point_id = "PintuDiningRoom"
 
 [node name="SpawnPoint2" parent="." groups=["PintuDapur"] instance=ExtResource("19_v0c4q")]
-position = Vector2(319, 337.00003)
-scale = Vector2(0.405, 1.625)
+position = Vector2(320, 337)
+scale = Vector2(-1.135815, 0.64951575)
 script = null
 
 [connection signal="arrived" from="Player" to="." method="_on_player_arrived"]

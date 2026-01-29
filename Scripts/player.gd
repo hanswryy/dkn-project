@@ -164,9 +164,14 @@ func execute_tile_interaction(type: String):
 	match type:
 		"Cangkir": SignalManager.cangkir_interaction_requested.emit()
 		"Laci": SignalManager.drawer_interaction_requested.emit()
-		"Padlock": SignalManager.padlock_interaction_requested.emit()
+		"Padlock": 
+			if InventoryManager.has_item_by_id("clue_surat_wasiat"):
+				pass
+			else:
+				SignalManager.padlock_interaction_requested.emit()
 		"Foto": SignalManager.foto_interaction_requested.emit()
 		"Bathtub": SignalManager.bathtub_interaction_requested.emit()
+		"Foto": SignalManager.foto_interaction_requested.emit()
 
 func play_footstep_sound():
 	var current_frame = $AnimatedSprite2D.frame
