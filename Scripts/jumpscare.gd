@@ -51,6 +51,7 @@ func setup_trigger():
 
 # >>> TRIGGER: Player masuk Area2D
 func _on_trigger_body_entered(body):
+	print("ez")
 	if body.name == "Player":
 		# >>> Langsung trigger jika belum pernah
 		if not has_been_triggered and not is_jumpscare_active:
