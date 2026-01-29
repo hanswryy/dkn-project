@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dysk1fiog4wjt"]
+[gd_scene load_steps=26 format=3 uid="uid://dysk1fiog4wjt"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_3rpkv"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_72st6"]
@@ -19,6 +19,9 @@
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="17_cglxt"]
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="18_06sm0"]
 [ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="19_6d11p"]
+[ext_resource type="PackedScene" uid="uid://bmn3clt6aisdu" path="res://Scenes/Monodialog/md_area_trigger.tscn" id="20_lu25t"]
+[ext_resource type="Texture2D" uid="uid://by1tbtwahxg3q" path="res://Assets/Sprites/Monodialog/jilly.png" id="21_oorl6"]
+[ext_resource type="Texture2D" uid="uid://cj2mlt2i1d3rn" path="res://Assets/Sprites/Player/Sprite-Jilly.png" id="22_0krot"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqy0e"]
 texture = ExtResource("14_4uv8x")
@@ -31,6 +34,9 @@ texture_margin_top = 10.0
 texture_margin_right = 30.0
 texture_margin_bottom = 10.0
 region_rect = Rect2(112, 16, 96, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uv8x"]
+size = Vector2(14.5, 96)
 
 [node name="Basement" type="Node2D"]
 script = ExtResource("1_3rpkv")
@@ -162,5 +168,20 @@ color = Color(0, 0, 0, 1)
 [node name="PauseMenu" parent="." instance=ExtResource("19_6d11p")]
 visible = false
 
+[node name="MonodialogEventTrigger" parent="." instance=ExtResource("20_lu25t")]
+character_id = "jilly"
+character_picture = ExtResource("21_oorl6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonodialogEventTrigger"]
+position = Vector2(203.75, 317)
+shape = SubResource("RectangleShape2D_4uv8x")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(187, 313)
+texture = ExtResource("22_0krot")
+region_enabled = true
+region_rect = Rect2(103, 101, 20, 23)
+
 [connection signal="body_entered" from="Door3" to="Door3" method="_on_body_entered"]
 [connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]
+[connection signal="body_entered" from="MonodialogEventTrigger" to="MonodialogEventTrigger" method="_on_body_entered"]
