@@ -1,13 +1,38 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp3r6bogw8tnr"]
+[gd_scene load_steps=24 format=3 uid="uid://cp3r6bogw8tnr"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_qdqot"]
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_rsxbb"]
 [ext_resource type="TileSet" uid="uid://dqkwscxogdg5l" path="res://Assets/Sprites/tileset.tres" id="2_11o8a"]
+[ext_resource type="PackedScene" uid="uid://btde3lk1m7uud" path="res://Scenes/Item/lying_item.tscn" id="5_e24px"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="6_1ookr"]
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="6_6kqxj"]
+[ext_resource type="Resource" uid="uid://b7mldsntmmomm" path="res://Resources/Item/Clues/clue_surat_sita_bank.tres" id="6_bkb2u"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="7_qex7i"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_8obx6"]
-[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="8_12ahs"]
+[ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="10_3n3jr"]
+[ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="11_5hahv"]
+[ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="12_q3wf1"]
+[ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="13_3mt2s"]
+[ext_resource type="AudioStream" uid="uid://sjsd4jwaht3c" path="res://Assets/Audio/BGM/SFX tutup tas.mp3" id="14_k1rg4"]
+[ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="15_0v3x3"]
+[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="16_7rpdw"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="17_88e5p"]
+[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="18_hooyt"]
+[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="19_s8js6"]
+[ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="20_ea8ki"]
+[ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="21_5hahv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e8dwi"]
+texture = ExtResource("16_7rpdw")
+region_rect = Rect2(16, 16, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjwka"]
+texture = ExtResource("16_7rpdw")
+texture_margin_left = 30.0
+texture_margin_top = 10.0
+texture_margin_right = 30.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(112, 16, 96, 96)
 
 [node name="KamarJilly" type="Node2D"]
 script = ExtResource("1_rsxbb")
@@ -31,10 +56,15 @@ layer_4/name = "Door"
 layer_4/tile_data = PackedInt32Array(1507342, 458756, 18, 1507343, 524292, 18)
 script = ExtResource("6_6kqxj")
 
+[node name="LyingItem" parent="TileMap" instance=ExtResource("5_e24px")]
+position = Vector2(129, 287)
+item = ExtResource("6_bkb2u")
+
 [node name="CanvasLayer" parent="." instance=ExtResource("7_qex7i")]
 visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.13319641, 0.13319641, 0.13319638, 1)
 
 [node name="Player" parent="." instance=ExtResource("8_8obx6")]
@@ -45,17 +75,101 @@ position = Vector2(236, 319)
 zoom = Vector2(2.5, 2.5)
 
 [node name="Door5" parent="." instance=ExtResource("6_1ookr")]
-position = Vector2(239, 382)
+position = Vector2(239.99998, 380)
 rotation = -1.5707964
-scale = Vector2(0.98, 1.5)
+scale = Vector2(1.1156727, 1.6709411)
 next_scene_path = "uid://bwb78ls7g2sjj"
 entry_point_id = "KamarJilly"
-door_open_sfx = ExtResource("8_12ahs")
 
 [node name="SpawnPoint5" parent="." groups=["Lantai1Jilly"] instance=ExtResource("6_1ookr")]
-position = Vector2(240, 344)
+position = Vector2(239, 347)
 rotation = -1.5707964
 scale = Vector2(0.425, 1.56)
 script = null
 
+[node name="InventoryCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("10_3n3jr")
+icon_open = ExtResource("11_5hahv")
+icon_close = ExtResource("12_q3wf1")
+
+[node name="InventoryUI" parent="InventoryCanvas" instance=ExtResource("13_3mt2s")]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="CloseInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("14_k1rg4")
+
+[node name="OpenInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("15_0v3x3")
+max_polyphony = 2
+
+[node name="InventoryButton" type="Button" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_e8dwi")
+icon = ExtResource("12_q3wf1")
+icon_alignment = 1
+
+[node name="AlertPopup" type="PanelContainer" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_mjwka")
+
+[node name="Label" type="Label" parent="InventoryCanvas/MarginContainer/AlertPopup"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_88e5p")
+text = "Fakta baru terungkap: Deskripsi Bukti Diperbarui!"
+
+[node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("18_hooyt")]
+visible = false
+
+[node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("19_s8js6")
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("20_ea8ki")
+
+[node name="FadeOverlay" type="ColorRect" parent="InventoryCanvas"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -28.0
+offset_right = 37.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" parent="." instance=ExtResource("21_5hahv")]
+visible = false
+
 [connection signal="body_entered" from="Door5" to="Door5" method="_on_body_entered"]
+[connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]

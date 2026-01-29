@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d07joiby02plh"]
+[gd_scene load_steps=22 format=3 uid="uid://d07joiby02plh"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_4k2vq"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="2_iapuv"]
@@ -7,7 +7,30 @@
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="5_so8qb"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="6_f8qi6"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="7_hnrvr"]
-[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="8_yomak"]
+[ext_resource type="PackedScene" uid="uid://27yr4yo6gxs" path="res://Scenes/Item/interaction_padlock.tscn" id="8_yomak"]
+[ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="9_hiucf"]
+[ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="10_1naya"]
+[ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="11_tg7pr"]
+[ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="12_jjpf1"]
+[ext_resource type="AudioStream" uid="uid://sjsd4jwaht3c" path="res://Assets/Audio/BGM/SFX tutup tas.mp3" id="13_pt8vu"]
+[ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="14_gv6yd"]
+[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="15_alaaj"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="16_nevbd"]
+[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="17_7vb4a"]
+[ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="18_58tnk"]
+[ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="19_w2sqe"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1lqes"]
+texture = ExtResource("15_alaaj")
+region_rect = Rect2(16, 16, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xi3n8"]
+texture = ExtResource("15_alaaj")
+texture_margin_left = 30.0
+texture_margin_top = 10.0
+texture_margin_right = 30.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(112, 16, 96, 96)
 
 [node name="Workshop" type="Node2D"]
 script = ExtResource("1_4k2vq")
@@ -33,9 +56,9 @@ layer_4/tile_data = PackedInt32Array(917511, 5, 8, 983047, 5, 9, 917512, 65541, 
 script = ExtResource("4_xq8gc")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_so8qb")]
-visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.13319641, 0.13319641, 0.13319638, 1)
 
 [node name="Player" parent="." instance=ExtResource("6_f8qi6")]
@@ -46,14 +69,99 @@ position = Vector2(236, 319)
 zoom = Vector2(2.5, 2.5)
 
 [node name="Door2" parent="." instance=ExtResource("7_hnrvr")]
-position = Vector2(315, 228.99998)
+position = Vector2(320, 230.99998)
 scale = Vector2(0.72, 2.1)
 next_scene_path = "uid://cq4yn24j3i25h"
 entry_point_id = "PintuLibrary"
-door_open_sfx = ExtResource("8_yomak")
 
 [node name="Spawnpoint2" parent="." groups=["PintuWorkshop"] instance=ExtResource("7_hnrvr")]
-position = Vector2(314, 266)
+position = Vector2(320, 267)
 script = null
 
+[node name="Interaction" type="CanvasLayer" parent="."]
+
+[node name="InteractionPadlock" parent="Interaction" instance=ExtResource("8_yomak")]
+visible = false
+
+[node name="InventoryCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("9_hiucf")
+icon_open = ExtResource("10_1naya")
+icon_close = ExtResource("11_tg7pr")
+
+[node name="InventoryUI" parent="InventoryCanvas" instance=ExtResource("12_jjpf1")]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="CloseInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("13_pt8vu")
+
+[node name="OpenInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("14_gv6yd")
+max_polyphony = 2
+
+[node name="InventoryButton" type="Button" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_1lqes")
+icon = ExtResource("11_tg7pr")
+icon_alignment = 1
+
+[node name="AlertPopup" type="PanelContainer" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_xi3n8")
+
+[node name="Label" type="Label" parent="InventoryCanvas/MarginContainer/AlertPopup"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_nevbd")
+text = "Fakta baru terungkap: Deskripsi Bukti Diperbarui!"
+
+[node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("17_7vb4a")
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("18_58tnk")
+
+[node name="FadeOverlay" type="ColorRect" parent="InventoryCanvas"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 15.0
+offset_right = 2.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" parent="." instance=ExtResource("19_w2sqe")]
+
 [connection signal="body_entered" from="Door2" to="Door2" method="_on_body_entered"]
+[connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]

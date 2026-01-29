@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq3mgt0pikihf"]
+[gd_scene load_steps=23 format=3 uid="uid://dq3mgt0pikihf"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_tgxrm"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_wdqbv"]
@@ -8,7 +8,30 @@
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="5_q4gm2"]
 [ext_resource type="Script" uid="uid://cj2obfjdunwh3" path="res://Scripts/camera_player.gd" id="6_yt2h6"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="7_2hfdi"]
-[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="9_sii78"]
+[ext_resource type="PackedScene" uid="uid://bi50mlqostd8g" path="res://Scenes/Item/interaction_drawer.tscn" id="9_sii78"]
+[ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="10_kawgp"]
+[ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="11_it4j4"]
+[ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="12_6r6ha"]
+[ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="13_01j0u"]
+[ext_resource type="AudioStream" uid="uid://sjsd4jwaht3c" path="res://Assets/Audio/BGM/SFX tutup tas.mp3" id="14_g6nmk"]
+[ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="15_yl7w1"]
+[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="16_df2ac"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="17_4fdpl"]
+[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="18_5x64r"]
+[ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="19_8rs3l"]
+[ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="20_it4j4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlb7o"]
+texture = ExtResource("16_df2ac")
+region_rect = Rect2(16, 16, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hk5n"]
+texture = ExtResource("16_df2ac")
+texture_margin_left = 30.0
+texture_margin_top = 10.0
+texture_margin_right = 30.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(112, 16, 96, 96)
 
 [node name="Matt&LilyBedroom" type="Node2D"]
 script = ExtResource("1_tgxrm")
@@ -23,19 +46,22 @@ tile_set = ExtResource("2_2hfdi")
 format = 2
 layer_0/name = "Jalan"
 layer_0/tile_data = PackedInt32Array(1245191, 131075, 1, 1310727, 65539, 1, 1441799, 65540, 1, 1245192, 65539, 1, 1310728, 131075, 1, 1245193, 131075, 1, 1310729, 131075, 2, 1376264, 131075, 2, 1441800, 131076, 1, 1376265, 131075, 1, 1441801, 65540, 1, 1179659, 131076, 2, 1245194, 65539, 1, 1310730, 65539, 2, 1245195, 131075, 1, 1310731, 131075, 2, 1376266, 65539, 1, 1441802, 131076, 1, 1376267, 131075, 1, 1441803, 65540, 1, 1179660, 65540, 2, 1245196, 65539, 1, 1310732, 65539, 2, 1245197, 131075, 1, 1310733, 131075, 2, 1376268, 65539, 1, 1441804, 131076, 1, 1376269, 131075, 1, 1441805, 65540, 1, 1245198, 65539, 1, 1310734, 65539, 2, 1245199, 131075, 1, 1310735, 131075, 2, 1376270, 65539, 1, 1441806, 131076, 1, 1376271, 131075, 1, 1441807, 65540, 1, 1245200, 65539, 1, 1310736, 65539, 2, 1245201, 131075, 1, 1310737, 131075, 2, 1376272, 65539, 1, 1441808, 131076, 1, 1376273, 131075, 1, 1441809, 65540, 1, 1245202, 65539, 1, 1310738, 65539, 2, 1245203, 131075, 1, 1310739, 131075, 2, 1376274, 65539, 1, 1441810, 131076, 1, 1376275, 131075, 1, 1441811, 65540, 1, 1245204, 65539, 1, 1310740, 65539, 2, 1376276, 65539, 1, 1441812, 131076, 1, 1376263, 65539, 2, 1376261, 65540, 1, 1441797, 65540, 2, 1376262, 131076, 1, 1441798, 131076, 2, 1114124, 65540, 1, 1114123, 131076, 1, 1114118, 65540, 1, 1179654, 65540, 2, 1507335, 65540, 2, 1507336, 131076, 2, 1507337, 65540, 2, 1507338, 131076, 2, 1507339, 65540, 2, 1507340, 131076, 2, 1507341, 65540, 2, 1507342, 131076, 2, 1507343, 65540, 2, 1507344, 131076, 2, 1507345, 65540, 2, 1507346, 131076, 2, 1507347, 65540, 2, 1507348, 131076, 2, 917524, 65540, 2, 983060, 131076, 2, 917523, 65540, 2, 983059, 65540, 2, 917521, 65540, 2, 983057, 65540, 2, 917522, 131076, 2, 983058, 131076, 2, 917519, 65540, 2, 983055, 65540, 2, 917520, 131076, 2, 983056, 131076, 2, 917517, 65540, 2, 983053, 65540, 2, 917518, 131076, 2, 983054, 131076, 2, 917515, 65540, 2, 983051, 65540, 1, 917516, 131076, 2, 983052, 131076, 1, 917513, 65540, 2, 983049, 65540, 2, 917514, 131076, 2, 983050, 131076, 2, 917511, 65540, 2, 983047, 65540, 2, 917512, 131076, 2, 983048, 131076, 2, 1048587, 65540, 2, 1048588, 131076, 2, 1572875, 65540, 1, 1638411, 65540, 1, 1572876, 131076, 1, 1638412, 131076, 1, 1703947, 65540, 2, 1703948, 131076, 2, 1769479, 65540, 1, 1835015, 65540, 2, 1769480, 131076, 1, 1835016, 131076, 2, 1769481, 65540, 1, 1835017, 65540, 2, 1769482, 131076, 1, 1835018, 131076, 2, 1769483, 65540, 1, 1835019, 65540, 2, 1769484, 131076, 1, 1835020, 131076, 2, 1769485, 65540, 1, 1835021, 65540, 2, 1769486, 131076, 1, 1835022, 131076, 2, 1769487, 65540, 1, 1835023, 65540, 2, 1769488, 131076, 1, 1835024, 131076, 2, 1769489, 65540, 1, 1835025, 65540, 2, 1769490, 131076, 1, 1835026, 131076, 2, 1769491, 65540, 1, 1835027, 65540, 2, 1769492, 65540, 1, 1835028, 65540, 2)
-layer_1/name = "Object"
-layer_1/tile_data = PackedInt32Array(1900565, 589828, 9, 1835029, 589828, 8, 1769493, 589828, 8, 1703957, 589828, 8, 1638421, 589828, 8, 1572885, 589828, 8, 1507349, 589828, 8, 1441813, 589828, 8, 1376277, 589828, 8, 1310741, 589828, 8, 1245205, 589828, 8, 1179669, 589828, 8, 1114133, 589828, 8, 1048597, 589828, 8, 983061, 589828, 8, 917525, 589828, 8, 851989, 589828, 8, 786453, 589828, 4, 1310739, 655365, 13, 1376275, 655365, 14, 1441811, 655365, 15, 1310740, 720901, 13, 1376276, 720901, 14, 1441812, 720901, 15, 1507347, 5, 8, 1572883, 5, 9, 1507348, 65541, 8, 1572884, 65541, 9)
-layer_2/name = "Non-Walkable"
-layer_2/tile_data = PackedInt32Array(983046, 262148, 6, 1048582, 262147, 5, 1114118, 262147, 5, 1179654, 262147, 5, 1245190, 262147, 5, 1507334, 262147, 5, 1572870, 262148, 7, 1310726, 262147, 7, 1572871, 327684, 9, 1572872, 327684, 9, 1572873, 327684, 9, 1572874, 327684, 9, 1572877, 327684, 9, 1572878, 327684, 9, 1572879, 327684, 9, 1572880, 327684, 9, 1572881, 327684, 9, 1572882, 327684, 9, 1572883, 327684, 9, 1572884, 327684, 9, 1048596, 327684, 9, 1048595, 327684, 9, 1048594, 327684, 9, 1048593, 327684, 9, 1048589, 327684, 9, 1048590, 327684, 9, 1048591, 327684, 9, 1048592, 327684, 9, 1048586, 327684, 9, 1048585, 327684, 9, 1048584, 327684, 9, 1048583, 327684, 9, 1638420, 393220, 5, 1703956, 393220, 5, 1638419, 393220, 5, 1703955, 393220, 5, 1638413, 393220, 5, 1638414, 393220, 5, 1638415, 393220, 5, 1638416, 393220, 5, 1638417, 393220, 5, 1638418, 393220, 5, 1703954, 393220, 5, 1703953, 393220, 5, 1703952, 393220, 5, 1703951, 393220, 5, 1703950, 393220, 5, 1703949, 393220, 5, 1638410, 393220, 5, 1703946, 393220, 5, 1703945, 393220, 5, 1703944, 393220, 5, 1703943, 393220, 5, 1638407, 393220, 5, 1638408, 393220, 5, 1638409, 393220, 5, 1900564, 524292, 9, 1900563, 524292, 9, 1900562, 524292, 9, 1900561, 524292, 9, 1900560, 524292, 9, 1900559, 524292, 9, 1900558, 524292, 9, 1900557, 524292, 9, 1900556, 524292, 9, 1900555, 524292, 9, 1900554, 524292, 9, 1900553, 524292, 9, 1900552, 524292, 9, 1900551, 524292, 9, 1900550, 262148, 9, 1835014, 262148, 7, 1769478, 262148, 7, 1703942, 262148, 7, 1638406, 262148, 7, 786438, 262148, 5, 851974, 262148, 6, 917510, 262148, 6, 1114125, 393220, 6, 1114126, 393220, 6, 1114127, 393220, 6, 1114128, 393220, 6, 1114129, 393220, 6, 1114130, 393220, 6, 1114131, 393220, 6, 1114132, 393220, 6, 1179668, 393220, 6, 1179667, 393220, 6, 1179666, 393220, 6, 1179665, 393220, 6, 1179664, 393220, 6, 1179663, 393220, 6, 1179662, 393220, 6, 1179661, 393220, 6, 1114122, 393220, 6, 1114121, 393220, 6, 1114120, 393220, 6, 1114119, 393220, 6, 1179655, 393220, 6, 1179656, 393220, 6, 1179657, 393220, 6, 1179658, 393220, 6, 851975, 327684, 5, 786439, 327684, 5, 786440, 327684, 5, 786441, 327684, 5, 786442, 327684, 5, 786443, 327684, 5, 786444, 327684, 5, 786445, 327684, 5, 786446, 327684, 5, 786447, 327684, 5, 786448, 327684, 5, 786449, 327684, 5, 786450, 327684, 5, 786451, 327684, 5, 786452, 327684, 5, 851988, 327684, 5, 851987, 327684, 5, 851986, 327684, 5, 851985, 327684, 5, 851984, 327684, 5, 851983, 327684, 5, 851982, 327684, 5, 851981, 327684, 5, 851980, 327684, 5, 851979, 327684, 5, 851978, 327684, 5, 851977, 327684, 5, 851976, 327684, 5, 720917, 589828, 4, 720902, 262148, 4, 786453, 262148, 5, 720904, 393220, 4, 720905, 393220, 4, 720903, 393220, 4, 720906, 393220, 4, 720907, 393220, 4, 720908, 393220, 4, 720909, 393220, 4, 720910, 393220, 4, 720911, 393220, 4, 720912, 393220, 4, 720913, 393220, 4, 720914, 393220, 4, 720915, 393220, 4, 720916, 393220, 4)
-layer_3/name = "Interact"
-layer_3/tile_data = PackedInt32Array(1179667, 5, 8, 1245203, 5, 9, 1179668, 65541, 8, 1245204, 65541, 9, 1638419, 983045, 9, 1703955, 983045, 10, 1769491, 983045, 11, 1638420, 983045, 9, 1703956, 983045, 10, 1769492, 983045, 11, 1638418, 917509, 9, 1703954, 917509, 10, 1769490, 917509, 11, 786440, 786437, 0, 851976, 786437, 1, 917512, 786437, 2, 983048, 720901, 3, 983049, 786437, 3, 851988, 851973, 1, 917524, 851973, 2)
-layer_4/name = "Door"
-layer_4/tile_data = PackedInt32Array(1310726, 720900, 12, 1376262, 720900, 13, 1441798, 720900, 14, 1507334, 720900, 15)
+layer_1/name = "Wall"
+layer_1/tile_data = PackedInt32Array(1114125, 327684, 5, 1179661, 327684, 5, 1179662, 327684, 5, 1114126, 327684, 5, 1179663, 327684, 5, 1179664, 327684, 5, 1114128, 327684, 5, 1114127, 327684, 5, 1179665, 327684, 5, 1179666, 327684, 5, 1179667, 327684, 5, 1179668, 327684, 5, 1114132, 327684, 5, 1114131, 327684, 5, 1114130, 327684, 5, 1114129, 327684, 5)
+layer_2/name = "Object"
+layer_2/tile_data = PackedInt32Array(1900565, 589828, 9, 1835029, 589828, 8, 1769493, 589828, 8, 1703957, 589828, 8, 1638421, 589828, 8, 1572885, 589828, 8, 1507349, 589828, 8, 1310741, 589828, 8, 1245205, 589828, 8, 1179669, 589828, 8, 1114133, 589828, 8, 1048597, 589828, 8, 983061, 589828, 8, 917525, 589828, 8, 851989, 589828, 8, 786453, 589828, 4, 1441813, 589828, 8, 1376277, 589828, 8, 1179666, 720901, 10, 1245202, 720901, 11, 1310738, 720901, 12, 1179667, 786437, 10, 1245203, 786437, 11, 1310739, 786437, 12, 1179663, 5, 8, 1245199, 5, 9, 1179664, 65541, 8, 1245200, 65541, 9)
+layer_3/name = "Non-Walkable"
+layer_3/tile_data = PackedInt32Array(983046, 262148, 6, 1048582, 262147, 5, 1114118, 262147, 5, 1179654, 262147, 5, 1245190, 262147, 5, 1507334, 262147, 5, 1572870, 262148, 7, 1310726, 262147, 7, 1572871, 327684, 9, 1572872, 327684, 9, 1572873, 327684, 9, 1572874, 327684, 9, 1572877, 327684, 9, 1572878, 327684, 9, 1572879, 327684, 9, 1572880, 327684, 9, 1572881, 327684, 9, 1572882, 327684, 9, 1572883, 327684, 9, 1572884, 327684, 9, 1048596, 327684, 9, 1048595, 327684, 9, 1048594, 327684, 9, 1048593, 327684, 9, 1048589, 327684, 9, 1048590, 327684, 9, 1048591, 327684, 9, 1048592, 327684, 9, 1048586, 327684, 9, 1048585, 327684, 9, 1048584, 327684, 9, 1048583, 327684, 9, 1638420, 393220, 5, 1703956, 393220, 5, 1638419, 393220, 5, 1703955, 393220, 5, 1638413, 393220, 5, 1638414, 393220, 5, 1638415, 393220, 5, 1638416, 393220, 5, 1638417, 393220, 5, 1638418, 393220, 5, 1703954, 393220, 5, 1703953, 393220, 5, 1703952, 393220, 5, 1703951, 393220, 5, 1703950, 393220, 5, 1703949, 393220, 5, 1638410, 393220, 5, 1703946, 393220, 5, 1703945, 393220, 5, 1703944, 393220, 5, 1703943, 393220, 5, 1638407, 393220, 5, 1638408, 393220, 5, 1638409, 393220, 5, 1900564, 524292, 9, 1900563, 524292, 9, 1900562, 524292, 9, 1900561, 524292, 9, 1900560, 524292, 9, 1900559, 524292, 9, 1900558, 524292, 9, 1900557, 524292, 9, 1900556, 524292, 9, 1900555, 524292, 9, 1900554, 524292, 9, 1900553, 524292, 9, 1900552, 524292, 9, 1900551, 524292, 9, 1900550, 262148, 9, 1835014, 262148, 7, 1769478, 262148, 7, 1703942, 262148, 7, 1638406, 262148, 7, 786438, 262148, 5, 851974, 262148, 6, 917510, 262148, 6, 1114122, 393220, 6, 1114121, 393220, 6, 1114120, 393220, 6, 1114119, 393220, 6, 1179655, 393220, 6, 1179656, 393220, 6, 1179657, 393220, 6, 1179658, 393220, 6, 851975, 327684, 5, 786439, 327684, 5, 786440, 327684, 5, 786441, 327684, 5, 786442, 327684, 5, 786443, 327684, 5, 786444, 327684, 5, 786445, 327684, 5, 786446, 327684, 5, 786447, 327684, 5, 786448, 327684, 5, 786449, 327684, 5, 786450, 327684, 5, 786451, 327684, 5, 786452, 327684, 5, 851988, 327684, 5, 851987, 327684, 5, 851986, 327684, 5, 851985, 327684, 5, 851984, 327684, 5, 851983, 327684, 5, 851982, 327684, 5, 851981, 327684, 5, 851980, 327684, 5, 851979, 327684, 5, 851978, 327684, 5, 851977, 327684, 5, 851976, 327684, 5, 720917, 589828, 4, 720902, 262148, 4, 786453, 262148, 5, 720904, 393220, 4, 720905, 393220, 4, 720903, 393220, 4, 720906, 393220, 4, 720907, 393220, 4, 720908, 393220, 4, 720909, 393220, 4, 720910, 393220, 4, 720911, 393220, 4, 720912, 393220, 4, 720913, 393220, 4, 720914, 393220, 4, 720915, 393220, 4, 720916, 393220, 4)
+layer_4/name = "Interact"
+layer_4/tile_data = PackedInt32Array(1638419, 983045, 9, 1703955, 983045, 10, 1769491, 983045, 11, 1638420, 983045, 9, 1703956, 983045, 10, 1769492, 983045, 11, 1638418, 917509, 9, 1703954, 917509, 10, 1769490, 917509, 11, 786440, 786437, 0, 851976, 786437, 1, 917512, 786437, 2, 983048, 720901, 3, 983049, 786437, 3, 851988, 851973, 1, 917524, 851973, 2, 1179668, 851973, 10, 1245204, 851973, 11)
+layer_5/name = "Door"
+layer_5/tile_data = PackedInt32Array(1310726, 720900, 12, 1376262, 720900, 13, 1441798, 720900, 14, 1507334, 720900, 15)
 script = ExtResource("3_tgxrm")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_sii78")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.13319641, 0.13319641, 0.13319638, 1)
 
 [node name="Player" parent="." instance=ExtResource("5_q4gm2")]
@@ -47,15 +73,101 @@ zoom = Vector2(2.5, 2.5)
 script = ExtResource("6_yt2h6")
 
 [node name="Door" parent="." instance=ExtResource("7_2hfdi")]
-position = Vector2(94, 351.00003)
-scale = Vector2(1.055, 1.565)
+position = Vector2(102, 351.00003)
+scale = Vector2(1.055, 1.9759666)
 next_scene_path = "uid://bgj86kvc5r7gt"
 entry_point_id = "KamarMatt"
-door_open_sfx = ExtResource("9_sii78")
 
 [node name="SpawnPoint2" parent="." groups=["Lantai2Kanan"] instance=ExtResource("7_2hfdi")]
-position = Vector2(136, 352)
+position = Vector2(139, 350)
 scale = Vector2(0.691, 1.655)
 script = null
 
+[node name="Interaction" type="CanvasLayer" parent="."]
+
+[node name="InteractionDrawer" parent="Interaction" instance=ExtResource("9_sii78")]
+visible = false
+
+[node name="InventoryCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("10_kawgp")
+icon_open = ExtResource("11_it4j4")
+icon_close = ExtResource("12_6r6ha")
+
+[node name="InventoryUI" parent="InventoryCanvas" instance=ExtResource("13_01j0u")]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="CloseInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("14_g6nmk")
+
+[node name="OpenInventorySFX" type="AudioStreamPlayer2D" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("15_yl7w1")
+max_polyphony = 2
+
+[node name="InventoryButton" type="Button" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_vlb7o")
+icon = ExtResource("12_6r6ha")
+icon_alignment = 1
+
+[node name="AlertPopup" type="PanelContainer" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_7hk5n")
+
+[node name="Label" type="Label" parent="InventoryCanvas/MarginContainer/AlertPopup"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_4fdpl")
+text = "Fakta baru terungkap: Deskripsi Bukti Diperbarui!"
+
+[node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("18_5x64r")
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
+unique_name_in_owner = true
+stream = ExtResource("19_8rs3l")
+
+[node name="FadeOverlay" type="ColorRect" parent="InventoryCanvas"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 15.0
+offset_right = 2.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" parent="." instance=ExtResource("20_it4j4")]
+visible = false
+
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="pressed" from="InventoryCanvas/MarginContainer/InventoryButton" to="InventoryCanvas" method="_on_inventory_button_pressed"]
