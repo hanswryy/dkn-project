@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dysk1fiog4wjt"]
+[gd_scene load_steps=9 format=3 uid="uid://dysk1fiog4wjt"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_3rpkv"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_72st6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="4_efysc"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="5_2ch05"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="7_efysc"]
+[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="8_efysc"]
 
 [node name="Basement" type="Node2D"]
 script = ExtResource("1_3rpkv")
@@ -49,6 +50,7 @@ position = Vector2(369.875, 416)
 scale = Vector2(0.66, 1.247)
 next_scene_path = "uid://ca8ce178ojv40"
 entry_point_id = "PintuDiningRoom2"
+door_open_sfx = ExtResource("8_efysc")
 
 [node name="SpawnPoint" parent="." groups=["PintuBasement"] instance=ExtResource("7_efysc")]
 position = Vector2(371.00003, 373)
