@@ -12,7 +12,7 @@ func _ready() -> void:
 func _on_button_2_pressed() -> void:
 	$Start_SFX_Click.play()
 	AudioFade.fade_out($BGM, 4)
-	FadeToBlack_Transition.fade_to_scene("res://Scenes/levels/eddiebedroom.tscn", 4)
+	FadeToBlack_Transition.fade_to_scene("uid://bnbxspvlgp2tj", 4)
 
 func _on_button_3_pressed() -> void:
 	$SFX_Click.play()
