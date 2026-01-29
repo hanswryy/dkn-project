@@ -24,6 +24,9 @@ func stop_monodialog(duration):
 	
 	SignalManager.monodialog_finished.emit(trigger.current_branch_index, branch_type)
 
+func ending(which):
+	monodialog_ui.show_ending(which)
+
 func handle_monodialog_choices(option):
 	var current_monodialog = trigger.get_current_monodialog()
 	if not current_monodialog: return
@@ -39,6 +42,10 @@ func handle_monodialog_choices(option):
 	elif next_state == "exit":
 		trigger.set_monodialog_state("start")
 		stop_monodialog(trigger.hide_duration)
+	elif next_state == "ge":
+		ending(1)
+	elif next_state == "be":
+		ending(2)
 	else:
 		reappear = false
 		start_monodialog(trigger)

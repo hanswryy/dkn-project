@@ -25,6 +25,7 @@ func show_monodialog(duration, speaker, sprite, text = "", options = {}, voice =
 		button.pressed.connect(_on_option_selected.bind(option))
 		$Control/Panel/Options.add_child(button)
 	
+	Constants.player["can_move"] = false
 	if reappearance:
 		$Control/Panel.size = Vector2(50, 48)
 		var tween := create_tween()
@@ -47,7 +48,7 @@ func show_monodialog(duration, speaker, sprite, text = "", options = {}, voice =
 		await tween.finished
 		$CharacterVoice.stop()
 		$Control/Panel/Options.visible = true
-	Constants.player["can_move"] = false
+	
 
 func hide_monodialog(duration):
 	$Timer.wait_time = duration
@@ -59,6 +60,12 @@ func hide_monodialog(duration):
 	$Timer.start()
 	await tween.finished
 	Constants.player["can_move"] = true
+
+func show_ending(which):
+	if which == 1:
+		FadeToBlack_Transition.fade_to_scene("uid://cnryahagj78dg", 5)
+	elif which == 2:
+		FadeToBlack_Transition.fade_to_scene("uid://ks5x6ke72iuu", 5)
 
 #func _on_texture_button_pressed() -> void:
 	#hide_monodialog(hide_duration)
