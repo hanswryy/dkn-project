@@ -6,6 +6,8 @@ extends CanvasLayer
 
 @export var icon_open : Texture2D
 @export var icon_close : Texture2D
+@export var butterfly_key : ItemData
+@export var basement_key : ItemData
 
 var original_pos_y: float
 
@@ -13,8 +15,64 @@ func _ready():
 	inventory_ui.visible = false
 	InventoryManager.magnification_started.connect(start_magnify)
 	SignalManager.monodialog_finished.connect(_on_clue_revealed)
+	SignalManager.painting_interaction_requested.connect(_on_request_painting)
+	SignalManager.eddie_drawer_interaction_requested.connect(_on_request_basement_key)
+	SignalManager.highlight_closed_2.connect(_on_highlight_closed)
 	
 	original_pos_y = 653.0
+	
+func _on_highlight_closed(item_id: String):
+	print(item_id)
+	# Gunakan match untuk mengecek item_id
+	match item_id:
+		"clue_botol_racun":
+			%MonodialogEventTrigger.start_monodialog("50")
+		
+		"clue_tisu": # Nama ID item sesuaikan dengan ItemData kamu
+			%MonodialogEventTrigger.start_monodialog("40")
+			
+		"clue_cangkir_revealed":
+			%MonodialogEventTrigger.start_monodialog("60")
+			
+		"item_kaca_pembesar":
+			%MonodialogEventTrigger.start_monodialog("70")
+			
+		"clue_surat_wasiat_palsu":
+			%MonodialogEventTrigger.start_monodialog("80")
+			
+		"clue_surat_sita_bank":
+			%MonodialogEventTrigger.start_monodialog("90")
+			
+		"clue_kunci_basement":
+			%MonodialogEventTrigger.start_monodialog("100")
+			
+		"clue_kunci_kupu":
+			%MonodialogEventTrigger.start_monodialog("100")
+			
+		"clue_tiket_kereta":
+			%MonodialogEventTrigger.start_monodialog("115")
+			
+		"clue_obat_penenang":
+			%MonodialogEventTrigger.start_monodialog("120")
+			
+		"clue_diary_lily":
+			%MonodialogEventTrigger.start_monodialog("125")	
+		_:
+			print("Item ", item_id, " tidak memiliki dialog post-reveal.")
+	
+func _on_request_basement_key():
+	print("ANJAY")
+	if InventoryManager.has_item_by_id("clue_kunci_kupu"):
+		print("ANJAY2asdasd")
+		$PickupSFX.play()
+		InventoryManager.add_item(basement_key)
+		InventoryManager.item_highlight_requested.emit(basement_key)
+	
+func _on_request_painting():
+	if InventoryManager.has_item_by_id("item_kaca_pembesar"):
+		$PickupSFX.play()
+		InventoryManager.add_item(butterfly_key)
+		InventoryManager.item_highlight_requested.emit(butterfly_key)
 
 func start_magnify():
 	fade_overlay.mouse_filter = Control.MOUSE_FILTER_STOP

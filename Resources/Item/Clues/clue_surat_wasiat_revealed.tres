@@ -13,4 +13,5 @@ id = "clue_surat_wasiat_palsu"
 name = "Surat Wasiat Palsu"
 icon = SubResource("AtlasTexture_mm2r8")
 description = "Tunggu sebentar... lihat garis tanda tangan ini. Getarannya tidak alami, seperti seseorang menjiplak setiap lengkungannya dengan sangat hati-hati. Dan noda merah di pojok kertas ini... warna lipstik yang sama dengan tisu di tempat sampah dapur! Dia merencanakan ini semua sambil memalsukan dokumen ini. Wanita itu... dia benar-benar mengincar semuanya."
+postRevealDialog = "80"
 metadata/_custom_type_script = "uid://brbwama7atgt2"

@@ -9,4 +9,5 @@ id = "item_kaca_pembesar"
 name = "Kaca Pembesar"
 icon = ExtResource("1_we2qp")
 description = "Milik siapa ini? Tergeletak begitu saja... Tapi lensanya masih sangat jernih. Kalau aku menggunakannya, mungkin aku bisa melihat detail-detail kecil atau jejak yang sengaja disembunyikan di benda lain. Sepertinya pemiliknya bukan orang sembarangan."
+postRevealDialog = "70"
 metadata/_custom_type_script = "uid://brbwama7atgt2"

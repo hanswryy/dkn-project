@@ -1,48 +1,60 @@
 extends CharacterBody2D
 
-var target: Node2D = null
-var speed = 45
+@export var speed: float = 45.0
 
 @onready var sprite := $Sprite2D
 @onready var trigger := $JumpscareTrigger
-@onready var collision_shape := $CollisionShape2D 
+@onready var collision_shape := $CollisionShape2D
 
+var target: Node2D = null
 var audio_player: AudioStreamPlayer
-
-# Simpan path scene saat ini agar entity tahu dia ada di level mana
-# Kita ambil dari root scene yang sedang aktif
 var current_scene_path: String
 
-func _ready():
-	# 1. Dapatkan Path Scene tempat Entity berada sekarang
-	# (Misal: "res://Scenes/Level1.tscn")
+func _ready() -> void:
+	# 1. Ambil path scene saat ini
 	current_scene_path = get_tree().current_scene.scene_file_path
 	
-	# 2. Cek apakah Level ini SUDAH pernah jumpscare di Manager
+	# 2. LOGIKA BARU:
+	# Jika 'jumpscare_hall_triggered' bernilai TRUE, artinya kejadian sudah lewat.
+	# Maka hapus node ini agar hantu tidak muncul/mengejar lagi.
+	if JumpscareManager.jumpscare_hall_triggered == true:
+		print("Entity: Jumpscare hall sudah selesai. Menghapus diri.")
+		queue_free()
+		return
+	
+	# 3. Double Check (Opsional): Cek juga sistem path kalau kamu pakai sistem simpan scene
 	if JumpscareManager.is_triggered(current_scene_path):
-		print("Level '", current_scene_path, "' sudah selesai jumpscare. Entity dihapus.")
-		queue_free() # Hapus entity segera
-		return # Jangan jalankan kode di bawah ini
+		queue_free()
+		return
 	
-	# 3. Jika belum, setup Entity normal
+	# 4. Jika sampai sini, berarti flag masih FALSE. Setup entity untuk mengejar!
 	target = get_tree().get_first_node_in_group("player")
-	trigger.body_entered.connect(_on_jumpscare_trigger)
 	
-	# Setup Audio
+	if not trigger.body_entered.is_connected(_on_jumpscare_trigger):
+		trigger.body_entered.connect(_on_jumpscare_trigger)
+	
+	_setup_audio()
+
+func _setup_audio() -> void:
+	# Pastikan tidak membuat audio ganda
+	if has_node("TenseMusic"): return
+	
 	audio_player = AudioStreamPlayer.new()
 	audio_player.stream = preload("res://Assets/Audio/BGM/BGM tegang.mp3")
 	audio_player.name = "TenseMusic"
-	add_child(audio_player) 
+	add_child(audio_player)
 	audio_player.play()
 
-func _physics_process(_delta):
-	if not sprite.visible:                       
+func _physics_process(_delta: float) -> void:
+	# Berhenti mengejar jika hantu sudah diproses untuk hilang
+	if not sprite.visible:
 		return
 	
-	# Logic Looping Audio
+	# Pastikan audio looping
 	if audio_player and not audio_player.playing:
 		audio_player.play()
 
+	# Pergerakan mengejar player
 	if target:
 		var direction = (target.global_position - global_position).normalized()
 		velocity = direction * speed

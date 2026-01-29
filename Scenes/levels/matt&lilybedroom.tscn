@@ -1,11 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://dq3mgt0pikihf"]
+[gd_scene load_steps=27 format=3 uid="uid://dq3mgt0pikihf"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_tgxrm"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_wdqbv"]
 [ext_resource type="TileSet" uid="uid://dqkwscxogdg5l" path="res://Assets/Sprites/tileset.tres" id="2_2hfdi"]
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="3_tgxrm"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="4_sii78"]
+[ext_resource type="PackedScene" uid="uid://btde3lk1m7uud" path="res://Scenes/Item/lying_item.tscn" id="5_01j0u"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="5_q4gm2"]
+[ext_resource type="Resource" uid="uid://0rn108bpjffk" path="res://Resources/Item/Clues/clue_obat_penenang.tres" id="6_g6nmk"]
 [ext_resource type="Script" uid="uid://cj2obfjdunwh3" path="res://Scripts/camera_player.gd" id="6_yt2h6"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="7_2hfdi"]
 [ext_resource type="PackedScene" uid="uid://bi50mlqostd8g" path="res://Scenes/Item/interaction_drawer.tscn" id="9_sii78"]
@@ -19,7 +21,9 @@
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="17_4fdpl"]
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="18_5x64r"]
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="19_8rs3l"]
+[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="20_g6nmk"]
 [ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="20_it4j4"]
+[ext_resource type="PackedScene" uid="uid://dfgiutyjmm0ra" path="res://Scenes/Monodialog/md_event_trigger.tscn" id="24_yl7w1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlb7o"]
 texture = ExtResource("16_df2ac")
@@ -58,6 +62,10 @@ layer_5/name = "Door"
 layer_5/tile_data = PackedInt32Array(1310726, 720900, 12, 1376262, 720900, 13, 1441798, 720900, 14, 1507334, 720900, 15)
 script = ExtResource("3_tgxrm")
 
+[node name="LyingItem" parent="TileMap" instance=ExtResource("5_01j0u")]
+position = Vector2(269, 336)
+item = ExtResource("6_g6nmk")
+
 [node name="CanvasLayer" parent="." instance=ExtResource("4_sii78")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -88,8 +96,16 @@ script = null
 [node name="InteractionDrawer" parent="Interaction" instance=ExtResource("9_sii78")]
 visible = false
 
+[node name="DialogWrapperUI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="MonodialogEventTrigger" parent="DialogWrapperUI" instance=ExtResource("24_yl7w1")]
+unique_name_in_owner = true
+character_id = "mc"
+
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 11
 script = ExtResource("10_kawgp")
 icon_open = ExtResource("11_it4j4")
 icon_close = ExtResource("12_6r6ha")
@@ -143,6 +159,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("17_4fdpl")
 text = "Fakta baru terungkap: Deskripsi Bukti Diperbarui!"
 
+[node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("20_g6nmk")]
+visible = false
+
 [node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
 unique_name_in_owner = true
 stream = ExtResource("18_5x64r")
@@ -167,6 +186,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" parent="." instance=ExtResource("20_it4j4")]
+layer = 12
 visible = false
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

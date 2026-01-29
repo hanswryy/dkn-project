@@ -3,17 +3,31 @@ extends Area2D
 @export_file("*.tscn") var next_scene_path: String
 @export var entry_point_id: String = "Level1_Start"
 @export var door_open_sfx: AudioStream
+@export var basement_door: bool = false
+@export var hall_door: bool = false
 
 func _on_body_entered(body) -> void:
 	if body.is_in_group("player"):
-		set_deferred("monitoring", false)
+		if basement_door:
+			print("AWWW")
+			if not InventoryManager.has_item_by_id("clue_kunci_basement"):
+				print("Asdd")
+				%DoorLocked.play()
+				_show_locked_dialog()
+				return
 		
-		# --- BONUS: Bekukan player agar tidak gerak saat fade ---
-		# Ini membuat transisi terasa lebih bersih
-		body.set_process(false) # Matikan proses logic player
+		if hall_door:
+			print("AWWWasdasdas HALSDLKASd")
+			JumpscareManager.jumpscare_hall_triggered = true
+		
+		set_deferred("monitoring", false)
+		body.set_process(false) 
 		
 		_play_door_sound()
 		_perform_fade_transition()
+
+func _show_locked_dialog():
+	%MonodialogEventTrigger.start_monodialog("110")
 
 func _play_door_sound():
 	if door_open_sfx:
@@ -26,22 +40,15 @@ func _play_door_sound():
 func _perform_fade_transition():
 	var black_rect = ColorRect.new()
 	black_rect.color = Color.BLACK
+	black_rect.modulate.a = 0 # Mulai dari transparan
 	black_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	black_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	get_tree().root.add_child(black_rect)
 	
 	var tween = create_tween()
-	
-	# --- BAGIAN UTAMA MEMBUAT CEPAT ---
-	
-	# 1. Ubah Easing: EASE_IN (Mulai pelan, lalu langsung hitam cepat)
-	# Lebih cocok untuk durasi pendek daripada EASE_IN_OUT
 	tween.set_ease(Tween.EASE_IN)
-	
-	# 2. Tipe Transisi: TRANS_SINE (Lebih sederhana dan cepat)
 	tween.set_trans(Tween.TRANS_SINE)
 	
-	# 3. UBAH DURASI: Dari 1.5 menjadi 0.4 detik
 	tween.tween_property(black_rect, "modulate:a", 1.0, 0.4)
 	
 	await tween.finished

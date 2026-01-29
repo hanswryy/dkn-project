@@ -13,4 +13,5 @@ id = "clue_botol_racun"
 name = "Botol Racun Hama"
 icon = SubResource("AtlasTexture_x4t76")
 description = "Sebuah botol tua berisi cairan pestisida pekat. Labelnya sudah setengah terkelupas, tapi simbol tengkoraknya masih terlihat jelas. Baunya menyengat... sangat aneh menemukan benda sefatal ini terkubur di bawah tumpukan sampah dapur. Sepertinya seseorang ingin memastikan benda ini tidak akan pernah ditemukan lagi."
+postRevealDialog = "pickup_item"
 metadata/_custom_type_script = "uid://brbwama7atgt2"

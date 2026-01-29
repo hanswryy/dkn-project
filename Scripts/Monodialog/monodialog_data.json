@@ -83,7 +83,243 @@
 						}
 					}
 				]
+			},
+
+			{
+				"branch_id": "30",
+				"type": "soft_lock_tangga",
+				"monodialogs": [
+					{
+						"state": "start",
+						"text": "Aku harus memeriksa suara tadi..",
+						"options": {
+							"Selesai" : "exit"
+						}
+					}
+				]
+			},
+			{
+					"branch_id": "50",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Ini racun hama. Dan Matt tidak memakai lipstik.",
+								"options" : {
+									"Lanjut": "1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "Wanita yang ikut makan malam jam 8 itu menjebaknya.",
+								"options" : {
+									"Selesai" : "exit"
+								}
+							}
+						]
+			},
+				{
+					"branch_id": "60",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Dosis racun ini... tidak cukup kuat",
+								"options" : {
+									"Lanjut": "1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "untuk membunuh orang dewasa seketika.",
+								"options" : {
+									"Lanjut":"2"
+								}
+							},
+							{
+								"state": "2",
+								"text" :  "Ini hanya melumpuhkan sistem saraf.",
+								"options" : {
+									"Lanjut":"3"
+								}
+							},
+							{
+								"state": "3",
+								"text" :  "Jika mereka hanya lumpuh.",
+								"options" : {
+									"Lanjut":"4"
+								}
+							},
+								{
+								"state": "4",
+								"text" :  "lalu apa yang membunuh mereka",
+								"options" : {
+									"Selesai":"exit"
+								}
+							}
+						]
+				},
+			{
+				"branch_id": "70",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Alat yang berguna.... sebaiknya disimpan terlebih dahulu",
+								"options" : {
+									"Selesai" : "exit"
+								}
+							}
+					]
+			},
+			{
+				"branch_id": "80",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Benar saja, tanda tangan surat ini terlihat janggal..",
+								"options" : {
+									"Lanjut":"1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "Matt tidak mungkin menurunkannya kepada jilly..",
+								"options" : {
+										"Selesai" : "exit"
+								}
+							}
+					]
+			},
+			{
+				"branch_id": "90",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Kebangkrutan total... Saat terdesak hutang,",
+								"options" : {
+									"Lanjut":"1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "orang bisa jadi nekat.",
+								"options" : {
+										"Lanjut":"2"
+								}
+							},
+							{
+								"state": "2",
+								"text" :  "Ini motif yang sempurna.",
+								"options" : {
+										"Selesai" : "exit"
+								}
+							}
+					]
+			},
+			{
+				"branch_id": "100",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Disembunyikan dengan sengaja...",
+								"options" : {
+									"Lanjut":"1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "Kunci ini pasti menjaga rahasia besar",
+								"options" : {
+										"Selesai" : "exit"
+								}
+							}
+							
+					]
+			},
+			{
+				"branch_id": "110",
+					"type" : "pintu_terkunci",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Terkunci...",
+								"options" : {
+									"Selesai" : "exit"
+								}
+							}
+							
+					]
+			},
+			{
+				"branch_id": "115",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Tiket kereta... Tanggal 16?",
+								"options" : {
+									"Lanjut":"1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "Itu 3 hari setelah kejadian.",
+								"options" : {
+									"Lanjut":"2"
+								}
+							},
+							{
+								"state": "2",
+								"text" :  "Apa yang dia tunggu?",
+								"options" : {
+									"Selesai":"exit"
+								}
+							}
+					]
+			},
+			{
+				"branch_id": "120",
+					"type" : "pickup_item",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "Obat penenang... Wajar untuk orang sesukses dia..",
+								"options" : {
+									"Lanjut":"1"
+								}
+							},
+							{
+								"state": "1",
+								"text" :  "Tapi, apa hanya sekadar untuk stres?",
+								"options" : {
+									"Selesai":"exit"
+								}
+							}
+							
+					]
+			},
+			{
+				"branch_id": "125",
+					"type" : "menemukan_buku_lily",
+					"monodialogs": [
+							{
+								"state": "start",
+								"text" :  "sebuah entry terakhir yang menarik.....",
+								"options" : {
+									"Selesai":"exit"
+								}
+							}
+					]
 			}
+			
+			
+			
+
+
 		]
 	},
 	"eddie": {

@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://ca8ce178ojv40"]
+[gd_scene load_steps=27 format=3 uid="uid://ca8ce178ojv40"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_7x7qr"]
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_vpxsp"]
 [ext_resource type="TileSet" uid="uid://dqkwscxogdg5l" path="res://Assets/Sprites/tileset.tres" id="2_ihwme"]
+[ext_resource type="PackedScene" uid="uid://btde3lk1m7uud" path="res://Scenes/Item/lying_item.tscn" id="6_jk76l"]
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="6_mctoc"]
+[ext_resource type="Resource" uid="uid://cpj6erdsl6euc" path="res://Resources/Item/Clues/clue_jam_rusak.tres" id="7_fxgbd"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="7_qarfd"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_dwg8q"]
 [ext_resource type="PackedScene" uid="uid://ccj6knnsc1q4d" path="res://Scenes/Item/interaction_cangkir.tscn" id="8_kgkaa"]
@@ -16,9 +18,12 @@
 [ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="14_7nqlc"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="15_0v5wi"]
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="16_si75h"]
+[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="17_4cbjv"]
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="18_x76wf"]
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="19_idv22"]
 [ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="20_kx4vg"]
+[ext_resource type="PackedScene" uid="uid://dfgiutyjmm0ra" path="res://Scenes/Monodialog/md_event_trigger.tscn" id="21_jk76l"]
+[ext_resource type="AudioStream" uid="uid://c31sox5dq4558" path="res://Assets/Audio/SFX buka tutup kunci pintu.mp3" id="21_sp5tu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j55ug"]
 texture = ExtResource("15_0v5wi")
@@ -52,10 +57,14 @@ layer_1/tile_data = PackedInt32Array(1441808, 458753, 4, 1441807, 458753, 4, 144
 layer_2/name = "Non-Walkable"
 layer_2/tile_data = PackedInt32Array(917510, 262148, 4, 983046, 262147, 5, 1048582, 262147, 5, 1114118, 262147, 5, 1179654, 262147, 5, 1245190, 262147, 5, 1441798, 262147, 5, 1507334, 262147, 5, 983062, 589827, 5, 1048598, 589827, 5, 1114134, 589827, 5, 1179670, 589827, 5, 1245206, 589827, 5, 1310742, 589827, 5, 1376278, 589827, 5, 1441814, 589827, 5, 1507350, 589827, 5, 1572886, 589828, 9, 1572885, 393220, 9, 1572884, 393220, 9, 1572883, 393220, 9, 1572882, 393220, 9, 1572881, 393220, 9, 1572880, 393220, 9, 1572879, 393220, 9, 1572878, 393220, 9, 1572877, 393220, 9, 1572876, 393220, 9, 1572875, 393220, 9, 1572874, 393220, 9, 1572873, 393220, 9, 1572872, 393220, 9, 1572871, 393220, 9, 1572870, 262148, 9, 1048597, 327684, 5, 983061, 327684, 5, 983060, 327684, 5, 1048596, 327684, 5, 1048595, 327684, 5, 983059, 327684, 5, 983058, 327684, 5, 983057, 327684, 5, 983056, 327684, 5, 983055, 327684, 5, 983054, 327684, 5, 983053, 327684, 5, 983052, 327684, 5, 983051, 327684, 5, 983048, 327684, 5, 983047, 327684, 5, 1048583, 327684, 5, 1048584, 327684, 5, 1048587, 327684, 5, 1048588, 327684, 5, 1048589, 327684, 5, 1048590, 327684, 5, 1048591, 327684, 5, 1048592, 327684, 5, 1048593, 327684, 5, 1048594, 327684, 5, 917525, 524292, 4, 917524, 524292, 4, 917523, 524292, 4, 917522, 524292, 4, 917521, 524292, 4, 917520, 524292, 4, 917519, 524292, 4, 917518, 524292, 4, 917517, 524292, 4, 917516, 524292, 4, 917515, 524292, 4, 917514, 524292, 4, 917513, 524292, 4, 917512, 524292, 4, 917511, 524292, 4, 917526, 589828, 4)
 layer_3/name = "Interact"
-layer_3/tile_data = PackedInt32Array(983057, 917509, 0, 983051, 917509, 0, 1245195, 196613, 5, 1310731, 196613, 6, 1376267, 196613, 7, 1245196, 262149, 5, 1310732, 262149, 6, 1376268, 262149, 7, 1245197, 262149, 5, 1310733, 262149, 6, 1376269, 262149, 7, 1245198, 262149, 5, 1310734, 262149, 6, 1376270, 262149, 7, 1245199, 262149, 5, 1310735, 262149, 6, 1376271, 262149, 7, 1245200, 262149, 5, 1310736, 262149, 6, 1376272, 262149, 7, 1245201, 327685, 5, 1310737, 327685, 6, 1376273, 327685, 7, 1114126, 458757, 2, 1245204, 131077, 13, 1441811, 5, 13, 1376276, 5, 12, 1179656, 196613, 13, 1507338, 196613, 13)
+layer_3/tile_data = PackedInt32Array(983057, 917509, 0, 983051, 917509, 0, 1245195, 196613, 5, 1310731, 196613, 6, 1376267, 196613, 7, 1245196, 262149, 5, 1310732, 262149, 6, 1376268, 262149, 7, 1245197, 262149, 5, 1310733, 262149, 6, 1376269, 262149, 7, 1245198, 262149, 5, 1310734, 262149, 6, 1376270, 262149, 7, 1245199, 262149, 5, 1310735, 262149, 6, 1376271, 262149, 7, 1245200, 262149, 5, 1310736, 262149, 6, 1376272, 262149, 7, 1245201, 327685, 5, 1310737, 327685, 6, 1376273, 327685, 7, 1245204, 131077, 13, 1441811, 5, 13, 1376276, 5, 12, 1179656, 196613, 13, 1507338, 196613, 13)
 layer_4/name = "Door"
 layer_4/tile_data = PackedInt32Array(1310732, 393221, 2, 983059, 917508, 15, 1048595, 917508, 16, 983060, 983044, 15, 1048596, 983044, 16)
 script = ExtResource("6_mctoc")
+
+[node name="LyingItem" parent="TileMap" instance=ExtResource("6_jk76l")]
+position = Vector2(234, 284)
+item = ExtResource("7_fxgbd")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
@@ -90,6 +99,7 @@ position = Vector2(321, 267.00003)
 scale = Vector2(0.785, 1.483)
 next_scene_path = "uid://dysk1fiog4wjt"
 entry_point_id = "PintuBasement"
+basement_door = true
 
 [node name="SpawnPoint2" parent="." groups=["PintuDiningRoom"] instance=ExtResource("9_nw67q")]
 position = Vector2(160, 283.00003)
@@ -107,6 +117,7 @@ script = null
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 11
 script = ExtResource("9_sp5tu")
 icon_open = ExtResource("10_jk76l")
 icon_close = ExtResource("11_fxgbd")
@@ -160,6 +171,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("16_si75h")
 text = "Fakta baru terungkap: Deskripsi Bukti Diperbarui!"
 
+[node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("17_4cbjv")]
+visible = false
+
 [node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
 unique_name_in_owner = true
 stream = ExtResource("18_x76wf")
@@ -184,6 +198,18 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" parent="." instance=ExtResource("20_kx4vg")]
+layer = 100
+
+[node name="DoorLocked" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("21_sp5tu")
+
+[node name="DialogWrapperUI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="MonodialogEventTrigger" parent="DialogWrapperUI" instance=ExtResource("21_jk76l")]
+unique_name_in_owner = true
+character_id = "mc"
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="body_entered" from="Door2" to="Door2" method="_on_body_entered"]

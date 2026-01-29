@@ -13,4 +13,5 @@ id = "clue_diary_lily"
 name = "Buku Harian Lily"
 icon = SubResource("AtlasTexture_e7r0o")
 description = "Sebuah buku harian dengan angka '18.12' yang terukir besar di sampul depannya. Tanggal pernikahan mereka... Siapa yang menyangka tanggal yang seharusnya paling bahagia malah dijadikan judul untuk buku penuh kesedihan ini? Angka ini terasa seperti sebuah peringatan—atau mungkin, sebuah kunci."
+postRevealDialog = "125"
 metadata/_custom_type_script = "uid://brbwama7atgt2"

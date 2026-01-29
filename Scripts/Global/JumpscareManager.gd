@@ -4,6 +4,7 @@ extends Node
 # Array simpan path scene (.tscn) yang sudah pernah jumpscare
 var triggered_rooms: Array[String] = []
 var jumpscare_bathtub_triggered: bool = false
+var jumpscare_hall_triggered: bool = false
 
 # Tandai suatu ruangan (path scene) sudah pernah jumpscare
 func mark_triggered(scene_path: String) -> void:

@@ -7,3 +7,4 @@
 script = ExtResource("1_ie816")
 
 [node name="MonodialogUI" parent="." instance=ExtResource("1_akrd8")]
+layer = 10

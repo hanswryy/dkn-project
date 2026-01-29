@@ -13,4 +13,5 @@ id = "clue_surat_sita_bank"
 name = "Surat Penyitaan Bank"
 icon = SubResource("AtlasTexture_ofii3")
 description = "Hmm... tumpukan surat tagihan ini bukan cuma sampah biasa. Lihat ini, 'Pemberitahuan Penyitaan Aset'. Tampaknya bisnis Jilly hancur total dan bank sudah mulai mengambil alih semua miliknya. Pantas saja dia memohon pinjaman pada Matt... dan pantas saja dia begitu nekat saat Matt berkata 'tidak'. Dia sudah terdesak di ujung jurang, dan harta keluarga Julia adalah satu-satunya pelampung yang tersisa bagi Jilly."
+postRevealDialog = "90"
 metadata/_custom_type_script = "uid://brbwama7atgt2"

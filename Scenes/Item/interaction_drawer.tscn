@@ -1,13 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bi50mlqostd8g"]
+[gd_scene load_steps=11 format=3 uid="uid://bi50mlqostd8g"]
 
 [ext_resource type="Script" uid="uid://diyqkuqktaugf" path="res://Scripts/Item/interaction_drawer.gd" id="1_5djjo"]
 [ext_resource type="Texture2D" uid="uid://jw1pr85nv3d0" path="res://Assets/Sprites/FirstPerson/first_person.png" id="1_fo3fe"]
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="2_5djjo"]
 [ext_resource type="Resource" uid="uid://ck0yosofck30h" path="res://Resources/Item/Clues/clue_diary_lily.tres" id="2_k3rag"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="3_k3rag"]
-[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="4_klfnn"]
-[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="5_17h8s"]
-[ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="6_7ig2y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6hf5"]
 bg_color = Color(0, 0, 0, 0.7019608)
@@ -113,19 +110,6 @@ theme_override_fonts/font = ExtResource("2_5djjo")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_3ivyo")
 text = "Close"
-
-[node name="HighlightItem" parent="." instance=ExtResource("4_klfnn")]
-process_mode = 3
-visible = false
-layout_mode = 1
-
-[node name="PutItemSFX" type="AudioStreamPlayer2D" parent="HighlightItem"]
-unique_name_in_owner = true
-stream = ExtResource("5_17h8s")
-
-[node name="PickupSFX" type="AudioStreamPlayer2D" parent="HighlightItem"]
-unique_name_in_owner = true
-stream = ExtResource("6_7ig2y")
 
 [connection signal="pressed" from="PanelContainer/TextureLaciOpened/ClickableAreaBook" to="." method="_on_clickable_area_book_pressed"]
 [connection signal="pressed" from="PanelContainer/TextureLaciClosed/ClickableAreaOpenDrawer" to="." method="_on_clickable_area_open_drawer_pressed"]
