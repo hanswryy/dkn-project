@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cq4yn24j3i25h"]
+[gd_scene load_steps=23 format=3 uid="uid://cq4yn24j3i25h"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_c5620"]
 [ext_resource type="TileSet" uid="uid://dqkwscxogdg5l" path="res://Assets/Sprites/tileset.tres" id="2_800ur"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="17_iwi1c"]
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="18_y020o"]
 [ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="19_e4v4c"]
+[ext_resource type="PackedScene" uid="uid://dfgiutyjmm0ra" path="res://Scenes/Monodialog/md_event_trigger.tscn" id="19_v0y8x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2aluj"]
 texture = ExtResource("14_1bhlh")
@@ -92,6 +93,7 @@ entry_point_id = "PintuWorkshop"
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 11
 script = ExtResource("8_rtqaq")
 icon_open = ExtResource("9_v0y8x")
 icon_close = ExtResource("10_g7xqn")
@@ -171,7 +173,12 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="MonodialogEventTrigger" parent="InventoryCanvas" instance=ExtResource("19_v0y8x")]
+unique_name_in_owner = true
+character_id = "mc"
+
 [node name="PauseMenu" parent="." instance=ExtResource("19_e4v4c")]
+layer = 100
 visible = false
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
