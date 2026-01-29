@@ -117,6 +117,7 @@ script = null
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 11
 script = ExtResource("9_sp5tu")
 icon_open = ExtResource("10_jk76l")
 icon_close = ExtResource("11_fxgbd")
@@ -197,12 +198,16 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" parent="." instance=ExtResource("20_kx4vg")]
+layer = 100
 
 [node name="DoorLocked" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("21_sp5tu")
 
-[node name="MonodialogEventTrigger" parent="." instance=ExtResource("21_jk76l")]
+[node name="DialogWrapperUI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="MonodialogEventTrigger" parent="DialogWrapperUI" instance=ExtResource("21_jk76l")]
 unique_name_in_owner = true
 character_id = "mc"
 

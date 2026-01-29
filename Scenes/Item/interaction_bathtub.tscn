@@ -1,12 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cglw1kt2cgkck"]
+[gd_scene load_steps=9 format=3 uid="uid://cglw1kt2cgkck"]
 
 [ext_resource type="Script" uid="uid://ddvc6jh65fryc" path="res://Scripts/Item/interaction_bathtub.gd" id="1_dy6py"]
 [ext_resource type="Texture2D" uid="uid://jw1pr85nv3d0" path="res://Assets/Sprites/FirstPerson/first_person.png" id="3_6451m"]
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="4_3mv4l"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="5_yp4ai"]
-[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="6_o32u0"]
-[ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="7_6j3tf"]
-[ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="8_mgqmq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv4en"]
 bg_color = Color(0, 0, 0, 0.7019608)
@@ -88,19 +85,6 @@ offset_right = 1751.0
 offset_bottom = 728.0
 scale = Vector2(0.4937641, 0.9148994)
 mouse_default_cursor_shape = 2
-
-[node name="HighlightItem" parent="." instance=ExtResource("6_o32u0")]
-process_mode = 3
-visible = false
-layout_mode = 1
-
-[node name="PutItemSFX" type="AudioStreamPlayer2D" parent="HighlightItem"]
-unique_name_in_owner = true
-stream = ExtResource("7_6j3tf")
-
-[node name="PickupSFX" type="AudioStreamPlayer2D" parent="HighlightItem"]
-unique_name_in_owner = true
-stream = ExtResource("8_mgqmq")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Button" to="." method="_on_button_close_pressed"]
 [connection signal="pressed" from="ClickableArea" to="." method="_on_clickable_area_pressed"]

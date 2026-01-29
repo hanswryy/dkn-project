@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dq3mgt0pikihf"]
+[gd_scene load_steps=27 format=3 uid="uid://dq3mgt0pikihf"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_tgxrm"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_wdqbv"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="19_8rs3l"]
 [ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="20_g6nmk"]
 [ext_resource type="PackedScene" uid="uid://bqrs4u8bifvkc" path="res://Scenes/Menu/pause_menu.tscn" id="20_it4j4"]
+[ext_resource type="PackedScene" uid="uid://dfgiutyjmm0ra" path="res://Scenes/Monodialog/md_event_trigger.tscn" id="24_yl7w1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlb7o"]
 texture = ExtResource("16_df2ac")
@@ -95,8 +96,16 @@ script = null
 [node name="InteractionDrawer" parent="Interaction" instance=ExtResource("9_sii78")]
 visible = false
 
+[node name="DialogWrapperUI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="MonodialogEventTrigger" parent="DialogWrapperUI" instance=ExtResource("24_yl7w1")]
+unique_name_in_owner = true
+character_id = "mc"
+
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 11
 script = ExtResource("10_kawgp")
 icon_open = ExtResource("11_it4j4")
 icon_close = ExtResource("12_6r6ha")
@@ -177,6 +186,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" parent="." instance=ExtResource("20_it4j4")]
+layer = 12
 visible = false
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
