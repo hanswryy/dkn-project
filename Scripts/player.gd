@@ -49,7 +49,7 @@ func update_astar_obstacles():
 	print(">> Map Region: ", region)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("left_mbutton") and not PauseGameController.is_in_pause_box:
+	if event.is_action_pressed("left_mbutton") and Constants.player["can_move"]:
 		var mouse_pos = get_global_mouse_position()
 		var mouse_map_pos = Tile_map.local_to_map(mouse_pos)
 		
