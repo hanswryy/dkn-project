@@ -29,7 +29,6 @@ script = ExtResource("1_o6t2i")
 dnd_scene = ExtResource("2_jy200")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(328, 360)
 scale = Vector2(1.32169, 1.8765957)
 texture = ExtResource("1_kyp35")
@@ -41,6 +40,8 @@ visible = false
 position = Vector2(121, 279)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_3mrgy")]
+offset = Vector2(-33.065, 0)
+transform = Transform2D(1, 0, 0, 1, -33.065, 0)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("6_gvpv4")]
 position = Vector2(152, 316)
@@ -55,13 +56,11 @@ zoom = Vector2(2.5, 2.5)
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 script = ExtResource("8_bh1et")
 icon_open = ExtResource("9_jy200")
 icon_close = ExtResource("10_v0c4q")
 
 [node name="InventoryUI" parent="InventoryCanvas" instance=ExtResource("11_sab8e")]
-visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="InventoryCanvas"]
 anchors_preset = 15
@@ -97,7 +96,6 @@ icon = ExtResource("10_v0c4q")
 icon_alignment = 1
 
 [node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("15_2ql4h")]
-visible = false
 
 [node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
 unique_name_in_owner = true
