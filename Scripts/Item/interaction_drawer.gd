@@ -12,10 +12,14 @@ func _ready():
 
 func reset_drawer():
 	texture_laci_closed.show()
-	texture_buku.show()
-	book_area.show()
+	#texture_buku.show()
+	#book_area.show()
 
 func _on_interaction_requested():
+	if InventoryManager.has_item_by_id(book_data.id):
+		print("Item ", book_data.name, " sudah ada di tas. Menghapus dari map.")
+		%TextureBuku.hide()
+		%ClickableAreaBook.hide()
 	reset_drawer()
 	show()
 

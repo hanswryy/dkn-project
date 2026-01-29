@@ -51,6 +51,7 @@ texture = SubResource("AtlasTexture_5et6o")
 stretch_mode = 5
 
 [node name="TextureCurtain" type="TextureRect" parent="PanelContainer/TextureBathroom"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 441.99994
 offset_top = 3.0000002

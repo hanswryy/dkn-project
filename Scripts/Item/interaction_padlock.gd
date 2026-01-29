@@ -38,32 +38,49 @@ func check_password():
 		unlock_padlock()
 
 func unlock_padlock():
-	fade_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
-	#await get_tree().create_timer(0.7).timeout
-	%UnlockedSFX.play()
-	#await get_tree().create_timer(1).timeout
-	#await fade_transition()
+	for label in labels:
+		label.get_parent().mouse_filter = Control.MOUSE_FILTER_IGNORE 
 	
-	# give item
+	%UnlockedSFX.play()
+	
 	if item_inside:
 		InventoryManager.add_item(item_inside)
 		InventoryManager.item_highlight_requested.emit(item_inside)
-	
+		
+		if !SignalManager.is_connected("highlight_closed", _on_highlight_finished):
+			SignalManager.highlight_closed.connect(_on_highlight_finished, CONNECT_ONE_SHOT)
+	else:
+		_on_highlight_finished()
+
+func _on_highlight_finished():
+	print("Highlight finished")
+	await run_full_transition()
+	hide()
 	SignalManager.padlock_unlocked.emit(item_inside)
-	#hide()
-	#await get_tree().create_timer(0.5).timeout
-	
-func fade_transition():
+
+func run_full_transition():
+	# fade in
 	fade_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+	var tween_in = create_tween()
+	tween_in.tween_property(fade_overlay, "modulate:a", 1.0, 2)
+	await tween_in.finished
 	
-	# Fade In
-	var tween = create_tween()
-	tween.tween_property(fade_overlay, "modulate:a", 1.0, 2)
-	await tween.finished
+	$PanelContainer.hide()
+	await get_tree().create_timer(0.3).timeout
+	
+	# fade out
+	var tween_out = create_tween()
+	tween_out.tween_property(fade_overlay, "modulate:a", 0.0, 2)
+	await tween_out.finished
 	
 	fade_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hide()
 	
 func _on_slot_1_pressed(): rotate_digit(0)
 func _on_slot_2_pressed(): rotate_digit(1)
 func _on_slot_3_pressed(): rotate_digit(2)
 func _on_slot_4_pressed(): rotate_digit(3)
+
+
+func _on_button_pressed() -> void:
+	hide()

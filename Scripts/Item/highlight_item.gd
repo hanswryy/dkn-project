@@ -36,6 +36,7 @@ func show_highlight():
 func hide_highlight():
 	%PutItemSFX.play()
 	await animate_close()
+	SignalManager.highlight_closed.emit()
 	
 	get_tree().paused = false
 	visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://27yr4yo6gxs"]
+[gd_scene load_steps=10 format=3 uid="uid://27yr4yo6gxs"]
 
 [ext_resource type="Texture2D" uid="uid://by1ruhxr731ed" path="res://Assets/Sprites/FirstPerson/padlock.png" id="1_rkyly"]
 [ext_resource type="Script" uid="uid://bsmgrgo7sfbua" path="res://Scripts/Item/interaction_padlock.gd" id="1_vdou1"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="4_jnuq7"]
 [ext_resource type="AudioStream" uid="uid://ccsstsen8gh68" path="res://Assets/Audio/SFX padlock 3.mp3" id="6_hmd5u"]
 [ext_resource type="AudioStream" uid="uid://c7wrttiv1373w" path="res://Assets/Audio/SFX kebuka padlock nya.mp3" id="7_hmd5u"]
-[ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="8_hmd5u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdou1"]
 bg_color = Color(0.02745098, 0, 0, 1)
@@ -184,10 +183,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="HighlightItem" parent="." instance=ExtResource("8_hmd5u")]
-layout_mode = 1
-
 [connection signal="pressed" from="PanelContainer/TextureRect/Slot1" to="." method="_on_slot_1_pressed"]
 [connection signal="pressed" from="PanelContainer/TextureRect/Slot2" to="." method="_on_slot_2_pressed"]
 [connection signal="pressed" from="PanelContainer/TextureRect/Slot3" to="." method="_on_slot_3_pressed"]
 [connection signal="pressed" from="PanelContainer/TextureRect/Slot4" to="." method="_on_slot_4_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
