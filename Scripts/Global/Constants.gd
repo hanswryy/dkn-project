@@ -13,6 +13,7 @@ const SCENE_PATHS: Dictionary = {
 	"clue_cangkir": "uid://depcxg6sxwrsm",
 	"clue_tisu": "uid://cbjfiu0isdlfc",
 	"clue_kupu_kupu": "uid://cd5syxchsrgsc",
+	"basement_key": "uid://yod0thxq2n1e",
 	
 	# Item
 	"example_item_1": "uid://c6ltbtgla7tqm",

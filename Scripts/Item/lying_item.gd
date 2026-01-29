@@ -7,7 +7,7 @@ extends Area2D
 
 func _ready():
 	if InventoryManager.has_item_by_id(item.id):
-		print("Item ", item.name, " sudah ada di tas. Menghapus dari map.")
+		print("ASDASASDASDAS ", item.name, " sudah ada di tas. Menghapus dari map.")
 		queue_free()
 		
 	if item:

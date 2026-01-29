@@ -12,4 +12,5 @@ script = ExtResource("1_irvci")
 id = "clue_kunci_basement"
 name = "Kunci Basement"
 icon = SubResource("AtlasTexture_r8n4k")
+description = "Kunci besi kasar yang terasa sangat dingin di telapak tangan. Tidak ada label ruangan, hanya aroma tanah basah dan besi berkarat yang menyengat. Kunci ini terasa lebih berat dari wujud aslinya... seolah ia tidak diciptakan untuk memberi akses masuk, melainkan untuk memastikan sesuatu—atau seseorang—tidak akan pernah bisa keluar dari bawah sana"
 metadata/_custom_type_script = "uid://brbwama7atgt2"

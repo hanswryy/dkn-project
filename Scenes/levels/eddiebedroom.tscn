@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="7_fb5hc"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_0gfe4"]
 [ext_resource type="Script" uid="uid://6n284ei2hjoc" path="res://Scripts/Testing/world_ui.gd" id="10_mtkoj"]
-[ext_resource type="PackedScene" uid="uid://dhqe3io5ffo43" path="res://Scenes/jumpscare.tscn" id="11_foq87"]
+[ext_resource type="PackedScene" uid="uid://bu80dkt4me6ro" path="res://Scenes/jumpscare2.tscn" id="11_1yxbu"]
 [ext_resource type="Texture2D" uid="uid://bc7feocroqlay" path="res://Resources/Inventory/inventory_open.tres" id="11_gmcbt"]
 [ext_resource type="Texture2D" uid="uid://e3prlt2utxqo" path="res://Resources/Inventory/inventory_close.tres" id="12_w54vd"]
 [ext_resource type="PackedScene" uid="uid://crvxkwfcdgxku" path="res://Scenes/Inventory/inventory_ui.tscn" id="13_foq87"]
@@ -104,7 +104,7 @@ script = null
 [node name="InteractionBathtub" parent="Interaction" instance=ExtResource("21_w54vd")]
 visible = false
 
-[node name="Jumpscare" parent="Interaction" instance=ExtResource("11_foq87")]
+[node name="Jumpscare" parent="Interaction" instance=ExtResource("11_1yxbu")]
 unique_name_in_owner = true
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]

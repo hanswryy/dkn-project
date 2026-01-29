@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu80dkt4me6ro"]
+
+[ext_resource type="Script" uid="uid://dcwxwfydr1ygu" path="res://Scripts/jumpscare.gd" id="1_d7gob"]
+[ext_resource type="Texture2D" uid="uid://c14irqp6wksd6" path="res://Assets/Sprites/AJIG.png" id="2_d7gob"]
+[ext_resource type="AudioStream" uid="uid://b4itn0q7ubimo" path="res://Assets/Audio/SFX jumpscare female ghost.mp3" id="3_v5w2m"]
+
+[node name="Jumpscare" type="Node2D"]
+script = ExtResource("1_d7gob")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="JumpscareSprite" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("2_d7gob")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="JumpscareAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_v5w2m")
+volume_db = 10.098
+pitch_scale = 1.85
