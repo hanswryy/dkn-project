@@ -9,6 +9,8 @@ var last_frame : int = -1
 var target_item : Area2D = null
 var target_tile_type : String = "" 
 
+var interaction_target_pos : Vector2 = Vector2.ZERO
+
 func _ready():
 	Tile_map = get_parent().find_child("TileMap")
 	Astar = Tile_map.AstarGrid
@@ -50,6 +52,8 @@ func _unhandled_input(event):
 	if event.is_action_pressed("left_mbutton") and not PauseGameController.is_in_pause_box:
 		var mouse_pos = get_global_mouse_position()
 		var mouse_map_pos = Tile_map.local_to_map(mouse_pos)
+		
+		interaction_target_pos = mouse_pos
 		
 		print("\n--- NEW INPUT DETECTED ---")
 		
@@ -147,7 +151,7 @@ func stop_moving():
 func check_interactions():
 	if target_tile_type != "":
 		var mouse_pos = get_global_mouse_position()
-		var dist = global_position.distance_to(mouse_pos)
+		var dist = global_position.distance_to(interaction_target_pos)
 		print("--- CHECKING INTERACTION ---")
 		print(">> Target Type: ", target_tile_type)
 		print(">> Final Distance to Mouse: ", dist)
