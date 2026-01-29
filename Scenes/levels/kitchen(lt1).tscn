@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://s8dqdc2ds1d8"]
+[gd_scene load_steps=24 format=3 uid="uid://s8dqdc2ds1d8"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_kyp35"]
 [ext_resource type="Script" uid="uid://xb25xwd4csfh" path="res://Scripts/Level/dapur/level_dapur_world.gd" id="1_o6t2i"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bs10em2k7jxko" path="res://Assets/Audio/BGM/SFX buka tas.mp3" id="13_kgwd2"]
 [ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="14_f8lvj"]
 [ext_resource type="PackedScene" uid="uid://c4r62wrijl4uu" path="res://Scenes/Item/highlight_item.tscn" id="15_2ql4h"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="15_r1rog"]
 [ext_resource type="AudioStream" uid="uid://j2c1oqo3420" path="res://Assets/Audio/SFX back_Esc.mp3" id="16_j7tks"]
 [ext_resource type="AudioStream" uid="uid://cafr3duw7wf27" path="res://Assets/Audio/SFX Drag item or ambil item.mp3" id="17_2yicj"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="19_v0c4q"]
@@ -24,6 +25,14 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ciet"]
 texture = ExtResource("14_f8lvj")
 region_rect = Rect2(16, 16, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgwd2"]
+texture = ExtResource("14_f8lvj")
+texture_margin_left = 30.0
+texture_margin_top = 10.0
+texture_margin_right = 30.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(112, 16, 96, 96)
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_o6t2i")
@@ -96,6 +105,19 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_3ciet")
 icon = ExtResource("10_v0c4q")
 icon_alignment = 1
 
+[node name="AlertPopup" type="PanelContainer" parent="InventoryCanvas/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_kgwd2")
+
+[node name="Label" type="Label" parent="InventoryCanvas/MarginContainer/AlertPopup"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_r1rog")
+text = "Fakta baru terungkap: Deskripsi Bukti Diperbarui!"
+
 [node name="HighlightItem" parent="InventoryCanvas" instance=ExtResource("15_2ql4h")]
 
 [node name="PutItemSFX" type="AudioStreamPlayer2D" parent="InventoryCanvas"]
@@ -147,10 +169,7 @@ position = Vector2(320, 337)
 scale = Vector2(-1.135815, 0.64951575)
 script = null
 
-[node name="DialogWrapperUI" type="CanvasLayer" parent="."]
-layer = 10
-
-[node name="MonodialogEventTrigger" parent="DialogWrapperUI" instance=ExtResource("20_sab8e")]
+[node name="MonodialogEventTrigger" parent="." instance=ExtResource("20_sab8e")]
 unique_name_in_owner = true
 character_id = "mc"
 
