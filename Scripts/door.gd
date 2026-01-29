@@ -4,6 +4,7 @@ extends Area2D
 @export var entry_point_id: String = "Level1_Start"
 @export var door_open_sfx: AudioStream
 @export var basement_door: bool = false
+@export var hall_door: bool = false
 
 func _on_body_entered(body) -> void:
 	if body.is_in_group("player"):
@@ -14,6 +15,10 @@ func _on_body_entered(body) -> void:
 				%DoorLocked.play()
 				_show_locked_dialog()
 				return
+		
+		if hall_door:
+			print("AWWWasdasdas HALSDLKASd")
+			JumpscareManager.jumpscare_hall_triggered = true
 		
 		set_deferred("monitoring", false)
 		body.set_process(false) 
