@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwb78ls7g2sjj"]
+[gd_scene load_steps=9 format=3 uid="uid://bwb78ls7g2sjj"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_dw6t5"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_qdqot"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="6_6kqxj"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="7_qex7i"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_8obx6"]
-[ext_resource type="PackedScene" uid="uid://bqyymabgkbfw4" path="res://Scenes/EntityChasing/enemy_chasing.tscn" id="9_306ee"]
-[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="9_q5ty4"]
 [ext_resource type="Script" uid="uid://cj2obfjdunwh3" path="res://Scripts/camera_player.gd" id="10_jj0a1"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="11_jj0a1"]
 
@@ -53,7 +51,6 @@ position = Vector2(37, 297)
 rotation = -1.5707964
 next_scene_path = "uid://cq4yn24j3i25h"
 entry_point_id = "Lantai1Kiri"
-door_open_sfx = ExtResource("9_q5ty4")
 
 [node name="SpawnPoint" parent="." groups=["HallKiri"] instance=ExtResource("11_jj0a1")]
 position = Vector2(89, 297)
@@ -65,7 +62,6 @@ position = Vector2(437, 293)
 rotation = -1.5707964
 next_scene_path = "uid://ca8ce178ojv40"
 entry_point_id = "Lantai1Kanan"
-door_open_sfx = ExtResource("9_q5ty4")
 
 [node name="SpawnPoint2" parent="." groups=["HallKanan"] instance=ExtResource("11_jj0a1")]
 position = Vector2(414, 294)
@@ -78,7 +74,6 @@ rotation = -1.5707964
 scale = Vector2(0.8, 4.095)
 next_scene_path = "uid://bgj86kvc5r7gt"
 entry_point_id = "Lantai1Tangga"
-door_open_sfx = ExtResource("9_q5ty4")
 
 [node name="SpawnPoint3" parent="." groups=["Lantai2Tangga"] instance=ExtResource("11_jj0a1")]
 position = Vector2(233, 170)
@@ -91,7 +86,6 @@ position = Vector2(337, 247)
 rotation = -1.5707964
 next_scene_path = "uid://s8dqdc2ds1d8"
 entry_point_id = "Lantai1Atas"
-door_open_sfx = ExtResource("9_q5ty4")
 
 [node name="SpawnPoint4" parent="." groups=["PintuDapur2"] instance=ExtResource("11_jj0a1")]
 position = Vector2(337, 294)
@@ -103,15 +97,11 @@ position = Vector2(113, 173)
 rotation = -1.5707964
 next_scene_path = "uid://cp3r6bogw8tnr"
 entry_point_id = "Lantai1Jilly"
-door_open_sfx = ExtResource("9_q5ty4")
 
 [node name="SpawnPoint5" parent="." groups=["KamarJilly"] instance=ExtResource("11_jj0a1")]
 position = Vector2(113, 213)
 rotation = -1.5707964
 script = null
-
-[node name="EnemyChasing" parent="." instance=ExtResource("9_306ee")]
-position = Vector2(39, 288)
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="body_entered" from="Door2" to="Door2" method="_on_body_entered"]

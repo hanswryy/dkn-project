@@ -18,7 +18,7 @@ var InspectScene: PackedScene
 func _ready():
 	var spawn_node = get_tree().get_first_node_in_group(GameManager.target_entry_id)
 	if spawn_node:
-		$Player.global_position = spawn_node.global_position
+		global_position = spawn_node.global_position
 		
 	Tile_map = get_parent().get_node("TileMap")
 	Astar = Tile_map.AstarGrid
