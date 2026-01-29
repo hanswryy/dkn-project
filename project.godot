@@ -27,6 +27,7 @@ CheckpointState="*res://Scripts/Global/CheckpointState.gd"
 InspectWindowController="*res://Scripts/Global/InspectWindowController.gd"
 GameManager="*res://Scripts/Global/GameManager.gd"
 SignalManager="*res://Scripts/Global/SignalManager.gd"
+JumpscareManager="*res://Scripts/Global/JumpscareManager.gd"
 
 [display]
 
