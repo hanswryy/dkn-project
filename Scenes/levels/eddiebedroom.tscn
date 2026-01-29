@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkp3t6r8q0edm"]
+[gd_scene load_steps=9 format=3 uid="uid://bkp3t6r8q0edm"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_dyyy0"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_u6g2v"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="7_758fq"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="7_fb5hc"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_0gfe4"]
+[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="8_dyyy0"]
 
 [node name="EddieBedroom" type="Node2D"]
 script = ExtResource("1_dyyy0")
@@ -48,6 +49,7 @@ position = Vector2(353.99997, 335)
 scale = Vector2(0.68, 1.72)
 next_scene_path = "uid://bgj86kvc5r7gt"
 entry_point_id = "KamarEddie"
+door_open_sfx = ExtResource("8_dyyy0")
 
 [node name="SpawnPoint" parent="." groups=["Lantai2Kiri"] instance=ExtResource("7_758fq")]
 position = Vector2(321.99997, 336)
@@ -59,6 +61,7 @@ position = Vector2(268, 311)
 scale = Vector2(0.68, 1.72)
 next_scene_path = "uid://c74tm24hjcljs"
 entry_point_id = "ClosetEddie"
+door_open_sfx = ExtResource("8_dyyy0")
 
 [node name="SpawnPoint2" parent="." groups=["Closet"] instance=ExtResource("7_758fq")]
 position = Vector2(268, 352)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d07joiby02plh"]
+[gd_scene load_steps=9 format=3 uid="uid://d07joiby02plh"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_4k2vq"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="2_iapuv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="5_so8qb"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="6_f8qi6"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="7_hnrvr"]
+[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="8_yomak"]
 
 [node name="Workshop" type="Node2D"]
 script = ExtResource("1_4k2vq")
@@ -49,6 +50,7 @@ position = Vector2(315, 228.99998)
 scale = Vector2(0.72, 2.1)
 next_scene_path = "uid://cq4yn24j3i25h"
 entry_point_id = "PintuLibrary"
+door_open_sfx = ExtResource("8_yomak")
 
 [node name="Spawnpoint2" parent="." groups=["PintuWorkshop"] instance=ExtResource("7_hnrvr")]
 position = Vector2(314, 266)

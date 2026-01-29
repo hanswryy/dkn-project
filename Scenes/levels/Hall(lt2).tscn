@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgj86kvc5r7gt"]
+[gd_scene load_steps=10 format=3 uid="uid://bgj86kvc5r7gt"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_dpkxq"]
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_tlum5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="7_fq1hj"]
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="7_mskgg"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="8_3vkyg"]
+[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="9_oqbkx"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="9_suwks"]
 [ext_resource type="Script" uid="uid://cj2obfjdunwh3" path="res://Scripts/camera_player.gd" id="10_oausa"]
 
@@ -50,6 +51,7 @@ position = Vector2(198, 318)
 scale = Vector2(2.405, 1)
 next_scene_path = "uid://bwb78ls7g2sjj"
 entry_point_id = "Lantai2Tangga"
+door_open_sfx = ExtResource("9_oqbkx")
 
 [node name="SpawnPoint" parent="." groups=["Lantai1Tangga"] instance=ExtResource("7_fq1hj")]
 position = Vector2(197, 299)
@@ -61,6 +63,7 @@ position = Vector2(71.00001, 304)
 scale = Vector2(0.655, 1.675)
 next_scene_path = "uid://bkp3t6r8q0edm"
 entry_point_id = "Lantai2Kiri"
+door_open_sfx = ExtResource("9_oqbkx")
 
 [node name="SpawnPoint2" parent="." groups=["KamarEddie"] instance=ExtResource("7_fq1hj")]
 position = Vector2(101, 305)
@@ -72,6 +75,7 @@ position = Vector2(351.00003, 303.00003)
 scale = Vector2(0.655, 1.675)
 next_scene_path = "uid://dq3mgt0pikihf"
 entry_point_id = "Lantai2Kanan"
+door_open_sfx = ExtResource("9_oqbkx")
 
 [node name="SpawnPoint3" parent="." groups=["KamarMatt"] instance=ExtResource("7_fq1hj")]
 position = Vector2(322.00003, 302)
@@ -83,6 +87,7 @@ position = Vector2(215.00002, 463)
 scale = Vector2(0.655, 1.675)
 next_scene_path = "uid://cqrfbwje6eeka"
 entry_point_id = "Lantai2Bawah"
+door_open_sfx = ExtResource("9_oqbkx")
 
 [node name="SpawnPoint4" parent="." groups=["KamarAnak"] instance=ExtResource("7_fq1hj")]
 position = Vector2(244, 463)

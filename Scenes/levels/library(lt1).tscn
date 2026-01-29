@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cq4yn24j3i25h"]
+[gd_scene load_steps=9 format=3 uid="uid://cq4yn24j3i25h"]
 
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_c5620"]
 [ext_resource type="TileSet" uid="uid://dqkwscxogdg5l" path="res://Assets/Sprites/tileset.tres" id="2_800ur"]
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="2_oc4jd"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="6_lcgi3"]
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="7_mci4c"]
+[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="8_kwu2i"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="8_lqoao"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="9_th45s"]
 
@@ -49,6 +50,7 @@ position = Vector2(358.99997, 303.00003)
 scale = Vector2(0.61, 1.68)
 next_scene_path = "uid://bwb78ls7g2sjj"
 entry_point_id = "HallKiri"
+door_open_sfx = ExtResource("8_kwu2i")
 
 [node name="SpawnPoint" parent="." groups=["Lantai1Kiri"] instance=ExtResource("6_lcgi3")]
 position = Vector2(329, 303)
@@ -65,6 +67,7 @@ position = Vector2(265, 338)
 scale = Vector2(0.945, 1.68)
 next_scene_path = "uid://d07joiby02plh"
 entry_point_id = "PintuWorkshop"
+door_open_sfx = ExtResource("8_kwu2i")
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="body_entered" from="SpawnPoint" to="SpawnPoint" method="_on_body_entered"]

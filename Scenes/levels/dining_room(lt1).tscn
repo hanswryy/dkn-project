@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca8ce178ojv40"]
+[gd_scene load_steps=9 format=3 uid="uid://ca8ce178ojv40"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_7x7qr"]
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_vpxsp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="6_mctoc"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="7_qarfd"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_dwg8q"]
+[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="8_kgkaa"]
 [ext_resource type="PackedScene" uid="uid://xdgfshm0pl5k" path="res://Scenes/Move_Scenes/door.tscn" id="9_nw67q"]
 
 [node name="DinnerRoom" type="Node2D"]
@@ -49,6 +50,7 @@ position = Vector2(97, 336.38)
 scale = Vector2(0.405, 1.625)
 next_scene_path = "uid://bwb78ls7g2sjj"
 entry_point_id = "HallKanan"
+door_open_sfx = ExtResource("8_kgkaa")
 
 [node name="SpawnPoint" parent="." groups=["Lantai1Kanan"] instance=ExtResource("9_nw67q")]
 position = Vector2(124, 336)
@@ -60,12 +62,14 @@ position = Vector2(153, 256)
 scale = Vector2(0.86, 1.625)
 next_scene_path = "uid://s8dqdc2ds1d8"
 entry_point_id = "PintuDapur"
+door_open_sfx = ExtResource("8_kgkaa")
 
 [node name="Door3" parent="." instance=ExtResource("9_nw67q")]
 position = Vector2(316, 264)
 scale = Vector2(0.785, 1.483)
 next_scene_path = "uid://dysk1fiog4wjt"
 entry_point_id = "PintuBasement"
+door_open_sfx = ExtResource("8_kgkaa")
 
 [node name="SpawnPoint2" parent="." groups=["PintuDiningRoom"] instance=ExtResource("9_nw67q")]
 position = Vector2(155, 295)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp3r6bogw8tnr"]
+[gd_scene load_steps=9 format=3 uid="uid://cp3r6bogw8tnr"]
 
 [ext_resource type="Texture2D" uid="uid://cbtm3e1l3e54v" path="res://Assets/Sprites/background.png" id="1_qdqot"]
 [ext_resource type="Script" uid="uid://dopmay02ddm0s" path="res://Scripts/arrival.gd" id="1_rsxbb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dod1hsui3fa1k" path="res://Scripts/tile_map.gd" id="6_6kqxj"]
 [ext_resource type="PackedScene" uid="uid://dcnjve3l7lvnf" path="res://Scenes/Shaders/shaders.tscn" id="7_qex7i"]
 [ext_resource type="PackedScene" uid="uid://cnwagqa7gdp55" path="res://Scenes/Player/player.tscn" id="8_8obx6"]
+[ext_resource type="AudioStream" uid="uid://cv7ukhcqyc10e" path="res://Assets/Audio/BGM/SFX buka pintu.mp3" id="8_12ahs"]
 
 [node name="KamarJilly" type="Node2D"]
 script = ExtResource("1_rsxbb")
@@ -49,6 +50,7 @@ rotation = -1.5707964
 scale = Vector2(0.98, 1.5)
 next_scene_path = "uid://bwb78ls7g2sjj"
 entry_point_id = "KamarJilly"
+door_open_sfx = ExtResource("8_12ahs")
 
 [node name="SpawnPoint5" parent="." groups=["Lantai1Jilly"] instance=ExtResource("6_1ookr")]
 position = Vector2(240, 344)
