@@ -304,7 +304,7 @@
 			},
 			{
 				"branch_id": "125",
-					"type" : "menemukan_buku_lily",
+					"type" : "pickup_item",
 					"monodialogs": [
 							{
 								"state": "start",
@@ -314,7 +314,61 @@
 								}
 							}
 					]
-			}
+			},
+			{
+					"branch_id": "130",
+					"type": "pickup_item",
+					"monodialogs": [
+						{
+							"state": "start",
+							"text": "Jam dinding ini pecah... jarumnya berhenti tepat di pukul 08.15 malam.",
+							"options": {
+								"Lanjut": "2"
+							}
+						},
+						{
+							"state": "2",
+							"text": "Jika makan malam dimulai jam 8, maka kekacauan ini terjadi hanya dalam waktu 15 menit.",
+							"options": {
+								"Lanjut": "3"
+							}
+						},
+						{
+							"state": "3",
+							"text": "Sangat cepat. Sesuatu atau seseorang memutus waktu mereka dengan paksa.",
+							"options": {
+								"Selesai": "exit"
+							}
+						}
+					]
+				},
+				{
+					"branch_id": "140",
+					"type": "pickup_item",
+					"monodialogs": [
+						{
+							"state": "start",
+							"text": "Tisu bekas di tempat sampah... ada noda lipstik merah menyala di sini.",
+							"options": {
+								"Lanjut": "2"
+							}
+						},
+						{
+							"state": "2",
+							"text": "Tunggu... Matt tidak mungkin memakai lipstik. Lily pun lebih suka warna yang pucat.",
+							"options": {
+								"Lanjut": "3"
+							}
+						},
+						{
+							"state": "3",
+							"text": "Artinya ada wanita lain yang ikut makan malam itu. Seseorang yang ingin tampil mencolok.",
+							"options": {
+								"Selesai": "exit"
+							}
+						}
+					]
+				}
 			
 			
 			
