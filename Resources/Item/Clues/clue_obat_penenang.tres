@@ -12,6 +12,6 @@ script = ExtResource("1_kvh3o")
 id = "clue_obat_penenang"
 name = "Obat Penenang"
 icon = SubResource("AtlasTexture_1b1a2")
-description = "..."
+description = "Botol kaca berisi pil penenang dengan label nama 'Matt Julia'. Isinya masih terlihat penuh, seolah pemiliknya sengaja berhenti mengonsumsinya. Dalam buku harian, disebutkan bahwa Matt menjadi menakutkan saat lupa meminum obat ini. Apakah ini pemicu kegilaannya malam itu?"
 postRevealDialog = "120"
 metadata/_custom_type_script = "uid://brbwama7atgt2"

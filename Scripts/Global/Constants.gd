@@ -12,6 +12,7 @@ const SCENE_PATHS: Dictionary = {
 	"tiket_kereta": "uid://x2dt31cf07kr",
 	"clue_cangkir": "uid://depcxg6sxwrsm",
 	"clue_tisu": "uid://cbjfiu0isdlfc",
+	"clue_kupu_kupu": "uid://cd5syxchsrgsc",
 	
 	# Item
 	"example_item_1": "uid://c6ltbtgla7tqm",

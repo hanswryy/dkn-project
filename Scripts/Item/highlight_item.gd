@@ -74,4 +74,4 @@ func animate_close():
 	self.hide()
 	self.position.y = original_pos_y
 	
-	%MonodialogEventTrigger.start_monodialog(postDialogId)
+	#%MonodialogEventTrigger.start_monodialog(postDialogId)

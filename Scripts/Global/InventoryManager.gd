@@ -10,9 +10,8 @@ signal magnification_started
 
 # appending item (testing)
 func _ready():
+	#add_item(load(Constants.SCENE_PATHS.clue_kupu_kupu))
 	#add_item(load(Constants.SCENE_PATHS.magnifying_glass))
-	#
-	#add_item(load(Constants.SCENE_PATHS.surat_wasiat))
 	#add_item(load(Constants.SCENE_PATHS.surat_sita_bank))
 	#add_item(load(Constants.SCENE_PATHS.surat_dari_matt))
 	#add_item(load(Constants.SCENE_PATHS.tiket_kereta))

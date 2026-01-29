@@ -12,6 +12,6 @@ script = ExtResource("1_bukhl")
 id = "clue_kunci_kupu"
 name = "Kunci Corak Kupu-Kupi"
 icon = SubResource("AtlasTexture_p6edh")
-description = "Indah sekali, sekaligus mengerikan. Ukirannya membentuk sayap kupu-kupu yang sangat presisi, hampir menyatu sempurna dengan bingkai lukisan tadi. Tanpa lensa itu, aku pasti sudah melewatkannya. Besinya terasa berat dan dingin... Kunci sekecil ini pasti menyembunyikan rahasia yang jauh lebih besar di suatu tempat."
+description = "Sebuah kunci kuningan kecil dengan ukiran kupu-kupu yang rumit di gagangnya. Aku menemukannya tersembunyi secara janggal di balik bingkai lukisan di dinding kamar Jilly"
 postRevealDialog = "100"
 metadata/_custom_type_script = "uid://brbwama7atgt2"
