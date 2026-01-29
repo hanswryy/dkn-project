@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://dqkwscxogdg5l"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://dqkwscxogdg5l"]
 
 [ext_resource type="Texture2D" uid="uid://w3s80m5fgii0" path="res://Assets/Sprites/tilemap1.png" id="1_p8ecc"]
 [ext_resource type="Texture2D" uid="uid://57ebt1r2ponr" path="res://Assets/Sprites/Furniture.png" id="2_4turo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dcca36mrcwmd4" path="res://Assets/Sprites/Fix_tilemap.png" id="4_jhp2c"]
 [ext_resource type="Texture2D" uid="uid://40v2oiciisi2" path="res://Assets/Sprites/FIxed_tilemap.png" id="5_4turo"]
 [ext_resource type="Texture2D" uid="uid://v83m16vurr84" path="res://Assets/Sprites/furniture tileset.png" id="6_o4t5g"]
+[ext_resource type="Texture2D" uid="uid://dnjdour47lnud" path="res://Assets/Sprites/karpet.png" id="7_jhp2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_votce"]
 texture = ExtResource("1_p8ecc")
@@ -934,6 +935,45 @@ texture = ExtResource("6_o4t5g")
 14:15/0 = 0
 15:15/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43nh4"]
+texture = ExtResource("7_jhp2c")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 1
@@ -945,3 +985,4 @@ sources/2 = SubResource("TileSetAtlasSource_0fn8n")
 sources/3 = SubResource("TileSetAtlasSource_p7gy1")
 sources/4 = SubResource("TileSetAtlasSource_02mpk")
 sources/5 = SubResource("TileSetAtlasSource_jhp2c")
+sources/6 = SubResource("TileSetAtlasSource_43nh4")
