@@ -10,6 +10,7 @@ func _ready():
 	clickable_area.show()
 	SignalManager.bathtub_interaction_requested.connect(_on_interaction_requested)
 
+# Hodengdengedeng
 func _on_clickable_area_pressed() -> void:
 	%PickupSFX.play()
 	InventoryManager.add_item(item_data)
@@ -21,8 +22,11 @@ func _on_clickable_area_pressed() -> void:
 	texture_gelas.hide()
 	clickable_area.hide()
 	
-	# signal jumpscare
-	#InventoryManager.item_highlight_requested.emit(item_data)
+	# jumpscare
+	var jumpscare = %Jumpscare
+	
+	if jumpscare:
+		jumpscare.start_manual_jumpscare()
 	
 func _on_interaction_requested():
 	show()

@@ -9,6 +9,8 @@ var last_frame : int = -1
 var target_item : Area2D = null
 var target_tile_type : String = "" 
 
+var interaction_target_pos : Vector2 = Vector2.ZERO
+
 func _ready():
 	Tile_map = get_parent().find_child("TileMap")
 	Astar = Tile_map.AstarGrid
@@ -50,6 +52,8 @@ func _unhandled_input(event):
 	if event.is_action_pressed("left_mbutton") and not PauseGameController.is_in_pause_box:
 		var mouse_pos = get_global_mouse_position()
 		var mouse_map_pos = Tile_map.local_to_map(mouse_pos)
+		
+		interaction_target_pos = mouse_pos
 		
 		print("\n--- NEW INPUT DETECTED ---")
 		
@@ -147,7 +151,7 @@ func stop_moving():
 func check_interactions():
 	if target_tile_type != "":
 		var mouse_pos = get_global_mouse_position()
-		var dist = global_position.distance_to(mouse_pos)
+		var dist = global_position.distance_to(interaction_target_pos)
 		print("--- CHECKING INTERACTION ---")
 		print(">> Target Type: ", target_tile_type)
 		print(">> Final Distance to Mouse: ", dist)
@@ -157,13 +161,21 @@ func check_interactions():
 		else:
 			print(">> RESULT: FAILED (Too far away. Distance must be < 60)")
 		
-		target_tile_type = "" # Selalu reset setelah dicek
+		target_tile_type = ""
 
 func execute_tile_interaction(type: String):
 	print(">> RESULT: SUCCESS! Signal Emitted for: ", type)
 	match type:
 		"Cangkir": SignalManager.cangkir_interaction_requested.emit()
 		"Laci": SignalManager.drawer_interaction_requested.emit()
+		"Padlock": 
+			if InventoryManager.has_item_by_id("clue_surat_wasiat"):
+				pass
+			else:
+				SignalManager.padlock_interaction_requested.emit()
+		"Foto": SignalManager.foto_interaction_requested.emit()
+		"Bathtub": SignalManager.bathtub_interaction_requested.emit()
+		"Foto": SignalManager.foto_interaction_requested.emit()
 
 func play_footstep_sound():
 	var current_frame = $AnimatedSprite2D.frame

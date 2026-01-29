@@ -104,7 +104,6 @@ script = null
 visible = false
 
 [node name="Jumpscare" parent="Interaction" instance=ExtResource("11_foq87")]
-unique_name_in_owner = true
 
 [node name="InventoryCanvas" type="CanvasLayer" parent="."]
 process_mode = 3

@@ -6,3 +6,5 @@ func _ready() -> void:
 	# 2. Jika ketemu, pindahkan Player ke posisi node tersebut
 	if spawn_node:
 		$Player.global_position = spawn_node.global_position
+		
+	$CanvasModulate.show()

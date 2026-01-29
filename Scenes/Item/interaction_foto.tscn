@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxnhyjj8k4evw"]
+
+[ext_resource type="Script" uid="uid://bo55i720tujls" path="res://Scripts/Item/interaction_foto.gd" id="1_bl7o6"]
+[ext_resource type="Texture2D" uid="uid://dbhvn71cbac68" path="res://Assets/Sprites/FirstPerson/foto keluarga.png" id="3_85rwl"]
+[ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="4_eb7yw"]
+[ext_resource type="Texture2D" uid="uid://ow75lh8i7xjo" path="res://Assets/Textures/inventory-box.png" id="5_1temd"]
+[ext_resource type="AudioStream" uid="uid://eedulj33ybo2" path="res://Assets/Audio/SFX all role_semua bunyi klick item or investigasi.mp3" id="5_au28n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv4en"]
+bg_color = Color(0, 0, 0, 0.7019608)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxr4i"]
+atlas = ExtResource("3_85rwl")
+region = Rect2(19, 314, 328, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5et6o"]
+atlas = ExtResource("3_85rwl")
+region = Rect2(15, 29, 327, 250)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_10dsq"]
+texture = ExtResource("5_1temd")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+region_rect = Rect2(16, 16, 32, 32)
+
+[node name="InteractionFoto" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bl7o6")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vv4en")
+
+[node name="FotoBelakang" type="TextureRect" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_wxr4i")
+stretch_mode = 5
+
+[node name="FotoDepan" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5et6o")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_eb7yw")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_10dsq")
+text = "Close"
+
+[node name="ClickableArea" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 392.00003
+offset_top = 16.0
+offset_right = 1672.0
+offset_bottom = 736.0
+scale = Vector2(0.39807624, 0.9689255)
+mouse_default_cursor_shape = 2
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_au28n")
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Button" to="." method="_on_button_close_pressed"]
+[connection signal="pressed" from="ClickableArea" to="." method="_on_clickable_area_pressed"]

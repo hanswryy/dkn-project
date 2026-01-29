@@ -6,6 +6,10 @@ extends Area2D
 @onready var sprite = $Sprite2D
 
 func _ready():
+	if InventoryManager.has_item_by_id(item.id):
+		print("Item ", item.name, " sudah ada di tas. Menghapus dari map.")
+		queue_free()
+		
 	if item:
 		sprite.texture = item.icon
 		_rescale_sprite()
