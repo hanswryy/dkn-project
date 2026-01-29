@@ -63,11 +63,11 @@ layer_4/name = "Door"
 layer_4/tile_data = PackedInt32Array(1310742, 720900, 13, 1376278, 720900, 14, 1179664, 917508, 15, 1245200, 917508, 16, 1179665, 983044, 15, 1245201, 983044, 16)
 script = ExtResource("6_mojrb")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("7_fb5hc")]
-
-[node name="LyingItem" parent="CanvasLayer" instance=ExtResource("5_dyyy0")]
+[node name="LyingItem" parent="TileMap" instance=ExtResource("5_dyyy0")]
 position = Vector2(186, 366)
 item = ExtResource("6_fn1q7")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("7_fb5hc")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
