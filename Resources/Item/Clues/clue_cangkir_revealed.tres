@@ -13,4 +13,5 @@ id = "clue_cangkir_revealed"
 name = "Cangkir Beresidu Racun"
 icon = SubResource("AtlasTexture_vl31c")
 description = "Astaga... dugaanku benar. Lihat kerak hijau pucat di pinggiran dasarnya ini. Ini bukan sisa teh biasa. Warnanya identik dengan racun terlarang. Jadi benar, jamuan makan malam pukul 08:15 itu berakhir menjadi eksekusi masal..."
+postRevealDialog = "50"
 metadata/_custom_type_script = "uid://brbwama7atgt2"
