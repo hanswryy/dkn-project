@@ -10,17 +10,17 @@ signal magnification_started
 
 # appending item (testing)
 func _ready():
-	add_item(load(Constants.SCENE_PATHS.magnifying_glass))
-	
-	add_item(load(Constants.SCENE_PATHS.surat_wasiat))
-	add_item(load(Constants.SCENE_PATHS.surat_sita_bank))
-	add_item(load(Constants.SCENE_PATHS.surat_dari_matt))
-	add_item(load(Constants.SCENE_PATHS.tiket_kereta))
-	add_item(load(Constants.SCENE_PATHS.diary_lily))
-	add_item(load(Constants.SCENE_PATHS.clue_tisu))
+	#add_item(load(Constants.SCENE_PATHS.magnifying_glass))
+	#
+	#add_item(load(Constants.SCENE_PATHS.surat_wasiat))
+	#add_item(load(Constants.SCENE_PATHS.surat_sita_bank))
+	#add_item(load(Constants.SCENE_PATHS.surat_dari_matt))
+	#add_item(load(Constants.SCENE_PATHS.tiket_kereta))
+	#add_item(load(Constants.SCENE_PATHS.diary_lily))
+	#add_item(load(Constants.SCENE_PATHS.clue_tisu))
 	#add_item(load(Constants.SCENE_PATHS.clue_cangkir))
-	add_item(load(Constants.SCENE_PATHS.botol_racun))
-	add_item(load(Constants.SCENE_PATHS.kunci_kupu))
+	#add_item(load(Constants.SCENE_PATHS.botol_racun))
+	#add_item(load(Constants.SCENE_PATHS.kunci_kupu))
 	pass
 
 func add_item(item: ItemData):

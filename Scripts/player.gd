@@ -157,13 +157,16 @@ func check_interactions():
 		else:
 			print(">> RESULT: FAILED (Too far away. Distance must be < 60)")
 		
-		target_tile_type = "" # Selalu reset setelah dicek
+		target_tile_type = ""
 
 func execute_tile_interaction(type: String):
 	print(">> RESULT: SUCCESS! Signal Emitted for: ", type)
 	match type:
 		"Cangkir": SignalManager.cangkir_interaction_requested.emit()
 		"Laci": SignalManager.drawer_interaction_requested.emit()
+		"Padlock": SignalManager.padlock_interaction_requested.emit()
+		"Foto": SignalManager.foto_interaction_requested.emit()
+		"Bathtub": SignalManager.bathtub_interaction_requested.emit()
 
 func play_footstep_sound():
 	var current_frame = $AnimatedSprite2D.frame
