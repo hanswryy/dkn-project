@@ -398,23 +398,23 @@
 				"monodialogs": [
 					{
 					"state": "start",
-					"text": "Aku di mana bjir",
+					"text": "...?",
 					"options": {
 						"Next": "page_1"
 						}
 					},
 					{
 					"state": "page_1",
-					"text": "Oh aku di backroom loh ya",
+					"text": "Siapa kamu?",
 					"options": {
 						"Next": "page_2"
 						}
 					},
 					{
 					"state": "page_2",
-					"text": "Kabur ah",
+					"text": "...",
 					"options": {
-						"Kabur loh ya": "exit"
+						"Suara siapa itu?": "exit"
 						}
 					}
 				]
