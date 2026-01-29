@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnryahagj78dg"]
+[gd_scene load_steps=6 format=3 uid="uid://c0gfy0c18ad5t"]
 
-[ext_resource type="Script" uid="uid://cbrjrayjm3qlk" path="res://Scripts/Cutscenes/flash_art.gd" id="1_ihkj2"]
+[ext_resource type="Script" path="res://Scripts/Cutscenes/flash_art.gd" id="1_ihkj2"]
 [ext_resource type="AudioStream" uid="uid://dl3it4uvj78yk" path="res://Assets/Audio/SFX  menu click.mp3" id="3_utisu"]
 [ext_resource type="FontFile" uid="uid://6ik02l1yg1ii" path="res://Assets/Fonts/Fusion Pixel 10px Monospaced/fusion-pixel-10px-monospaced-zh_hans.otf" id="7_ifd0m"]
 [ext_resource type="Texture2D" uid="uid://xp74wwnobecc" path="res://Assets/Sprites/Cutscene/yoga.png" id="9_6i0u5"]

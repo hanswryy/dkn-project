@@ -307,10 +307,24 @@
 					"type" : "pickup_item",
 					"monodialogs": [
 							{
-								"state": "start",
-								"text" :  "sebuah entry terakhir yang menarik.....",
-								"options" : {
-									"Selesai":"exit"
+							"state": "start",
+							"text": "Matt kehilangan akal sehatnya pada malam 13 Oktober.",
+							"options": {
+								"Lanjut": "1"
+							}
+							},
+							{
+								"state": "1",
+								"text": "Jika makan malam dimulai jam 8, maka kekacauan ini terjadi hanya dalam waktu 15 menit.",
+								"options": {
+									"Lanjut": "3"
+								}
+							},
+							{
+								"state": "3",
+								"text": "Sangat cepat. Sesuatu atau seseorang memutus waktu mereka dengan paksa.",
+								"options": {
+									"Selesai": "exit"
 								}
 							}
 					]
@@ -363,6 +377,40 @@
 						{
 							"state": "3",
 							"text": "Artinya ada wanita lain yang ikut makan malam itu. Seseorang yang ingin tampil mencolok.",
+							"options": {
+								"Selesai": "exit"
+							}
+						}
+					]
+				},
+				{
+					"branch_id": "150",
+					"type": "clue_surat_matt",
+					"monodialogs": [
+						{
+							"state": "start",
+							"text": "Matt menolak meminjamkan uang.",
+							"options": {
+								"Lanjut": "2"
+							}
+						},
+						{
+							"state": "2",
+							"text": "Dia menyebut Jilly sangat serakah.",
+							"options": {
+								"Lanjut": "3"
+							}
+						},
+						{
+							"state": "3",
+							"text": "Bagi Jilly, surat ini adalah vonis.",
+							"options": {
+								"Lanjut": "4"
+							}
+						},
+						{
+							"state": "4",
+							"text": "Sakit hati dan bangkrut... kombinasi mematikan.",
 							"options": {
 								"Selesai": "exit"
 							}
