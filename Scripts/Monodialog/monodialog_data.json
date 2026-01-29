@@ -400,23 +400,45 @@
 					"state": "start",
 					"text": "...?",
 					"options": {
-						"Next": "page_1"
+						"Siapa itu?": "page_1"
 						}
 					},
 					{
 					"state": "page_1",
 					"text": "Siapa kamu?",
 					"options": {
-						"Next": "page_2"
+						"...": "page_2"
 						}
 					},
 					{
 					"state": "page_2",
 					"text": "...",
 					"options": {
-						"Suara siapa itu?": "exit"
+						"Sejak kapan kamu berada di sini?": "page_3"
 						}
-					}
+					},
+					{
+					"state": "page_3",
+					"text": "...1986, 1987...",
+					"options": {
+						"Mengapa kamu mengunci dirimu sendiri di sini?": "page_4"
+						}
+					},
+					{
+					"state": "page_4",
+					"text": "...kenapa kamu kemari?",
+					"options": {
+						"Apakah dirimulah yang bernama Jilly?": "page_5"
+						}
+					},
+					{
+					"state": "page_5",
+					"text": "Tunggu! Dengarkan kisahku dulu.",
+					"options": {
+						"<Percaya Jilly>": "ge",
+						"<Jauhi Jilly>": "be"
+						}
+					},
 				]
 			}
 		]
